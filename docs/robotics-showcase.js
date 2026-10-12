@@ -108,6 +108,7 @@
       const image = dialog.querySelector('img');
       image.src = source.getAttribute('src');
       image.alt = source.getAttribute('alt');
+      dialog.querySelector('.robotics-dialog-visual span').textContent = slide.dataset.roboticsId === 'HeronM300restoration' ? 'CONCEPT ILLUSTRATION · NOT PROJECT PHOTOGRAPHY' : 'ORIGINAL PROJECT PHOTOGRAPH';
       const content = slide.querySelector('template').content.cloneNode(true);
       dialog.querySelector('.robotics-dialog-notes').replaceChildren(content);
       dialog.showModal();
