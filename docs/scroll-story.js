@@ -32,7 +32,7 @@ if(story&&frame&&stage){
     });
     if(active!==activeChapter){
       activeChapter=active;story.dataset.chapter=String(active);
-      if(counter)counter.textContent=`0${active+1} / 05`;
+      if(counter)counter.textContent=['Wafer','Die','Metal','Devices','Transistor'][active];
       if(caption)caption.textContent=captions[active];
       chapterDots.forEach((dot,index)=>dot.classList.toggle('is-current',index===active));
     }

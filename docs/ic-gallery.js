@@ -72,7 +72,7 @@
       card.querySelector('.ic-panel-details').hidden = !active;
     });
     const candidates = visible(), index = candidates.findIndex(p => p.id === id);
-    root.querySelector('.ic-showcase-count').textContent = String(index + 1).padStart(2, '0') + ' / ' + String(candidates.length).padStart(2, '0');
+    root.querySelector('.ic-showcase-count').textContent = String(index + 1) + ' / ' + String(candidates.length);
     const progress = root.querySelector('.ic-showcase-progress span');
     progress.style.width = (100 / candidates.length) + '%';
     progress.style.transform = `translateX(${index * 100}%)`;
@@ -248,7 +248,7 @@
     list.replaceChildren();
     item.decisions.forEach(value => { const li = document.createElement('li'); li.textContent = value; list.append(li); });
     const index = viewerProjects.findIndex(p => p.id === id);
-    dialog.querySelector('.ic-viewer-position').textContent = String(index + 1).padStart(2, '0') + ' / ' + String(viewerProjects.length).padStart(2, '0');
+    dialog.querySelector('.ic-viewer-position').textContent = String(index + 1) + ' / ' + String(viewerProjects.length);
     dialog.querySelector('.ic-prev').disabled = index <= 0;
     dialog.querySelector('.ic-next').disabled = index >= viewerProjects.length - 1;
     if (!dialog.open) dialog.showModal();

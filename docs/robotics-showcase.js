@@ -47,7 +47,7 @@
       button.classList.toggle('is-active', i === selected);
       button.setAttribute('aria-pressed', String(i === selected));
     });
-    stage.querySelector('.robotics-index').textContent = String(selected + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+    stage.querySelector('.robotics-index').textContent = String(selected + 1) + ' / ' + String(slides.length);
     if (announce) root.querySelector('.robotics-announcement').textContent = slides[selected].querySelector('h3').textContent + ', project ' + (selected + 1) + ' of ' + slides.length;
     if (focus) selectors[selected].focus({ preventScroll: true });
     updateAutoplay();
