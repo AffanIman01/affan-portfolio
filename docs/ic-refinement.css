@@ -30,3 +30,17 @@
 @media(prefers-reduced-motion:no-preference){.mastery-root img{animation:guide-float 7s ease-in-out infinite}@keyframes guide-float{50%{transform:translateY(-7px)}}}.motion-paused .mastery-root img,body[data-motion="off"] .mastery-root img{animation:none}
 
 html[data-portfolio-motion="off"] .mastery-root img{animation:none}
+
+/* Preserve the entire training photographs and supplied logo artwork. */
+.training-photo-link{position:relative;display:block;width:100%;background:#0c1218;border:1px solid #34444f;border-radius:10px;overflow:hidden;margin-bottom:24px;text-decoration:none}
+.training-photo-link img{display:block;width:100%;height:310px;object-fit:contain;object-position:center;background:#0c1218}
+.training-photo-link.vchip-photo img{height:auto;aspect-ratio:4/3;object-fit:contain}
+.training-photo-open{display:block;padding:10px 14px;font-size:11px;color:#dfbd91;background:#101a23;border-top:1px solid #2c3b46;text-align:right}
+.training-photo-link:hover{border-color:#c29f76}.training-photo-link:focus-visible{outline:2px solid #8adadf;outline-offset:4px}
+.training-org{display:flex;align-items:center;gap:14px;margin:14px 0 22px;min-width:0}.training-org-logo{flex-shrink:0;display:block;object-fit:contain;border-radius:7px}
+.training-org-logo.vchip-logo{width:64px;height:64px;background:white;padding:3px}.training-org-logo.psdc-logo{width:112px;height:48px;background:#14518c;padding:4px}
+.training-org .profile-org,.training-org .career-card-employer{margin:0!important;font-size:12px;line-height:1.6}
+#experience-showcase .training-career-media{height:auto;aspect-ratio:auto;min-height:0;background:#0c1218}
+#experience-showcase .training-career-media .training-photo-link{margin:0;border:0;border-radius:0}
+#experience-showcase .training-career-media img{position:static;width:100%;height:280px;object-fit:contain;transform:none;filter:none}
+@media(max-width:760px){.training-photo-link img{height:auto;max-height:420px;object-fit:contain}.training-org{gap:12px}.training-org-logo.vchip-logo{width:56px;height:56px}.training-org-logo.psdc-logo{width:96px;height:42px}#experience-showcase .training-career-media img{height:auto;max-height:380px;object-fit:contain}}
