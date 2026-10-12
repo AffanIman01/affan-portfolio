@@ -1,0 +1,73 @@
+[
+  {
+    "id": "undergrad-gyro",
+    "category": "featured",
+    "categoryName": "Final-year project",
+    "node": "Nov 2024–Jul 2025",
+    "tools": "Control · Hardware · Testing",
+    "title": "Twin gyrostabilizer for a USV",
+    "image": "gallery/gyro-pool-project.jpg",
+    "imageKind": "original",
+    "imageAlt": "Gyrostabilizer project hardware on an unmanned surface vehicle in a test pool",
+    "imageNote": "Original gyrostabilizer project photo supplied by Affan Iman, showing the hardware and pool-test setup.",
+    "purpose": "Develop and test a twin gyrostabilizer to reduce roll motion in an unmanned surface vehicle. This was my Mechatronics Engineering final-year project at Universiti Sains Malaysia, within a USM / PETRONAS Research project.",
+    "contribution": "Designed and tested a twin-flywheel system using BLDC motors, servo actuation, PID control, and IMU-based state estimation. Integrated the hardware and control elements, then evaluated the system through bench and pool testing.",
+    "decisionsLabel": "Engineering focus",
+    "decisions": [
+      "Mechanical and electrical integration of the flywheels, motors, and actuators.",
+      "IMU feedback and PID control for stabilization.",
+      "Experimental comparison of roll response and settling time."
+    ],
+    "verificationLabel": "Reported results",
+    "verification": "Under the tested conditions, maximum roll reduced from approximately 35° to 10°, and settling time from 15.85 s to 4.10 s. These figures are reported in my resume; original test plots are not yet displayed here.",
+    "imageLabel": "ORIGINAL PROJECT PHOTO"
+  },
+  {
+    "id": "undergrad-embedded",
+    "category": "suggested",
+    "categoryName": "Suggested showcase slot",
+    "node": "Project to be selected",
+    "tools": "",
+    "title": "Embedded systems project",
+    "image": "gallery/undergrad-embedded.svg",
+    "imageKind": "illustrative",
+    "imageAlt": "Sample illustration of a controller board and connected modules; a visual guide for a future project image",
+    "imageNote": "Sample image guide. Choose a real undergraduate project and replace this illustration with your controller board, assembled system, or sensor and wiring close-up.",
+    "purposeLabel": "Suggested selection",
+    "purpose": "Use this space for an undergraduate project that connects firmware with working hardware: sensing, actuation, or a small embedded system. Select the project with the clearest working demonstration.",
+    "contributionLabel": "Your role to add",
+    "contribution": "Add the actual project title, course or year, team size, and your specific contribution. Explain which hardware, firmware, and debugging tasks you personally completed.",
+    "decisionsLabel": "Evidence to include",
+    "decisions": [
+      "One clear photograph of the assembled system.",
+      "A readable block diagram or a short demonstration of the firmware and hardware working together.",
+      "An observed result, test condition, and one engineering lesson."
+    ],
+    "verificationLabel": "Showcase status",
+    "verification": "Suggested slot only. No completed project, tools, dates, or results are claimed. Replace this entry with one of your selected undergraduate projects."
+  },
+  {
+    "id": "undergrad-design",
+    "category": "suggested",
+    "categoryName": "Suggested showcase slot",
+    "node": "Project to be selected",
+    "tools": "",
+    "title": "Mechatronics design project",
+    "image": "gallery/undergrad-design.svg",
+    "imageKind": "illustrative",
+    "imageAlt": "Sample wireframe illustration of a mechanical assembly; a guide for a future CAD or prototype image",
+    "imageNote": "Sample image guide. Replace with a real CAD assembly or prototype photograph. A matching view of the design and finished build makes the engineering process easy to understand.",
+    "purposeLabel": "Suggested selection",
+    "purpose": "Use this space for an undergraduate design-and-build project that brings mechanics, electronics, and control together. Choose a project with a visible prototype and a clear design constraint.",
+    "contributionLabel": "Your role to add",
+    "contribution": "Add your actual project title, date, and role. Describe the parts you designed or built, one decision you made, and how the team checked the finished system.",
+    "decisionsLabel": "Evidence to include",
+    "decisions": [
+      "A CAD assembly or clean photograph of the prototype.",
+      "A close-up that explains your mechanism, electronics, or integration work.",
+      "A test, demonstration, or iteration showing how the design met its goal."
+    ],
+    "verificationLabel": "Showcase status",
+    "verification": "Suggested slot only. No completed project, tools, dates, or results are claimed. Replace this entry with one of your selected undergraduate projects."
+  }
+]

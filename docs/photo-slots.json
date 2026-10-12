@@ -1,0 +1,122 @@
+[
+  {
+    "id": "standard-cell",
+    "cat": "ic",
+    "title": "Standard-cell layout",
+    "asset": "standard-cell.svg",
+    "ratio": "16:10",
+    "subject": "One gate, one clear view.",
+    "guide": "Add a clear, shareable screenshot of your inverter, logic gate, or adder layout. Crop tightly enough to see the layers.",
+    "tip": "Use a direct screenshot instead of photographing your screen.",
+    "kind": "Illustrative layout",
+    "place": "IC DESIGN \u00b7 PROJECT COVER"
+  },
+  {
+    "id": "analog",
+    "cat": "ic",
+    "title": "Analog layout overview",
+    "asset": "analog-layout.svg",
+    "ratio": "16:10",
+    "subject": "Show the overall organization.",
+    "guide": "Use an approved overview of a bandgap, op-amp, or LDO layout. A conceptual floorplan also works when the actual layout cannot be shared.",
+    "tip": "Remove confidential names and use only images you are allowed to show.",
+    "kind": "Illustrative layout",
+    "place": "IC DESIGN \u00b7 ANALOG PROJECT"
+  },
+  {
+    "id": "automation",
+    "cat": "ic",
+    "title": "SKILL automation",
+    "asset": "automation.svg",
+    "ratio": "16:9",
+    "subject": "Show the before and after.",
+    "guide": "Place two screenshots side by side to show what your script changes: labels, metal layers, bindkeys, or a repeated layout task.",
+    "tip": "Use the same zoom and crop in both screenshots. Keep text readable.",
+    "kind": "Illustrative layout",
+    "place": "IC DESIGN \u00b7 AUTOMATION"
+  },
+  {
+    "id": "workstation",
+    "cat": "ic",
+    "title": "You at your workstation",
+    "asset": "ic-work.png",
+    "ratio": "16:9",
+    "subject": "Show the person behind the work.",
+    "guide": "Use a landscape photo of you working at a tidy engineering desk. An over-the-shoulder angle works well.",
+    "tip": "Keep the monitor content shareable and leave space around the subject.",
+    "kind": "Sample illustration",
+    "place": "IC DESIGN \u00b7 WORKING PROCESS"
+  },
+  {
+    "id": "robot",
+    "cat": "robotics",
+    "title": "Your robot or vehicle",
+    "asset": "robotics.png",
+    "ratio": "16:9",
+    "subject": "Keep the whole platform in view.",
+    "guide": "Photograph your UAV, UGV, USV, or ROV from a three-quarter angle. Include the full vehicle and a little of its working environment.",
+    "tip": "Use one project per cover image. Keep the background uncluttered.",
+    "kind": "Sample illustration",
+    "place": "ROBOTICS \u00b7 PROJECT COVER"
+  },
+  {
+    "id": "hardware",
+    "cat": "robotics",
+    "title": "Hardware integration",
+    "asset": "hardware.png",
+    "ratio": "4:3",
+    "subject": "Get closer to your contribution.",
+    "guide": "Add a well-lit close-up of a flight controller, Raspberry Pi, sensor, or wiring arrangement you integrated.",
+    "tip": "Show the component and enough surrounding hardware to explain where it sits.",
+    "kind": "Sample illustration",
+    "place": "ROBOTICS \u00b7 PROJECT DETAIL"
+  },
+  {
+    "id": "portrait",
+    "cat": "about",
+    "title": "Your professional portrait",
+    "asset": "portrait.png",
+    "ratio": "4:5",
+    "subject": "A simple, natural introduction.",
+    "guide": "Use a head-and-shoulders photo in a plain shirt, against a clean light background. Look toward the camera with a relaxed expression.",
+    "tip": "Leave space above your head. A phone photo in soft window light is suitable.",
+    "kind": "Sample illustration",
+    "place": "ABOUT \u00b7 PROFILE PHOTO"
+  },
+  {
+    "id": "collaboration",
+    "cat": "about",
+    "title": "Teamwork or demonstration",
+    "asset": "collaboration.png",
+    "ratio": "3:2",
+    "subject": "Show an activity, not only a pose.",
+    "guide": "Add a photo of you discussing a project, demonstrating hardware, or helping in a workshop.",
+    "tip": "Choose an image where your role is clear and the people pictured are comfortable being shown.",
+    "kind": "Sample illustration",
+    "place": "ABOUT \u00b7 HOW I WORK"
+  },
+  {
+    "id": "badge",
+    "cat": "credentials",
+    "title": "Your earned digital badge",
+    "asset": "badge.svg",
+    "ratio": "1:1",
+    "subject": "Use the original badge artwork.",
+    "guide": "Upload the original PNG or SVG from the issuer and include its verification link. Keep the entire badge visible.",
+    "tip": "This sample is an example format, not an earned credential.",
+    "kind": "Example credential",
+    "place": "CREDENTIALS \u00b7 DIGITAL BADGE"
+  },
+  {
+    "id": "certificate",
+    "cat": "credentials",
+    "title": "Your certificate or training record",
+    "asset": "credential.png",
+    "ratio": "Original",
+    "subject": "Keep the full document readable.",
+    "guide": "Use a clear PDF, scan, or straight-on photo showing all four edges. Include the course title, issuer, and date as separate text.",
+    "tip": "Preserve the document proportions. Cover private IDs if needed.",
+    "kind": "Example credential",
+    "place": "CREDENTIALS \u00b7 CERTIFICATE"
+  }
+]

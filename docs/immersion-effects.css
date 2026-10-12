@@ -1,0 +1,106 @@
+/* Intro and entry motion deliberately remain separate from the content layout. */
+body.portfolio-intro-open { overflow: hidden !important; }
+.silicon-intro {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 30px;
+  border: 0;
+  color: #f3f5f7;
+  background: #0b0d10;
+  overflow: auto;
+  opacity: 1;
+  transition: opacity 200ms ease;
+}
+.silicon-intro[open] { display: grid; place-items: center; }
+.silicon-intro::backdrop { background: #0b0d10; }
+.silicon-intro.is-leaving { opacity: 0; pointer-events: none; }
+.silicon-intro-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(#dca56b09 1px, transparent 1px), linear-gradient(90deg, #dca56b09 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: radial-gradient(ellipse at center, #000 15%, transparent 67%);
+}
+.silicon-intro-content { width: min(370px, 100%); position: relative; text-align: center; padding: 30px 0 45px; }
+.silicon-intro-eyebrow { color: #a9b3bf; font-size: 9px; letter-spacing: .24em; }
+.silicon-intro-chip { width: 208px; height: 208px; margin: 28px auto 30px; position: relative; color: #dca56b; }
+.silicon-intro-chip svg { width: 100%; height: 100%; position: relative; z-index: 1; overflow: visible; }
+.intro-chip-traces { opacity: .48; }
+.intro-chip-package { filter: drop-shadow(0 0 9px #dca56b35); }
+.intro-chip-die { opacity: .75; }
+.intro-chip-scan { animation: intro-chip-scan 1.5s ease-in-out infinite alternate; filter: drop-shadow(0 0 6px #65dbe8); }
+.silicon-intro-halo { position: absolute; inset: 25%; background: #dca56b; filter: blur(54px); opacity: .13; border-radius: 50%; }
+html body .silicon-intro h2 { color: #f3f5f7; font-size: clamp(35px, 6vw, 46px); line-height: 1.15; letter-spacing: -1.8px; margin: 0 0 12px; }
+.silicon-intro h2 span { color: #dca56b; }
+.silicon-intro-discipline { color: #a9b3bf; font-size: 12px; line-height: 1.7; margin: 0; }
+.silicon-intro-readiness { margin: 38px auto 22px; width: min(284px, 100%); }
+.silicon-intro-status { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 12px; font-size: 10px; color: #a9b3bf; text-align: left; }
+.silicon-intro-count { color: #dca56b; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.silicon-intro progress { display: block; appearance: none; -webkit-appearance: none; width: 100%; height: 2px; border: none; color: #dca56b; background: #273039; border-radius: 2px; overflow: hidden; }
+.silicon-intro progress::-webkit-progress-bar { background: #273039; border-radius: 2px; }
+.silicon-intro progress::-webkit-progress-value { background: linear-gradient(90deg, #dca56b, #65dbe8); border-radius: 2px; transition: width 300ms ease; }
+.silicon-intro progress::-moz-progress-bar { background: linear-gradient(90deg, #dca56b, #65dbe8); border-radius: 2px; }
+.silicon-intro-skip { appearance: none; border: 1px solid #39414a; border-radius: 24px; background: #15191e; color: #d0d7df; min-height: 40px; padding: 10px 18px; font-size: 11px; cursor: pointer; }
+.silicon-intro-skip span { color: #dca56b; margin-left: 13px; }
+.silicon-intro-skip:hover { background: #242525; border-color: #977859; }
+.silicon-intro-skip:focus-visible { outline: 2px solid #65dbe8; outline-offset: 5px; }
+.silicon-intro-footer { position: absolute; bottom: 27px; left: 20px; right: 20px; text-align: center; color: #77848f; font-size: 8px; line-height: 1.8; letter-spacing: .16em; }
+.motion-entering { animation: portfolio-rise-in 650ms cubic-bezier(.2, .7, .3, 1) var(--reveal-delay, 0ms) both; }
+.motion-entering[data-reveal-kind="heading"] { animation-name: portfolio-heading-in; animation-duration: 820ms; }
+.motion-entering[data-reveal-kind="text"] { animation-name: portfolio-text-in; animation-duration: 720ms; }
+.motion-entering[data-reveal-kind="media"] { animation-name: portfolio-media-in; animation-duration: 950ms; }
+.motion-entering[data-reveal-kind="value"] { animation-name: portfolio-value-in; animation-duration: 850ms; }
+.motion-entering[data-reveal-kind="timeline"] { animation-name: portfolio-text-in; animation-duration: 850ms; }
+.motion-entering[data-reveal-kind="gallery"] .ic-card-image img {
+  animation: portfolio-image-settle 1000ms cubic-bezier(.2, .7, .3, 1) var(--reveal-delay, 0ms) both;
+}
+.motion-entering[data-reveal-kind="timeline"] > div::after {
+  position: absolute;
+  content: '';
+  left: -1px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  pointer-events: none;
+  background: linear-gradient(#dca56b, #65dbe8);
+  transform-origin: top;
+  animation: portfolio-timeline-draw 1000ms cubic-bezier(.2, .7, .3, 1) var(--reveal-delay, 0ms) both;
+}
+#motion-toggle:disabled, #replay-intro:disabled { cursor: default; opacity: .55; }
+html[data-portfolio-motion="off"] { scroll-behavior: auto !important; }
+html[data-portfolio-motion="off"] .motion-entering,
+html[data-portfolio-motion="off"] .motion-entering *,
+html[data-portfolio-motion="off"] .motion-entering > div::after { animation: none; }
+@keyframes intro-chip-scan { from { transform: translateY(0); opacity: .5; } to { transform: translateY(85px); opacity: 1; } }
+@keyframes portfolio-rise-in { from { opacity: 0; translate: 0 18px; } to { opacity: 1; translate: 0 0; } }
+@keyframes portfolio-heading-in { from { opacity: .25; translate: 0 22px; } to { opacity: 1; translate: 0 0; } }
+@keyframes portfolio-text-in { from { opacity: .4; translate: 0 12px; } to { opacity: 1; translate: 0 0; } }
+@keyframes portfolio-media-in { from { opacity: .45; scale: 1.025; } to { opacity: 1; scale: 1; } }
+@keyframes portfolio-value-in { from { opacity: .3; translate: 0 28px; } to { opacity: 1; translate: 0 0; } }
+@keyframes portfolio-image-settle { from { scale: 1.06; } to { scale: 1; } }
+@keyframes portfolio-timeline-draw { 0% { transform: scaleY(0); opacity: 0; } 25% { opacity: 1; } 100% { transform: scaleY(1); opacity: 0; } }
+@media (max-height: 650px) {
+  .silicon-intro-content { padding: 5px 0 40px; }
+  .silicon-intro-chip { width: 150px; height: 150px; margin: 18px auto; }
+  .silicon-intro-readiness { margin-top: 24px; }
+  .silicon-intro-footer { bottom: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .silicon-intro { display: none !important; }
+  .motion-entering, .motion-entering *, .motion-entering > div::after,
+  .intro-chip-scan { animation: none !important; }
+}
+
+/* The introduction echoes the wafer that begins the scroll journey. */
+.silicon-intro-chip img{display:block;width:125%;height:100%;max-width:none;margin-left:-12.5%;object-fit:contain;position:relative;z-index:1;animation:intro-wafer-float 1.8s ease-in-out infinite alternate}
+.silicon-intro-halo{background:linear-gradient(120deg,#62dfe1,#b388ed,#e6b070);opacity:.23}
+@keyframes intro-wafer-float{from{transform:translateY(3px) rotate(-2deg)}to{transform:translateY(-4px) rotate(2deg)}}
+@media(prefers-reduced-motion:reduce){.silicon-intro-chip img{animation:none}}
+html[data-portfolio-motion="off"] .silicon-intro-chip img{animation:none}

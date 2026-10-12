@@ -1,0 +1,31 @@
+/* A compact tools and technology band inspired by the supplied reference. */
+.technology-strip{display:grid;grid-template-columns:1.15fr 1fr;gap:34px;align-items:center;padding:28px 30px;margin:16px 0 36px;border:1px solid #352c43;border-radius:12px;background:linear-gradient(110deg,#201729,#181320);color:#bbb5c6}
+.technology-strip h2{margin:0 0 18px;text-align:center;font-size:9px;font-weight:500;letter-spacing:.19em;line-height:1.5;color:#a69ab7}
+.technology-wordmarks{display:flex;align-items:center;justify-content:space-around;gap:24px}.technology-wordmarks>div{text-align:center;min-width:0}
+.technology-wordmarks strong{display:block;color:#c1bacb;font-size:24px;line-height:1.2;letter-spacing:-.8px;font-weight:700}.technology-wordmarks .tool-cadence{font-weight:650;letter-spacing:-1.4px}.technology-wordmarks .tool-mentor{font-size:21px;letter-spacing:.5px}.technology-wordmarks .tool-synopsys{font-size:19px;letter-spacing:1px}
+.technology-wordmarks span{display:block;margin-top:9px;color:#a69ab7;font-size:11px;line-height:1.4}
+.technology-nodes{border-left:1px solid #393041;padding-left:34px}.technology-nodes h2 i{display:inline-block;width:4px;height:4px;margin:0 8px 2px 0;border:1px solid #dfaf72;border-radius:50%}
+.technology-node-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;text-align:center}.technology-node-list strong{color:#c8bfd4;font-size:25px;line-height:1.2;font-weight:550;white-space:nowrap}.technology-node-list strong span{font-size:12px;font-weight:400}.technology-node-list small{display:block;margin-top:8px;color:#a69ab7;font-size:11px}
+.about-portrait img[src="gallery/affan-uriis-portrait.jpg"]{object-fit:cover;object-position:44% 42%}
+[data-media-slot="experience-vchip"] .career-card-image{object-fit:contain;background:#050607}
+[data-media-slot="experience-research"] .career-card-image{object-position:center 44%}
+[data-ic-id="ldo"] .ic-panel-backdrop,[data-ic-id="bandgap-ldo-top"] .ic-panel-backdrop{object-fit:contain;background:#030405}
+@media(max-width:1050px){.technology-strip{gap:24px;padding:26px 20px;grid-template-columns:1fr}.technology-nodes{border-left:0;border-top:1px solid #393041;padding:22px 0 0}.technology-wordmarks{justify-content:space-evenly}.technology-node-list{max-width:560px;margin:auto}}
+@media(max-width:540px){.technology-strip{padding:24px 14px;margin-bottom:24px}.technology-wordmarks{gap:10px}.technology-wordmarks strong{font-size:22px}.technology-wordmarks .tool-mentor{font-size:18px}.technology-wordmarks .tool-synopsys{font-size:15px;letter-spacing:.5px}.technology-wordmarks span{font-size:10px}.technology-node-list{gap:8px}.technology-node-list strong{font-size:24px}.technology-strip h2{font-size:8px}.technology-node-list small{font-size:10px}}
+
+/* Seamless page background with full-colour transparent brand artwork. */
+.technology-strip{background:transparent;border:0;border-radius:0;box-shadow:none;max-width:1160px;margin:16px auto 36px}
+.technology-wordmarks>div{flex:1;display:flex;flex-direction:column;align-items:center}
+.technology-wordmarks .eda-brand-logo{display:block;width:150px;max-width:100%;height:38px;object-fit:contain;filter:none}
+.technology-wordmarks [hidden]{display:none!important}
+.technology-wordmarks .tool-cadence{color:#ef3b43}.technology-wordmarks .tool-mentor{color:#00a89d}.technology-wordmarks .tool-synopsys{color:#ae76eb}
+[data-ic-id="half-adder-14nm"] .ic-panel-backdrop,[data-ic-id="full-adder-finfet"] .ic-panel-backdrop,[data-ic-id="four-bit-adder-14nm"] .ic-panel-backdrop{object-fit:contain;background:#030405}
+@media(max-width:540px){.technology-wordmarks .eda-brand-logo{width:110px;height:30px}.technology-wordmarks .logo-fallback{font-size:15px;letter-spacing:0}}
+
+.about-portrait img[src="gallery/affan-graduation.png"]{object-fit:cover;object-position:center 35%}
+[data-media-slot="experience-vchip"] .career-card-image{object-fit:contain;background:#101416}
+[data-ic-id="undergrad-gyro"] .ic-panel-backdrop{object-position:center 65%}
+#robotics-slide-twingyrostabilizer .robotics-slide-image{object-position:center 65%}
+.lvs-evidence{display:grid;grid-template-columns:1fr 1.2fr;align-items:center;gap:30px;margin:28px 0 48px;padding:26px;border:1px solid #303a43;border-radius:14px;background:#11181e}
+.lvs-evidence h3{font-size:24px;color:#eef4f8;margin:10px 0 12px}.lvs-evidence p{font-size:13px;line-height:1.8;color:#adbdc9}.lvs-evidence img{display:block;width:100%;height:auto;border-radius:6px}.lvs-evidence a:focus-visible{outline:2px solid #82e7ef;outline-offset:4px}
+@media(max-width:760px){.lvs-evidence{grid-template-columns:1fr;padding:20px;gap:20px}.lvs-evidence p{font-size:14px}}

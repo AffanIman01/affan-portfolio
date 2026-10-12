@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" role="img" aria-labelledby="wafer-title wafer-desc">
+  <title id="wafer-title">An iridescent silicon wafer and a lifted die</title>
+  <desc id="wafer-desc">A conceptual silicon wafer seen in perspective, with rainbow reflections over a regular grid of individual dies. A highlighted die floats above its position to suggest a journey from wafer to circuit layout. Illustrative artwork, not a photograph, process specification, or fabrication layout.</desc>
+  <defs>
+    <radialGradient id="wafer-atmosphere">
+      <stop stop-color="#7b4eca" stop-opacity=".16"/>
+      <stop offset=".62" stop-color="#258f99" stop-opacity=".07"/>
+      <stop offset="1" stop-color="#10171f" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="wafer-shadow">
+      <stop stop-color="#03050a" stop-opacity=".85"/>
+      <stop offset=".65" stop-color="#03050a" stop-opacity=".38"/>
+      <stop offset="1" stop-color="#03050a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wafer-edge" x1="0" y1="0" x2="1" y2=".2">
+      <stop stop-color="#145266"/>
+      <stop offset=".23" stop-color="#6788b2"/>
+      <stop offset=".45" stop-color="#201c39"/>
+      <stop offset=".72" stop-color="#bc839d"/>
+      <stop offset="1" stop-color="#203a56"/>
+    </linearGradient>
+    <linearGradient id="wafer-spectrum" x1="0" y1=".13" x2="1" y2=".87">
+      <stop stop-color="#161d5b"/>
+      <stop offset=".12" stop-color="#4740aa"/>
+      <stop offset=".27" stop-color="#c66ab1"/>
+      <stop offset=".39" stop-color="#dfaa75"/>
+      <stop offset=".47" stop-color="#b9c799"/>
+      <stop offset=".55" stop-color="#59c2cd"/>
+      <stop offset=".68" stop-color="#496ba7"/>
+      <stop offset=".81" stop-color="#9064b6"/>
+      <stop offset=".93" stop-color="#d593a0"/>
+      <stop offset="1" stop-color="#bda872"/>
+    </linearGradient>
+    <linearGradient id="wafer-reflection" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#c8eafa" stop-opacity="0"/>
+      <stop offset=".24" stop-color="#badaef" stop-opacity=".03"/>
+      <stop offset=".39" stop-color="#eef9ff" stop-opacity=".24"/>
+      <stop offset=".49" stop-color="#eef9ff" stop-opacity=".04"/>
+      <stop offset=".7" stop-color="#061524" stop-opacity=".35"/>
+      <stop offset="1" stop-color="#061524" stop-opacity=".05"/>
+    </linearGradient>
+    <radialGradient id="wafer-rim-light" cx=".28" cy=".05" r="1">
+      <stop stop-color="#e1f0f6" stop-opacity=".9"/>
+      <stop offset=".39" stop-color="#a8ceef" stop-opacity=".42"/>
+      <stop offset=".72" stop-color="#dfb09d" stop-opacity=".19"/>
+      <stop offset="1" stop-color="#ddcced" stop-opacity=".5"/>
+    </radialGradient>
+    <linearGradient id="wafer-die-face" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#84dadc"/>
+      <stop offset=".28" stop-color="#a997eb"/>
+      <stop offset=".62" stop-color="#d9b783"/>
+      <stop offset="1" stop-color="#457ba0"/>
+    </linearGradient>
+    <linearGradient id="wafer-die-side" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#365866"/>
+      <stop offset=".44" stop-color="#abb8b6"/>
+      <stop offset="1" stop-color="#514164"/>
+    </linearGradient>
+    <pattern id="wafer-dies" width="80" height="80" x="-40" y="-40" patternUnits="userSpaceOnUse">
+      <path d="M0 0H80V80H0Z" fill="none" stroke="#111329" stroke-width="7"/>
+      <path d="M5 5H75V75H5Z" fill="#081426" fill-opacity=".11" stroke="#e4daef" stroke-opacity=".31" stroke-width=".7"/>
+      <path d="M10 10H35V36H10ZM40 10H69V30H40ZM10 42H34V69H10ZM40 36H69V69H40Z" fill="#101c32" fill-opacity=".22" stroke="#d5e4e9" stroke-opacity=".25" stroke-width=".7"/>
+      <path d="M13 15H32M13 19H32M13 23H32M13 27H32M13 31H32M43 41H66M43 45H66M43 49H66M43 53H66M43 57H66M43 61H66M43 65H66" fill="none" stroke="#151c35" stroke-opacity=".6" stroke-width="1.2"/>
+      <path d="M45 14V25M50 14V25M55 14V25M60 14V25M65 14V25M14 47V64M19 47V64M24 47V64M29 47V64" fill="none" stroke="#dce8de" stroke-opacity=".44" stroke-width="1.1"/>
+      <path d="M7 38H37V72M37 8V33H73M8 72H73V8" fill="none" stroke="#e8d7b1" stroke-opacity=".47" stroke-width=".8"/>
+      <g fill="#e5e8e4" fill-opacity=".63">
+        <path d="M11 6H14V8H11ZM21 6H24V8H21ZM31 6H34V8H31ZM41 6H44V8H41ZM51 6H54V8H51ZM61 6H64V8H61Z"/>
+        <path d="M11 72H14V74H11ZM21 72H24V74H21ZM31 72H34V74H31ZM41 72H44V74H41ZM51 72H54V74H51ZM61 72H64V74H61Z"/>
+      </g>
+    </pattern>
+    <clipPath id="wafer-disc-clip"><circle r="434"/></clipPath>
+    <mask id="wafer-notch">
+      <rect x="-460" y="-460" width="920" height="920" fill="white"/>
+      <path d="M-14 438L-6 426Q0 422 6 426L14 438V454H-14Z" fill="black"/>
+    </mask>
+    <filter id="wafer-die-glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+  </defs>
+  <ellipse cx="600" cy="510" rx="570" ry="448" fill="url(#wafer-atmosphere)"/>
+  <ellipse cx="605" cy="682" rx="494" ry="187" fill="url(#wafer-shadow)"/>
+  <g transform="translate(600 498) rotate(-13) scale(1 .76)">
+    <circle cy="14" r="440" fill="url(#wafer-edge)"/>
+    <circle cy="9" r="440" fill="none" stroke="#141628" stroke-width="1.5"/>
+    <g mask="url(#wafer-notch)">
+      <circle r="440" fill="url(#wafer-spectrum)" stroke="url(#wafer-rim-light)" stroke-width="2.4"/>
+      <g clip-path="url(#wafer-disc-clip)">
+        <rect x="-440" y="-440" width="880" height="880" fill="url(#wafer-dies)"/>
+        <rect x="-440" y="-440" width="880" height="880" fill="url(#wafer-reflection)"/>
+        <path d="M-520-95C-170-250 140-198 496-8" fill="none" stroke="#dfb8df" stroke-opacity=".12" stroke-width="130"/>
+        <path d="M-498-182C-100-315 236-208 488-80" fill="none" stroke="#e6f2f9" stroke-opacity=".1" stroke-width="14"/>
+      </g>
+      <circle r="434" fill="none" stroke="#e2e9eb" stroke-opacity=".38" stroke-width="1"/>
+      <circle r="427" fill="none" stroke="#081527" stroke-opacity=".3" stroke-width="1"/>
+    </g>
+    <!-- One conceptual die is selected and lifted from the wafer grid. -->
+    <rect x="-38" y="-38" width="76" height="76" fill="#121a2e" stroke="#78d4dd" stroke-opacity=".7" stroke-width="1.8"/>
+    <rect x="-32" y="-32" width="64" height="64" fill="#142237" stroke="#7ac1ce" stroke-opacity=".18"/>
+    <path d="M-31-29H-8V-7H-31ZM0-29H29V-8H0ZM-31 0H-8V29H-31ZM0 0H29V29H0Z" fill="#355777" fill-opacity=".4"/>
+    <path d="M-38-38V-119M38-38V-119M-38 38V-43M38 38V-43" fill="none" stroke="#c1eaf0" stroke-opacity=".46" stroke-width="1" stroke-dasharray="3 6"/>
+    <g transform="translate(0 -105)">
+      <rect x="-47" y="-42" width="94" height="89" rx="12" fill="#7edce7" opacity=".25" filter="url(#wafer-die-glow)"/>
+      <path d="M-38-38H38V51H-38Z" fill="url(#wafer-die-side)" stroke="#c1c3d1" stroke-opacity=".55" stroke-width=".8"/>
+      <path d="M-38 40H38M-38 44H38M-38 48H38" stroke="#152539" stroke-width="1" opacity=".65"/>
+      <rect x="-38" y="-38" width="76" height="76" fill="url(#wafer-die-face)" stroke="#dcf6f4" stroke-width="1.7"/>
+      <rect x="-32" y="-32" width="64" height="64" fill="#142d42" stroke="#f2ddc0" stroke-width=".7"/>
+      <path d="M-27-27H-4V-7H-27ZM2-27H27V-7H2ZM-27 0H-4V27H-27ZM2 0H27V27H2Z" fill="#55777d" stroke="#c1c39d" stroke-width=".6"/>
+      <path d="M-24-22H-8M-24-17H-8M-24-12H-8M7 5H23M7 10H23M7 15H23M7 20H23" stroke="#c4e6e5" stroke-width="1.4"/>
+      <path d="M7-23V-11M12-23V-11M17-23V-11M22-23V-11M-23 5V23M-18 5V23M-13 5V23M-8 5V23" stroke="#0d253d" stroke-width="1.8"/>
+      <path d="M-29-2H0V29M0-29V-3H29M-29 30H30V-29" fill="none" stroke="#f4d79f" stroke-width="1"/>
+      <path d="M-30-35H-25M-20-35H-15M-10-35H-5M0-35H5M10-35H15M20-35H25M-30 35H-25M-20 35H-15M-10 35H-5M0 35H5M10 35H15M20 35H25" stroke="#f4e5c7" stroke-width="2"/>
+      <path d="M-39-26V-39H-26M26-39H39V-26M39 26V39H26M-26 39H-39V26" fill="none" stroke="#edffff" stroke-width="2.5"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,36 @@
+/* Phone navigation stays within thumb reach and clear of device safe areas. */
+.mobile-tabbar,.mobile-contact-icon{display:none}
+@media(max-width:760px){
+  :root{--phone-bottom-space:calc(84px + env(safe-area-inset-bottom,0px));--phone-top-space:calc(86px + env(safe-area-inset-top,0px))}
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-bottom:var(--phone-bottom-space)}
+  body{padding-bottom:var(--phone-bottom-space)!important;font-size:16px}
+  .island-nav,.island-nav.scrolled,.island-nav.menu-open{top:calc(10px + env(safe-area-inset-top,0px));left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-inset-right,0px));width:auto!important;transform:none;min-height:58px;padding:6px 10px 6px 16px!important;gap:10px;flex-wrap:nowrap;border-radius:30px;transition:background .2s,box-shadow .2s}
+  .island-nav .island-brand{flex:1;min-width:0;font-size:14px;min-height:44px;letter-spacing:-.6px}
+  .island-nav .island-brand i{width:5px;height:5px;margin-left:7px}
+  .island-nav .island-links,.island-nav.menu-open .island-links,.island-nav .island-menu{display:none!important}
+  .island-nav .island-actions{display:flex;gap:7px;flex-shrink:0;align-items:center}
+  .island-nav .island-resume-link{display:inline-flex;justify-content:center;align-items:center;min-height:44px;min-width:74px;padding:10px 12px;font-size:12px}
+  .island-nav .island-contact{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border-radius:50%;border:1px solid #546170;flex-shrink:0}
+  .island-nav .island-contact>span,.island-nav .island-contact-symbol{display:none}
+  .island-nav .mobile-contact-icon{display:block;width:20px;height:20px}
+  .mobile-tabbar{position:fixed;left:0;right:0;bottom:0;z-index:1100;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;padding:8px max(10px,env(safe-area-inset-right,0px)) calc(8px + env(safe-area-inset-bottom,0px)) max(10px,env(safe-area-inset-left,0px));background:#10171ff5;border-top:1px solid #3a4857;box-shadow:0 -8px 25px #0004;backdrop-filter:blur(14px)}
+  .mobile-tabbar>a{min-width:0;min-height:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;border-radius:12px;text-decoration:none;color:#aabbca;font-size:11px;line-height:1.25;white-space:nowrap;padding:5px 1px;touch-action:manipulation}
+  .mobile-tabbar svg{display:block;width:21px;height:21px}
+  .mobile-tabbar>a.active,.mobile-tabbar>a[aria-current="page"]{color:#f2c18d;background:#30271f}
+  .mobile-tabbar>a:focus-visible{outline-offset:-3px!important}
+  #ic-gallery,#contact,#image-guide,[data-area-content]{scroll-margin-top:var(--phone-top-space)}
+  #about-profile,#credentials-profile,#robotics-profile.robotics-showcase{padding-top:calc(100px + env(safe-area-inset-top,0px))}
+  #home .scroll-story-frame{padding-top:calc(100px + env(safe-area-inset-top,0px))}
+  #about-profile,#credentials-profile,#robotics-profile.robotics-showcase,#ic-gallery,#home .scroll-story-frame,#contact.contact-reference{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+  .silicon-intro{padding:calc(20px + env(safe-area-inset-top,0px)) 20px calc(20px + env(safe-area-inset-bottom,0px))}
+  .silicon-intro-content{padding-top:10px;padding-bottom:45px}
+  .silicon-intro-eyebrow{font-size:11px}
+  .silicon-intro-discipline{font-size:14px}
+  .silicon-intro-status{font-size:12px}
+  .silicon-intro-skip{min-height:48px;font-size:14px;padding:12px 20px}
+  .silicon-intro-footer{bottom:calc(14px + env(safe-area-inset-bottom,0px));font-size:9px;letter-spacing:.08em}
+  .motion-entering{animation-duration:500ms!important}
+}
+@media(max-width:360px){.island-nav .island-brand{font-size:12px}.island-nav .island-brand i{display:none}.island-nav .island-resume-link{font-size:11px;min-width:70px}.mobile-tabbar>a{font-size:10px}}
+@media(max-width:760px) and (max-height:500px){.silicon-intro[open]{display:block}.silicon-intro-content{margin:auto;padding-bottom:35px}.silicon-intro-chip{width:95px;height:95px;margin:12px auto}.silicon-intro-readiness{margin-top:15px;margin-bottom:15px}.silicon-intro-footer{position:relative;inset:auto;margin-top:10px}}
+@media(prefers-reduced-motion:reduce){.island-nav,.motion-entering{transition:none!important;animation:none!important}}

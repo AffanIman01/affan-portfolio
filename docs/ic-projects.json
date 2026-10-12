@@ -1,0 +1,204 @@
+[
+  {
+    "id": "bandgap",
+    "title": "Bandgap reference",
+    "category": "analog",
+    "categoryName": "Analog Layout",
+    "node": "28 nm",
+    "image": "gallery/bandgap-layout.png",
+    "subtitle": "Matching, symmetry, and careful routing.",
+    "purpose": "Analog layout work around a bandgap reference and its associated amplifier.",
+    "contribution": "Device placement, matching considerations, routing, and physical verification during custom-layout training.",
+    "decisions": [
+      "Differential-pair and current-mirror placement",
+      "Resistor and BJT proximity and matching",
+      "Guard rings, symmetry, and sensitive-net routing"
+    ],
+    "verification": "Completed bandgap and operational-amplifier layout iterations achieved DRC-clean and LVS-matched results. Supporting verification reports are not displayed here.",
+    "imageNote": "Original bandgap reference layout from my Vchip training work. Use the zoom controls to inspect device placement and routing.",
+    "tools": "Cadence Virtuoso · Calibre",
+    "imageKind": "original",
+    "imageAlt": "Affan Iman’s bandgap reference layout in Cadence Virtuoso, showing device arrays, guard rings, and interconnect routing."
+  },
+  {
+    "id": "standard-cells",
+    "title": "Standard-cell layouts",
+    "category": "standard",
+    "categoryName": "Standard Cells",
+    "node": "40 nm",
+    "image": "gallery/standard-cells.svg",
+    "subtitle": "From transistor placement to clean connectivity.",
+    "purpose": "Hands-on digital layout practice across inverters and basic logic functions.",
+    "contribution": "Custom layout of logic cells, routing, and iterative DRC/LVS verification.",
+    "decisions": [
+      "Device orientation and diffusion sharing",
+      "Consistent power rails and pin placement",
+      "Compact placement with readable routing"
+    ],
+    "verification": "DRC/LVS verification formed part of the layout workflow. Cell-specific reports will accompany the original layout images.",
+    "imageNote": "Illustrative standard-cell study. Original cell overview and detail views to be added.",
+    "tools": "Cadence Virtuoso · Calibre"
+  },
+  {
+    "id": "ldo",
+    "title": "LDO layout",
+    "category": "analog",
+    "categoryName": "Analog Layout",
+    "node": "28 nm",
+    "image": "gallery/ldo-layout.png",
+    "subtitle": "Completed LDO layout in 28 nm planar technology.",
+    "purpose": "Layout and floorplanning work for an LDO and its connection to a bandgap reference.",
+    "contribution": "Completed LDO floorplanning, device placement, matching, and interconnect routing during Vchip custom-layout training.",
+    "decisions": [
+      "Critical-device placement and matching",
+      "Power-device placement and routing access",
+      "Hierarchy and integration with the reference block"
+    ],
+    "verification": "Layout completed. Final DRC/LVS reports are not displayed here.",
+    "imageNote": "Original completed LDO layout from my Vchip training work. Zoom in to inspect the placement and routing.",
+    "tools": "Cadence Virtuoso · Calibre",
+    "imageKind": "original",
+    "imageAlt": "Completed 28 nm LDO layout by Affan Iman at Vchip Technology"
+  },
+  {
+    "id": "bandgap-ldo-top",
+    "title": "Top-level bandgap–LDO",
+    "category": "analog",
+    "categoryName": "Analog Layout",
+    "node": "28 nm planar",
+    "image": "gallery/bandgap-ldo-top-layout.png",
+    "imageKind": "original",
+    "imageAlt": "Completed top-level bandgap and LDO integrated layout by Affan Iman",
+    "subtitle": "Completed integration of the reference and regulator.",
+    "purpose": "Top-level integration of a bandgap reference and LDO in one analog layout.",
+    "contribution": "Completed the top-level bandgap–LDO layout, integrating the reference and regulator blocks with inter-block routing.",
+    "decisions": [
+      "Block placement and hierarchy",
+      "Reference-signal routing between bandgap and LDO",
+      "Power and ground connectivity across the integrated layout"
+    ],
+    "verification": "Layout completed. Final top-level DRC/LVS reports are not displayed here.",
+    "imageNote": "Original top-level bandgap–LDO layout from my Vchip training work. Use the full-image viewer to inspect the complete layout.",
+    "tools": "Cadence Virtuoso · Calibre"
+  },
+  {
+    "id": "adders",
+    "title": "Half & full adders",
+    "category": "standard",
+    "categoryName": "Standard Cells",
+    "node": "40 nm",
+    "image": "gallery/adders.svg",
+    "subtitle": "Building larger functions from logic cells.",
+    "purpose": "Digital layout practice with half-adder and full-adder functions.",
+    "contribution": "Placement, interconnect routing, and physical-verification iterations.",
+    "decisions": [
+      "Signal flow and cell organization",
+      "Routing space and connection clarity",
+      "Area and layout consistency"
+    ],
+    "verification": "Physical-verification iterations formed part of the layout exercises. Supporting reports are pending.",
+    "imageNote": "Illustrative adder layout study. Original layout and interconnect views to be added.",
+    "tools": "Cadence Virtuoso · Calibre"
+  },
+  {
+    "id": "skill",
+    "title": "SKILL workflow tools",
+    "category": "automation",
+    "categoryName": "SKILL Automation",
+    "node": "SKILL",
+    "image": "samples/automation.svg",
+    "subtitle": "Small tools for repeatable layout tasks.",
+    "purpose": "Utilities for common layout actions and repeated editing steps.",
+    "contribution": "Bindkeys.il, Crossrule.il, CreateLabelsFromInts.il, and ChangeMetalLayer.il.",
+    "decisions": [
+      "Keep repeated operations consistent",
+      "Make commands quick to access",
+      "Review tool results inside the layout workflow"
+    ],
+    "verification": "An original script demonstration is pending. The before/after preview is illustrative.",
+    "imageNote": "Illustrative workflow comparison. Original script-output screenshots to be added.",
+    "tools": "Cadence SKILL · Virtuoso"
+  },
+  {
+    "id": "training",
+    "title": "Digital layout foundations",
+    "category": "standard",
+    "categoryName": "Standard Cells",
+    "node": "SAED32 nm",
+    "image": "gallery/training.svg",
+    "subtitle": "A foundation in custom layout.",
+    "purpose": "Digital layout exercises completed during PSDC training using SAED32 nm.",
+    "contribution": "Logic gates, SRAM exercises, half/full adders, and multi-bit adder layout practice.",
+    "decisions": [
+      "Schematic-to-layout connectivity",
+      "Cell composition and routing",
+      "DRC/LVS-driven iteration"
+    ],
+    "verification": "DRC/LVS practice formed part of the training. Supporting layout images and check results are pending.",
+    "imageNote": "Illustrative digital-layout study. Original training example to be added.",
+    "tools": "Synopsys Custom Compiler · SAED32 nm"
+  },
+  {
+    "id": "half-adder-14nm",
+    "title": "Half adder · 14 nm",
+    "category": "standard",
+    "categoryName": "Standard Cells",
+    "node": "14 nm FinFET",
+    "image": "gallery/half-adder-14nm.png",
+    "imageKind": "original",
+    "imageAlt": "Half adder · 14 nm original layout by Affan Iman",
+    "subtitle": "FinFET digital layout: sum and carry.",
+    "purpose": "A half-adder layout for two-input binary addition with sum and carry outputs.",
+    "contribution": "Created the digital layout shown in this original portfolio image.",
+    "decisions": [
+      "Device placement and cell organisation",
+      "Signal routing and connectivity",
+      "Power-rail continuity and hierarchical layout"
+    ],
+    "verification": "Original layout supplied. Verification reports are not displayed here.",
+    "imageNote": "Original portfolio image. Use zoom to inspect the complete layout.",
+    "tools": ""
+  },
+  {
+    "id": "full-adder-finfet",
+    "title": "Full adder",
+    "category": "standard",
+    "categoryName": "Standard Cells",
+    "node": "",
+    "image": "gallery/full-adder-finfet.png",
+    "imageKind": "original",
+    "imageAlt": "Full adder original layout by Affan Iman",
+    "subtitle": "Digital layout with sum, carry-in, and carry-out.",
+    "purpose": "A full-adder layout for binary addition with a carry input and sum and carry outputs.",
+    "contribution": "Created the digital layout shown in this original portfolio image.",
+    "decisions": [
+      "Device placement and cell organisation",
+      "Signal routing and connectivity",
+      "Power-rail continuity and hierarchical layout"
+    ],
+    "verification": "Original layout supplied. Verification reports are not displayed here.",
+    "imageNote": "Original portfolio image. Use zoom to inspect the complete layout.",
+    "tools": ""
+  },
+  {
+    "id": "four-bit-adder-14nm",
+    "title": "4-bit full adder · 14 nm",
+    "category": "standard",
+    "categoryName": "Standard Cells",
+    "node": "14 nm FinFET",
+    "image": "gallery/four-bit-adder-14nm.png",
+    "imageKind": "original",
+    "imageAlt": "4-bit full adder · 14 nm original layout by Affan Iman",
+    "subtitle": "Hierarchical adder layout using SAED14.",
+    "purpose": "A 4-bit full-adder layout using the SAED14 Synopsys educational process PDK.",
+    "contribution": "Created the digital layout shown in this original portfolio image.",
+    "decisions": [
+      "Device placement and cell organisation",
+      "Signal routing and connectivity",
+      "Power-rail continuity and hierarchical layout"
+    ],
+    "verification": "Original layout supplied. Verification reports are not displayed here.",
+    "imageNote": "Original portfolio image. Use zoom to inspect the complete layout.",
+    "tools": ""
+  }
+]

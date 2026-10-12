@@ -1,0 +1,20 @@
+/* The academic gallery shares the IC panels and viewer within the About column. */
+#undergraduate-gallery{padding:64px 0 48px;margin:48px 0 0;max-width:none;border-top:1px solid #303b46;min-width:0;scroll-margin-top:100px}
+#undergraduate-gallery .ic-section-heading{gap:30px}
+#undergraduate-gallery .ic-section-heading h3{font-family:SamsungHead,Arial,sans-serif!important;font-size:clamp(29px,3.2vw,43px);letter-spacing:-1.3px;line-height:1.2;margin:14px 0 0}
+#undergraduate-gallery .ic-section-heading h3>span{color:var(--silicon-copper)}
+#undergraduate-gallery .ic-section-heading>p{max-width:330px;font-size:13px;line-height:1.8}
+#undergraduate-gallery .ic-gallery-toolbar{gap:22px}
+#undergraduate-gallery .ic-results{white-space:nowrap}
+#undergraduate-gallery .ic-panel-details>p{max-width:360px}
+#undergraduate-gallery .ic-panel-category{line-height:1.6}
+#undergraduate-gallery .ic-card[data-ic-category="suggested"] .ic-panel-preview{border-color:#749daa80;color:#bee0e6}
+#undergraduate-gallery .ic-card[data-ic-category="suggested"] .ic-panel-category{display:block;color:#9dc8d0}
+#undergraduate-gallery .ic-gallery-footnote{line-height:1.8}
+@media(max-width:760px){
+  #undergraduate-gallery{padding:40px 0 26px;margin-top:38px;scroll-margin-top:90px}
+  #undergraduate-gallery .ic-section-heading h3{font-size:clamp(29px,8vw,38px);letter-spacing:-1px}
+  #undergraduate-gallery .ic-section-heading>p{max-width:none;font-size:14px;line-height:1.75}
+  #undergraduate-gallery .ic-results{white-space:normal}
+  #undergraduate-gallery .ic-gallery-footnote{display:flex;flex-wrap:wrap}
+}

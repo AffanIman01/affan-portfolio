@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+<title id="title">Embedded systems — sample image guide</title><desc id="desc">Conceptual controller board with connected modules on a dark teal background. This is not an actual project or circuit diagram.</desc>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#263b45"/><stop offset="1" stop-color="#0a1521"/></linearGradient><pattern id="grid" width="45" height="45" patternUnits="userSpaceOnUse"><path d="M45 0H0V45" fill="none" stroke="#75bfca" stroke-opacity=".08"/></pattern><linearGradient id="board" x2="1" y2="1"><stop stop-color="#254951"/><stop offset="1" stop-color="#173039"/></linearGradient></defs>
+<path fill="url(#bg)" d="M0 0h1200v900H0z"/><path fill="url(#grid)" d="M0 0h1200v900H0z"/>
+<g fill="none" stroke="#77c8d2" opacity=".22"><circle cx="605" cy="380" r="290"/><circle cx="605" cy="380" r="320" stroke-dasharray="3 13"/></g>
+<g fill="none" stroke="#83d6db" stroke-width="3" opacity=".75"><path d="M340 265H225v220H130M340 325H260v260H130M850 270h125v-90h95M850 360h190v185h40M600 570v90H345v70"/></g>
+<rect x="330" y="170" width="535" height="410" rx="30" fill="url(#board)" stroke="#7ab7b9" stroke-width="2"/>
+<g fill="#0c202b" stroke="#dba66c" stroke-width="2"><rect x="485" y="280" width="210" height="190" rx="9"/><rect x="370" y="213" width="86" height="40" rx="5"/><rect x="735" y="213" width="86" height="70" rx="5"/><rect x="752" y="442" width="67" height="94" rx="5"/></g>
+<g stroke="#dba66c" stroke-width="5"><path d="M510 280v-23m28 23v-23m28 23v-23m28 23v-23m28 23v-23m28 23v-23m28 23v-23M510 470v23m28-23v23m28-23v23m28-23v23m28-23v23m28-23v23m28-23v23M485 302h-23m23 27h-23m23 27h-23m23 27h-23m23 27h-23m23 27h-23M695 302h23m-23 27h23m-23 27h23m-23 27h23m-23 27h23m-23 27h23"/></g>
+<g fill="#dba66c"><circle cx="365" cy="203" r="6"/><circle cx="830" cy="203" r="6"/><circle cx="365" cy="544" r="6"/><circle cx="830" cy="544" r="6"/></g>
+<g fill="#19313d" stroke="#83d6db" stroke-width="2"><rect x="70" y="450" width="105" height="165" rx="14"/><circle cx="122" cy="490" r="18"/><circle cx="122" cy="549" r="18"/><rect x="1035" y="140" width="110" height="82" rx="12"/><rect x="1035" y="496" width="110" height="100" rx="12"/></g>
+<g fill="none" stroke="#8bd5de" opacity=".5"><path d="M390 310h42v75h28M405 500h33v-90h24M720 380h36v-69h59M529 227h81v29M722 516h-85v-23"/></g>
+<text x="590" y="384" font-family="Arial,sans-serif" text-anchor="middle" font-size="21" letter-spacing="5" fill="#bee3df">CONTROL</text><text x="600" y="795" font-family="Arial,sans-serif" text-anchor="middle" font-size="14" letter-spacing="4" fill="#94b3c1">SAMPLE VISUAL · REPLACE WITH YOUR PROJECT</text>
+</svg>

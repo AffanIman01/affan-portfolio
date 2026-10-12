@@ -1,0 +1,35 @@
+/* A distinct image and its own content for every experience and leadership role. */
+.career-card-section{margin:0;padding:0;scroll-margin-top:105px}
+.career-card-grid{display:grid;gap:22px;align-items:stretch}
+.experience-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.leadership-card-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.career-card{min-width:0;overflow:hidden;background:#141c25;border:1px solid #344250;border-radius:14px;transition:border-color .25s,transform .25s}
+.career-card:hover{border-color:#84684a;transform:translateY(-3px)}
+.career-card-media{height:180px;position:relative;overflow:hidden;background:#0c151e;border-bottom:1px solid #344250}
+.career-card-image{display:block;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1}
+.career-card[data-media-slot="experience-vchip"] .career-card-image{object-position:center 35%}
+.career-card-media::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,#07101b38,transparent 40%,#07101b30)}
+.career-card-image-label{position:absolute;left:13px;top:13px;z-index:1;max-width:calc(100% - 26px);border:1px solid #7b8c9d99;border-radius:5px;background:#0b1522de;color:#dce6ee;padding:5px 8px;font-size:8px;line-height:1.5;letter-spacing:.07em}
+.career-card-content{padding:24px}
+.career-card-meta{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:13px}
+.career-card-kicker{display:block;font-size:9px;letter-spacing:.07em;line-height:1.6;color:#dfb07c}
+.career-card-meta time{font-size:11px;line-height:1.6;color:#aebdcc}
+.career-card-title{font-family:SamsungHead,Arial,sans-serif!important;font-size:22px;font-weight:700;line-height:1.3;letter-spacing:-.5px;color:#f0f4f7;margin:0 0 9px}
+.career-card-employer{font-size:12px;line-height:1.7;color:#d6ba97;margin:0 0 16px}
+.career-card-summary{font-size:12px;line-height:1.85;color:#b1c2d0;margin:0 0 13px}
+.career-card-summary:last-child{margin-bottom:0}
+.career-card-tags{display:block;margin-top:17px;font-size:10px;line-height:1.7;color:#d6ba97}
+.career-media-note{margin:20px 0 0;color:#96a8b8;font-size:10px;line-height:1.8}
+.leadership-card-grid .career-card-media{height:170px}
+.leadership-card-grid .career-card-content{padding:22px}
+.leadership-card-grid .career-card-kicker{margin-bottom:11px}
+.leadership-card-grid .career-card-title{font-size:21px}
+.leadership-language-row{border-top:1px solid #374553;padding-top:22px;margin-top:25px;display:flex;flex-wrap:wrap;align-items:baseline;gap:18px 28px}
+.leadership-language-row>span{font-size:9px;letter-spacing:.12em;color:#dca56b;margin-right:5px}
+.leadership-language-row>p{font-size:12px;color:#9fb1c1;margin:0;line-height:1.8}
+.leadership-language-row strong{font-weight:400;color:#d0dce6}
+@media(max-width:1000px){.leadership-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.career-card-grid{gap:18px}.career-card-content{padding:22px}.career-card-title{font-size:21px}}
+@media(max-width:620px){.experience-card-grid,.leadership-card-grid{grid-template-columns:minmax(0,1fr)}.career-card-grid{gap:20px}.career-card-media,.leadership-card-grid .career-card-media{height:175px}.career-card-content,.leadership-card-grid .career-card-content{padding:21px}.career-card-title,.leadership-card-grid .career-card-title{font-size:21px}.career-card-summary{font-size:13px}.career-card-employer{font-size:12px}.leadership-language-row{display:block}.leadership-language-row>span{display:block;margin-bottom:14px}.leadership-language-row>p+p{margin-top:8px}}
+@media(prefers-reduced-motion:reduce){.career-card{transition:none}.career-card:hover{transform:none}}
+html[data-portfolio-motion="off"] .career-card{transition:none}
+html[data-portfolio-motion="off"] .career-card:hover{transform:none}

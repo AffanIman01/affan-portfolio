@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+<title id="title">Mechatronics design — sample image guide</title><desc id="desc">A conceptual mechanical assembly in a CAD-inspired wireframe style, not an actual student project or manufacturing drawing.</desc>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#353044"/><stop offset="1" stop-color="#101a29"/></linearGradient><pattern id="grid" width="45" height="45" patternUnits="userSpaceOnUse"><path d="M45 0H0V45" fill="none" stroke="#d0bbdf" stroke-opacity=".08"/></pattern></defs>
+<path fill="url(#bg)" d="M0 0h1200v900H0z"/><path fill="url(#grid)" d="M0 0h1200v900H0z"/>
+<g fill="none" stroke="#b9a5d3" opacity=".18"><circle cx="610" cy="390" r="300"/><circle cx="610" cy="390" r="335" stroke-dasharray="2 15"/></g>
+<g stroke-linejoin="round" stroke-width="2"><path d="m240 529 365-207 365 207-365 210Z" fill="#222d3b" stroke="#b1a4c9"/><path d="M240 529v45l365 210v-45m0 45 365-210v-45" fill="#19232f" stroke="#847c9d"/>
+<path d="M367 471V316l235-135 227 132v158M403 492V338l199-114 192 112v155" fill="none" stroke="#d4ad86" stroke-width="7"/><path d="m367 316 36 22m-36 133 36 21M602 181v43m227 89-35 23" fill="none" stroke="#eac8a3"/>
+<path d="m444 442 159-91 162 91-162 96Z" fill="#314151" stroke="#9ec5d7"/><path d="M444 442v46l159 94 162-94v-46m-162 96v44" fill="#25323f" stroke="#9ec5d7"/>
+<path d="M555 320v123c0 26 95 26 95 0V320" fill="#354652" stroke="#9abdc8"/><ellipse cx="602" cy="320" rx="47" ry="24" fill="#172936" stroke="#c7d1d3"/><path d="M590 259v61c0 7 24 7 24 0v-61" fill="#bbaa93" stroke="#e3c093"/>
+<path d="M493 540v72m218-72v72" stroke="#d4ad86" stroke-width="11"/>
+</g>
+<g fill="none" stroke="#a9b6c8" opacity=".45"><path d="M193 515v99l376 220m424-309v92L639 823M221 628l324 186M285 660l-20 34m602-49 26 29" stroke-dasharray="7 8"/><path d="m310 712 238 139m175-37 216-125"/></g>
+<text x="600" y="100" font-family="Arial,sans-serif" text-anchor="middle" font-size="13" letter-spacing="5" fill="#c5b4d1">DESIGN · BUILD · EVALUATE</text><text x="600" y="872" font-family="Arial,sans-serif" text-anchor="middle" font-size="14" letter-spacing="3" fill="#a7a4bf">SAMPLE VISUAL · REPLACE WITH YOUR PROJECT</text>
+</svg>

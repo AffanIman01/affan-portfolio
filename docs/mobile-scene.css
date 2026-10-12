@@ -1,0 +1,65 @@
+/* Phone composition stays in normal flow, with native page scrolling and zoom. */
+@media(max-width:760px){
+  #home.silicon-scroll-story,
+  #home.silicon-scroll-story.scroll-story-enabled{height:auto;min-height:0;scroll-margin-top:76px}
+  #home .scroll-story-frame,
+  #home.scroll-story-enabled .scroll-story-frame{
+    position:relative;top:auto;display:grid;grid-template-columns:minmax(0,1fr);
+    height:auto;min-height:0;padding:100px 22px 38px;gap:32px;overflow:visible;align-content:start
+  }
+  #home .photo-hero-text{display:block;min-height:0;padding:0;align-self:auto;max-width:620px}
+  #home .scroll-chapter{min-height:0;will-change:auto}
+  #home .photo-hero h1,#home .scroll-chapter .story-heading{
+    font-size:clamp(36px,9.6vw,54px);line-height:1.12;letter-spacing:-1.55px;margin:21px 0!important
+  }
+  #home .scroll-chapter>p{font-size:16px;line-height:1.75;margin:0 0 24px;max-width:540px}
+  #home .section-eyebrow{font-size:10px;line-height:1.7;letter-spacing:.09em;gap:8px}
+  #home .photo-hero-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:26px}
+  #home .photo-hero-tags span{font-size:11px;line-height:1.5;padding:7px 10px}
+  #home .profile-hero-actions{gap:12px 22px;align-items:center}
+  #home .photo-cta{font-size:14px;min-height:48px;padding:13px 18px;line-height:1.5;justify-content:center}
+  #home .profile-text-link{font-size:14px;min-height:44px;padding:10px 3px;align-items:center;justify-content:center;line-height:1.5}
+  #home .hero-upload-note{display:none}
+  #home .silicon-stage{width:100%;min-width:0;max-width:570px;margin:0 auto;filter:none}
+  #home .silicon-scene-heading{font-size:10px;line-height:1.65;letter-spacing:.055em;padding:0 0 12px;margin:0;gap:8px;flex-wrap:wrap}
+  #home .silicon-live{font-size:10px;line-height:1.65}
+  #home .silicon-viewport{height:clamp(265px,90vw,370px);min-height:0;width:100%;border-radius:12px}
+  #home #silicon-canvas{touch-action:pan-y pinch-zoom}
+  #home .silicon-concept{left:8px;bottom:9px;font-size:9px;line-height:1.5;letter-spacing:.035em;right:8px;text-align:center}
+  #home .silicon-hint{font-size:12px;line-height:1.65;margin:9px 6px 15px;min-height:0}
+  #home .scene-manual-controls{margin:0;max-width:100%}
+  #home .scene-manual-controls>summary{width:100%;min-height:46px;padding:11px 15px;font-size:13px;border-radius:10px;line-height:1.7}
+  #home .scene-manual-panel{
+    position:static;inset:auto;width:auto;max-width:100%;max-height:none;overflow:visible;
+    padding:16px;margin-top:12px;box-shadow:none;backdrop-filter:none;overscroll-behavior:auto
+  }
+  #home .silicon-toolbar{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+  #home .silicon-toolbar button{grid-column:span 3;min-width:0;min-height:46px;padding:10px 8px;font-size:12px;line-height:1.5}
+  #home .silicon-toolbar .silicon-icon-button{grid-column:span 2;width:100%;min-height:44px;padding:7px;font-size:22px}
+  #home .silicon-layer-control{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:5px 12px;font-size:13px;margin:20px 0 16px;max-width:none}
+  #home .silicon-layer-control label{white-space:normal;margin:0}
+  #home .silicon-layer-control input{grid-column:1/-1;grid-row:2;width:100%;min-width:0;min-height:44px;height:44px;margin:0}
+  #home .silicon-layer-control output{grid-column:2;grid-row:1;font-size:12px;min-width:34px}
+  #home .silicon-part-tabs button{font-size:12px;min-width:0;min-height:46px;padding:11px 5px;line-height:1.6}
+  #home .silicon-part-tabs button span{font-size:10px;margin-right:5px}
+  #home .silicon-part-info{display:block;min-height:0;padding-top:18px}
+  #home .silicon-part-info h3{font-size:14px;line-height:1.6;margin:0 0 8px}
+  #home .silicon-part-info p{font-size:15px;line-height:1.75;max-width:none;margin:0}
+  #home .story-footer{position:static;display:block;margin:0;inset:auto;grid-column:1/-1}
+  #home .story-direction,#home .story-progress{display:none}
+  #home .story-footer .hero-experience-controls{justify-content:center;gap:12px 20px;flex-wrap:wrap;margin:0}
+  #home .story-footer .hero-experience-controls button{font-size:12px;min-height:44px;padding:11px 2px;white-space:normal;line-height:1.5}
+}
+@media(max-width:420px){
+  #home .scroll-story-frame,#home.scroll-story-enabled .scroll-story-frame{padding-left:18px;padding-right:18px;gap:28px}
+  #home .photo-hero h1,#home .scroll-chapter .story-heading{font-size:clamp(34px,10vw,41px);letter-spacing:-1.35px}
+  #home .scroll-chapter>p{font-size:15px;line-height:1.75}
+  #home .profile-hero-actions{display:flex;flex-direction:column;align-items:stretch;gap:7px}
+  #home .profile-hero-actions>a{width:100%;text-align:center}
+  #home .silicon-scene-heading{font-size:9px}
+  #home .silicon-live{font-size:9px}
+  #home .scene-manual-panel{padding:14px}
+  #home .silicon-part-tabs{flex-direction:column}
+  #home .silicon-part-tabs button{flex:auto;padding:11px 9px;font-size:13px;border-bottom-width:1px}
+  #home .silicon-part-tabs button span{font-size:11px;margin-right:10px}
+}
