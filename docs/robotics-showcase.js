@@ -41,7 +41,7 @@
       : paused ? 'Play automatic robotics showcase' : 'Pause automatic robotics showcase');
     const focused = root.contains(document.activeElement) && document.activeElement !== playButton;
     if (enabled && !paused && !hovering && !focused && onScreen && !root.closest('[hidden]') && !document.hidden && !dialog.open && slides.length > 1) {
-      timer = setTimeout(() => select(selected + 1), Number(root.dataset.autoplayInterval) || 1500);
+      timer = setTimeout(() => select(selected + 1), Number(root.dataset.autoplayInterval) || 2500);
     }
   }
 

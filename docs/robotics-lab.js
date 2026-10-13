@@ -33,7 +33,7 @@
     updateVideos();
     const cards = visibleCards();
     prev.disabled = next.disabled = cards.length < 2;
-    if (motion() && onScreen && !hovering && !grid.contains(document.activeElement) && !dialog.open && cards.length > 1) timer = setTimeout(() => select(selected + 1), 1500);
+    if (motion() && onScreen && !hovering && !grid.contains(document.activeElement) && !dialog.open && cards.length > 1) timer = setTimeout(() => select(selected + 1), 2500);
   }
   function select(index, manual = false) {
     const cards = visibleCards(); if (!cards.length) return;
