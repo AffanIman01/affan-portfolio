@@ -37,6 +37,7 @@
   dialog.dataset.gallery = root.id || String(galleryIndex);
   dialog.setAttribute('aria-labelledby', viewerPrefix + '-title');
   dialog.innerHTML = `<header class="ic-viewer-head"><div><small id="${viewerPrefix}-meta"></small><h2 id="${viewerPrefix}-title"></h2></div><button class="ic-viewer-close" aria-label="Close project viewer">×</button></header><div class="ic-viewer-layout"><div class="ic-viewer-visual"><div class="ic-zoom-toolbar"><span class="ic-image-kind">ILLUSTRATIVE PREVIEW</span><button data-zoom="out" aria-label="Zoom out">−</button><span class="ic-zoom-value" aria-live="polite">100%</span><button data-zoom="in" aria-label="Zoom in">+</button><button data-zoom="reset">Reset</button></div><div class="ic-viewer-stage" tabindex="0" aria-label="Project image; scroll to pan when zoomed"><div class="ic-zoom-surface"><img alt=""></div></div><p class="ic-viewer-caption"></p></div><div class="ic-viewer-details"><div><h3 data-detail-label="purpose">Purpose</h3><p data-detail="purpose"></p><h3 data-detail-label="contribution">My contribution</h3><p data-detail="contribution"></p></div><div><h3 data-detail-label="decisions">Layout considerations</h3><ul data-detail="decisions"></ul><h3 data-detail-label="verification">Verification</h3><div class="ic-viewer-status" data-detail="verification"></div></div></div></div><footer class="ic-viewer-foot"><button class="ic-prev">← Previous</button><span class="ic-viewer-position"></span><button class="ic-next">Next →</button></footer>`;
+  const additionalMedia = document.createElement('div'); additionalMedia.className = 'ic-viewer-additional-media'; additionalMedia.hidden = true; dialog.querySelector('.ic-viewer-visual').append(additionalMedia);
   document.body.append(dialog);
 
   function clearAutoplay() { clearTimeout(timer); timer = null; }
@@ -230,7 +231,7 @@
     image.style.height = '';
     zoomSurface.style.width = '100%';
     zoomSurface.style.height = '';
-    image.src = item.image;
+    image.src = item.poster && !motionEnabled() ? item.poster : item.image;
     image.alt = item.imageAlt || (original ? 'Project layout for ' + item.title
       : 'Illustrative preview for ' + item.title + '; replace with approved project layout');
     dialog.querySelector('.ic-viewer-caption').textContent = item.imageNote;
@@ -243,6 +244,10 @@
       sourceLink.textContent = 'Open original image ↗';
       dialog.querySelector('.ic-viewer-caption').append(sourceLink);
     }
+    additionalMedia.replaceChildren();
+    (item.extraMedia || []).forEach(media => { const figure = document.createElement('figure'); const link = document.createElement('a'); link.href = media.image; link.target = '_blank'; link.rel = 'noopener noreferrer'; const photo = document.createElement('img'); photo.src = media.image; photo.alt = media.caption; photo.loading = 'lazy'; link.append(photo); const caption = document.createElement('figcaption'); caption.textContent = media.caption; figure.append(link, caption); additionalMedia.append(figure); });
+    if (item.document) { const link = document.createElement('a'); link.href = item.document; link.target = '_blank'; link.rel = 'noopener noreferrer'; link.className = 'project-report-link'; link.textContent = (item.documentLabel || 'Read project report') + ' ↗'; additionalMedia.append(link); }
+    additionalMedia.hidden = !additionalMedia.children.length;
     ['purpose', 'contribution', 'verification'].forEach(key => { dialog.querySelector('[data-detail="' + key + '"]').textContent = item[key]; });
     const list = dialog.querySelector('[data-detail="decisions"]');
     list.replaceChildren();
@@ -257,6 +262,12 @@
     scheduleFit();
     updateAutoplay();
   }
+  function updateAnimatedOriginal() {
+    const item = projects.find(project => project.id === currentId);
+    if (item?.poster) { const target = motionEnabled() ? item.image : item.poster; if (viewerImage.getAttribute('src') !== target) viewerImage.src = target; }
+  }
+  window.addEventListener('portfolio-motion', updateAnimatedOriginal);
+  motion.addEventListener('change', updateAnimatedOriginal);
   function move(direction) {
     const index = viewerProjects.findIndex(p => p.id === currentId);
     if (viewerProjects[index + direction]) show(viewerProjects[index + direction].id);

@@ -24,27 +24,42 @@
   },
   {
     "id": "undergrad-embedded",
-    "category": "suggested",
-    "categoryName": "Suggested showcase slot",
-    "node": "Project to be selected",
-    "tools": "",
-    "title": "Embedded systems project",
-    "image": "gallery/undergrad-embedded.svg",
-    "imageKind": "illustrative",
-    "imageAlt": "Sample illustration of a controller board and connected modules; a visual guide for a future project image",
-    "imageNote": "Sample image guide. Choose a real undergraduate project and replace this illustration with your controller board, assembled system, or sensor and wiring close-up.",
-    "purposeLabel": "Suggested selection",
-    "purpose": "Use this space for an undergraduate project that connects firmware with working hardware: sensing, actuation, or a small embedded system. Select the project with the clearest working demonstration.",
-    "contributionLabel": "Your role to add",
-    "contribution": "Add the actual project title, course or year, team size, and your specific contribution. Explain which hardware, firmware, and debugging tasks you personally completed.",
-    "decisionsLabel": "Evidence to include",
+    "category": "featured",
+    "categoryName": "Undergraduate team project",
+    "node": "Smart Uni IoT Hackathon · 2023",
+    "tools": "Arduino / ESP32 · Arduino IoT Cloud · Blynk 2.0",
+    "title": "IoT Integrated Smart Plantation System",
+    "image": "gallery/plantation-slideshow.gif",
+    "imageKind": "original",
+    "imageAlt": "Slideshow of the Mechatron Masters project poster, team with the prototype, and team with advisor Prof Rizal",
+    "imageNote": "Original project poster and team photographs supplied by Affan Iman, presented as a photo slideshow.",
+    "purposeLabel": "Team project",
+    "purpose": "Develop a connected greenhouse prototype that combines plant monitoring and actuation with an IoT interface. Presented by the USM Mechatron Masters team for Smart Uni IoT Hackathon National Edition 2023.",
+    "contributionLabel": "Team contribution",
+    "contribution": "The team integrated Arduino and ESP32 controllers, ESP32-CAM, environmental sensors, pumps, motor drivers and servos with Arduino IoT Cloud and Blynk 2.0. My individual role will be detailed in the case study.",
+    "decisionsLabel": "Four integrated subsystems",
     "decisions": [
-      "One clear photograph of the assembled system.",
-      "A readable block diagram or a short demonstration of the firmware and hardware working together.",
-      "An observed result, test condition, and one engineering lesson."
+      "Soil monitoring and irrigation, with moisture, temperature and humidity readings.",
+      "IoT-controlled fertiliser delivery.",
+      "Insect trap and camera monitoring.",
+      "Rain alert and motorised sunroof, dual-axis solar tracking and rainwater harvesting."
     ],
-    "verificationLabel": "Showcase status",
-    "verification": "Suggested slot only. No completed project, tools, dates, or results are claimed. Replace this entry with one of your selected undergraduate projects."
+    "verificationLabel": "Project evidence",
+    "verification": "Original team and prototype photographs, a photograph with advisor Prof Rizal, and the team project report. No quantitative performance claims are added.",
+    "imageLabel": "ORIGINAL PHOTOS · ANIMATED SLIDESHOW",
+    "extraMedia": [
+      {
+        "image": "gallery/plantation-team.jpg",
+        "caption": "Mechatron Masters team with the prototype."
+      },
+      {
+        "image": "gallery/plantation-advisor.jpg",
+        "caption": "With our advisor, Prof Rizal."
+      }
+    ],
+    "document": "documents/Mechatron-Masters-Smart-Plantation.pdf",
+    "documentLabel": "Read the team project report",
+    "poster": "gallery/plantation-poster.jpg"
   },
   {
     "id": "undergrad-design",

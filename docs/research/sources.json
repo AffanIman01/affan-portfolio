@@ -1,0 +1,202 @@
+[
+  {
+    "id": "uav",
+    "url": "https://henryhuyu.github.io/DiffPhysDrone_Web/static/videos/dynamic.mp4",
+    "source": "https://henryhuyu.github.io/DiffPhysDrone_Web/",
+    "title": "Agile flight with dynamic obstacles",
+    "credit": "Yuang Zhang, Yu Hu, Yunlong Song, Danping Zou & Weiyao Lin · Differentiable Physics Drone project",
+    "type": "Real-world research footage",
+    "license": "CC BY-SA 4.0",
+    "preview": {
+      "video": "research/uav-loop.mp4",
+      "gif": "research/uav-loop.gif",
+      "poster": "research/uav-poster.jpg",
+      "sourceUrl": "https://henryhuyu.github.io/DiffPhysDrone_Web/",
+      "title": "Agile flight with dynamic obstacles",
+      "credit": "Yuang Zhang, Yu Hu, Yunlong Song, Danping Zou & Weiyao Lin · Differentiable Physics Drone project",
+      "type": "Real-world research footage",
+      "sourceAsset": "https://henryhuyu.github.io/DiffPhysDrone_Web/static/videos/dynamic.mp4",
+      "note": "Short reference excerpt from another research or open-source robotics project. This is not Affan’s project footage."
+    }
+  },
+  {
+    "id": "amr",
+    "url": "https://raw.githubusercontent.com/reiniscimurs/GDAM/main/experiments/Gifs/robotworldexp3.gif",
+    "source": "https://github.com/reiniscimurs/GDAE",
+    "title": "Goal-driven autonomous exploration",
+    "credit": "Reinis Cimurs et al. · GDAE / ICRA 2022",
+    "type": "Navigation research visualisation",
+    "license": "Original source copyright; short attributed reference excerpt",
+    "preview": {
+      "video": "research/amr-loop.mp4",
+      "gif": "research/amr-loop.gif",
+      "poster": "research/amr-poster.jpg",
+      "sourceUrl": "https://github.com/reiniscimurs/GDAE",
+      "title": "Goal-driven autonomous exploration",
+      "credit": "Reinis Cimurs et al. · GDAE / ICRA 2022",
+      "type": "Navigation research visualisation",
+      "sourceAsset": "https://raw.githubusercontent.com/reiniscimurs/GDAM/main/experiments/Gifs/robotworldexp3.gif",
+      "note": "Short reference excerpt from another research or open-source robotics project. This is not Affan’s project footage."
+    }
+  },
+  {
+    "id": "usv",
+    "url": "https://raw.githubusercontent.com/RyanXu0428/LLM4SAC/main/gif/llm4sac.gif",
+    "source": "https://github.com/RyanXu0428/LLM4SAC",
+    "title": "Surface-vehicle docking study",
+    "credit": "LLM4SAC project contributors",
+    "type": "Published surface-vehicle demonstration",
+    "license": "Original source copyright; short attributed reference excerpt",
+    "preview": {
+      "video": "research/usv-loop.mp4",
+      "gif": "research/usv-loop.gif",
+      "poster": "research/usv-poster.jpg",
+      "sourceUrl": "https://github.com/RyanXu0428/LLM4SAC",
+      "title": "Surface-vehicle docking study",
+      "credit": "LLM4SAC project contributors",
+      "type": "Published surface-vehicle demonstration",
+      "sourceAsset": "https://raw.githubusercontent.com/RyanXu0428/LLM4SAC/main/gif/llm4sac.gif",
+      "note": "Short reference excerpt from another research or open-source robotics project. This is not Affan’s project footage."
+    }
+  },
+  {
+    "id": "uuv",
+    "url": "https://raw.githubusercontent.com/KSHITIJBITHEL/Underwater-ROV/main/prototype_short.gif",
+    "source": "https://github.com/KSHITIJBITHEL/Underwater-ROV",
+    "title": "Underwater ROV prototype demonstration",
+    "credit": "Team Epsilon · IIT Roorkee · Smart India Hackathon 2020",
+    "type": "Physical prototype demonstration",
+    "license": "Original source copyright; short attributed reference excerpt",
+    "preview": {
+      "video": "research/uuv-loop.mp4",
+      "gif": "research/uuv-loop.gif",
+      "poster": "research/uuv-poster.jpg",
+      "sourceUrl": "https://github.com/KSHITIJBITHEL/Underwater-ROV",
+      "title": "Underwater ROV prototype demonstration",
+      "credit": "Team Epsilon · IIT Roorkee · Smart India Hackathon 2020",
+      "type": "Physical prototype demonstration",
+      "sourceAsset": "https://raw.githubusercontent.com/KSHITIJBITHEL/Underwater-ROV/main/prototype_short.gif",
+      "note": "Short reference excerpt from another research or open-source robotics project. This is not Affan’s project footage."
+    }
+  },
+  {
+    "id": "simulation",
+    "url": "https://raw.githubusercontent.com/md-jawad-117/Deep-Pivot-Sub/main/results/sim.gif",
+    "source": "https://github.com/md-jawad-117/Deep-Pivot-Sub",
+    "title": "Underwater vehicle simulation",
+    "credit": "Deep-Pivot-Sub project contributors",
+    "type": "Research simulation",
+    "license": "Original source copyright; short attributed reference excerpt",
+    "preview": {
+      "video": "research/simulation-loop.mp4",
+      "gif": "research/simulation-loop.gif",
+      "poster": "research/simulation-poster.jpg",
+      "sourceUrl": "https://github.com/md-jawad-117/Deep-Pivot-Sub",
+      "title": "Underwater vehicle simulation",
+      "credit": "Deep-Pivot-Sub project contributors",
+      "type": "Research simulation",
+      "sourceAsset": "https://raw.githubusercontent.com/md-jawad-117/Deep-Pivot-Sub/main/results/sim.gif",
+      "note": "Short reference excerpt from another research or open-source robotics project. This is not Affan’s project footage."
+    }
+  },
+  {
+    "id": "dog",
+    "url": "https://extreme-parkour.github.io/resources/Robustness/Robustness-1-comp.mp4",
+    "source": "https://extreme-parkour.github.io/",
+    "title": "Extreme Parkour · quadruped locomotion",
+    "credit": "Extreme Parkour project authors",
+    "type": "Real-world research footage",
+    "license": "Short attributed excerpt; see original research project for source terms",
+    "preview": {
+      "video": "research/dog-loop.mp4",
+      "gif": "research/dog-loop.gif",
+      "poster": "research/dog-poster.jpg",
+      "sourceUrl": "https://extreme-parkour.github.io/",
+      "title": "Extreme Parkour · quadruped locomotion",
+      "credit": "Extreme Parkour project authors",
+      "type": "Real-world research footage",
+      "sourceAsset": "https://extreme-parkour.github.io/resources/Robustness/Robustness-1-comp.mp4",
+      "note": "Short reference excerpt from another research or open-source robotics project. This is not Affan’s project footage."
+    }
+  },
+  {
+    "id": "humanoid",
+    "url": "https://raw.githubusercontent.com/OpenDriveLab/AgiBot-World/main/assets/g1_fold_shirts.gif",
+    "source": "https://github.com/OpenDriveLab/AgiBot-World",
+    "title": "AgiBot World · garment folding",
+    "credit": "AgiBot World · OpenDriveLab / AGIBOT",
+    "type": "Real-world research footage",
+    "license": "Original source copyright; short attributed reference excerpt",
+    "preview": {
+      "video": "research/humanoid-loop.mp4",
+      "gif": "research/humanoid-loop.gif",
+      "poster": "research/humanoid-poster.jpg",
+      "sourceUrl": "https://github.com/OpenDriveLab/AgiBot-World",
+      "title": "AgiBot World · garment folding",
+      "credit": "AgiBot World · OpenDriveLab / AGIBOT",
+      "type": "Real-world research footage",
+      "sourceAsset": "https://raw.githubusercontent.com/OpenDriveLab/AgiBot-World/main/assets/g1_fold_shirts.gif",
+      "note": "Short reference excerpt from another research or open-source robotics project. This is not Affan’s project footage."
+    }
+  },
+  {
+    "id": "vr",
+    "url": "https://arclab-mit.github.io/beavr-landing/static/videos/teleop/flip_cube.mp4",
+    "source": "https://arclab-mit.github.io/beavr-landing/",
+    "title": "BEAVR · VR-controlled manipulation",
+    "credit": "BEAVR project · MIT ARCLab",
+    "type": "Research VR teleoperation · Meta Quest",
+    "license": "CC BY-SA 4.0",
+    "preview": {
+      "video": "research/vr-loop.mp4",
+      "gif": "research/vr-loop.gif",
+      "poster": "research/vr-poster.jpg",
+      "sourceUrl": "https://arclab-mit.github.io/beavr-landing/",
+      "title": "BEAVR · VR-controlled manipulation",
+      "credit": "BEAVR project · MIT ARCLab",
+      "type": "Research VR teleoperation · Meta Quest",
+      "sourceAsset": "https://arclab-mit.github.io/beavr-landing/static/videos/teleop/flip_cube.mp4",
+      "note": "Short reference excerpt from another research or open-source robotics project. This is not Affan’s project footage."
+    }
+  },
+  {
+    "id": "fpv",
+    "url": "https://henryhuyu.github.io/DiffPhysDrone_Web/static/videos/fpv1.mp4",
+    "source": "https://henryhuyu.github.io/DiffPhysDrone_Web/",
+    "title": "Agile drone flight · forest FPV view",
+    "credit": "Yuang Zhang, Yu Hu, Yunlong Song, Danping Zou & Weiyao Lin · Differentiable Physics Drone project",
+    "type": "Research flight POV · autonomous flight",
+    "license": "CC BY-SA 4.0",
+    "preview": {
+      "video": "research/fpv-loop.mp4",
+      "gif": "research/fpv-loop.gif",
+      "poster": "research/fpv-poster.jpg",
+      "sourceUrl": "https://henryhuyu.github.io/DiffPhysDrone_Web/",
+      "title": "Agile drone flight · forest FPV view",
+      "credit": "Yuang Zhang, Yu Hu, Yunlong Song, Danping Zou & Weiyao Lin · Differentiable Physics Drone project",
+      "type": "Research flight POV · autonomous flight",
+      "sourceAsset": "https://henryhuyu.github.io/DiffPhysDrone_Web/static/videos/fpv1.mp4",
+      "note": "Short reference excerpt from another research or open-source robotics project. This is not Affan’s project footage."
+    }
+  },
+  {
+    "id": "fabrication",
+    "url": "https://user-images.githubusercontent.com/12387040/181996342-a18e718f-6d4d-4c5a-8da0-526d0404262c.gif",
+    "source": "https://github.com/Jerome-Graves/yertle",
+    "title": "Yertle · 3D-printed quadruped prototype",
+    "credit": "Jerome Graves · Yertle contributors",
+    "type": "3D-printed research prototype",
+    "license": "MIT",
+    "preview": {
+      "video": "research/fabrication-loop.mp4",
+      "gif": "research/fabrication-loop.gif",
+      "poster": "research/fabrication-poster.jpg",
+      "sourceUrl": "https://github.com/Jerome-Graves/yertle",
+      "title": "Yertle · 3D-printed quadruped prototype",
+      "credit": "Jerome Graves · Yertle contributors",
+      "type": "3D-printed research prototype",
+      "sourceAsset": "https://user-images.githubusercontent.com/12387040/181996342-a18e718f-6d4d-4c5a-8da0-526d0404262c.gif",
+      "note": "Short reference excerpt from another research or open-source robotics project. This is not Affan’s project footage."
+    }
+  }
+]

@@ -18,7 +18,19 @@
   dialog.innerHTML = '<header class="robotics-dialog-header"><div><span class="entry-label"></span><h2 id="robotics-dialog-title"></h2></div><button class="robotics-dialog-close" aria-label="Close robotics project notes">×</button></header><div class="robotics-dialog-body"><div class="robotics-dialog-visual"><img alt=""><span>CONCEPT ILLUSTRATION · NOT PROJECT PHOTOGRAPHY</span></div><div class="robotics-dialog-notes"></div></div>';
   document.body.append(dialog);
 
+  function updateStoryVideos() {
+    slides.forEach(slide => {
+      const video = slide.querySelector('video');
+      if (!video) return;
+      if (motionEnabled() && !paused && onScreen && !document.hidden && slide.classList.contains('is-active') && !dialog.open) video.play().catch(() => {});
+      else video.pause();
+    });
+    const video = dialog.querySelector('video');
+    if (video) { if (dialog.open && motionEnabled() && !document.hidden) video.play().catch(() => {}); else video.pause(); }
+  }
+
   function updateAutoplay() {
+    updateStoryVideos();
     clearTimeout(timer);
     timer = null;
     const enabled = motionEnabled();
@@ -29,7 +41,7 @@
       : paused ? 'Play automatic robotics showcase' : 'Pause automatic robotics showcase');
     const focused = root.contains(document.activeElement) && document.activeElement !== playButton;
     if (enabled && !paused && !hovering && !focused && onScreen && !root.closest('[hidden]') && !document.hidden && !dialog.open && slides.length > 1) {
-      timer = setTimeout(() => select(selected + 1), 6000);
+      timer = setTimeout(() => select(selected + 1), Number(root.dataset.autoplayInterval) || 1500);
     }
   }
 
@@ -69,8 +81,8 @@
       select(next, { manual: true, focus: event.target !== stage, announce: true });
     }
   });
-  root.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') { hovering = true; updateAutoplay(); } });
-  root.addEventListener('pointerleave', event => { if (event.pointerType === 'mouse') { hovering = false; updateAutoplay(); } });
+  stage.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') { hovering = true; updateAutoplay(); } });
+  stage.addEventListener('pointerleave', event => { if (event.pointerType === 'mouse') { hovering = false; updateAutoplay(); } });
   root.addEventListener('focusin', updateAutoplay);
   root.addEventListener('focusout', () => queueMicrotask(updateAutoplay));
 
@@ -108,7 +120,11 @@
       const image = dialog.querySelector('img');
       image.src = source.getAttribute('src');
       image.alt = source.getAttribute('alt');
-      dialog.querySelector('.robotics-dialog-visual span').textContent = slide.dataset.roboticsId === 'HeronM300restoration' ? 'CONCEPT ILLUSTRATION · NOT PROJECT PHOTOGRAPHY' : 'ORIGINAL PROJECT PHOTOGRAPH';
+      dialog.querySelector('.robotics-dialog-visual span').textContent = slide.dataset.mediaKind === 'concept' ? 'CONCEPT ILLUSTRATION · NOT PROJECT PHOTOGRAPHY' : slide.querySelector('video') ? 'ORIGINAL PHOTOS · LOOPING SLIDESHOW' : 'ORIGINAL PROJECT PHOTOGRAPH';
+      dialog.querySelector('.robotics-dialog-visual video')?.remove();
+      const originalLoop = slide.querySelector('video');
+      image.hidden = !!originalLoop;
+      if (originalLoop) { const loop = originalLoop.cloneNode(); loop.className = 'dialog-story-loop'; loop.controls = true; loop.muted = true; loop.loop = true; loop.playsInline = true; dialog.querySelector('.robotics-dialog-visual').prepend(loop); }
       const content = slide.querySelector('template').content.cloneNode(true);
       dialog.querySelector('.robotics-dialog-notes').replaceChildren(content);
       dialog.showModal();

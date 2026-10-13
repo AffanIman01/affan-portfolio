@@ -1,30 +1,103 @@
 (() => {
-  const root=document.querySelector('#robotics-lab'); if(!root)return;
-  const grid=root.querySelector('.robot-lab-grid'),status=root.querySelector('.robot-lab-status');
-  const reduced=matchMedia('(prefers-reduced-motion: reduce)'); let paused=false,items=[],opener=null;
-  const loopButton=root.querySelector('.robot-loop-toggle');
-  function scene(type){
-    const rotor=(x,y)=>`<g transform="translate(${x} ${y})"><circle r="25" fill="#1e3843" stroke="currentColor"/><g class="rotor"><ellipse rx="24" ry="4" fill="currentColor"/><ellipse rx="4" ry="24" fill="currentColor"/></g></g>`;
-    const wheel=(x,y)=>`<g transform="translate(${x} ${y})"><circle r="20" fill="#101922" stroke="currentColor" stroke-width="3"/><path class="rotor" d="M-14 0h28M0-14v28" stroke="currentColor" stroke-width="2"/></g>`;
-    let art='';
-    if(type==='uav'||type==='fpv')art=`<g class="float"><path d="m180 90 80 70m-80 0 80-70" stroke="currentColor" stroke-width="12"/><rect x="200" y="105" width="40" height="42" rx="12" fill="#293f4b" stroke="currentColor" stroke-width="3"/>${rotor(180,90)+rotor(260,90)+rotor(180,160)+rotor(260,160)}<circle cx="220" cy="144" r="7" fill="#e4caa0"/><path d="M203 162v15m34-15v15" stroke="currentColor" stroke-width="3"/></g>${type==='fpv'?'<path d="M65 70V48h28m254 0h28v22M65 190v22h28m254 0h28v-22M203 130h34m-17-17v34" stroke="currentColor" opacity=".55"/>':'<ellipse class="pulse" cx="220" cy="212" rx="65" ry="10" fill="none" stroke="currentColor"/>'}`;
-    else if(type==='amr')art=`<path d="M60 210h320" stroke="currentColor" opacity=".3"/><g class="drive"><path d="M156 136h124l15 45H145Z" fill="#243947" stroke="currentColor" stroke-width="3"/><rect x="187" y="111" width="57" height="27" rx="7" fill="#273d4a" stroke="currentColor"/><rect x="206" y="91" width="20" height="22" rx="4" fill="currentColor"/>${wheel(171,184)+wheel(266,184)}<path class="scan" d="m215 91-75-46q75-38 150 0Z" fill="currentColor" opacity=".12"/><circle cx="278" cy="153" r="5" fill="#e9cba4"/></g>`;
-    else if(type==='usv')art=`<g class="float"><path d="m133 146 145 0-26 39H155Z" fill="#294955" stroke="currentColor" stroke-width="3"/><path d="M171 146v-30h73v30M209 116V71m0 6 32 19h-32" fill="#1a2d38" stroke="currentColor" stroke-width="3"/><circle cx="233" cy="111" r="5" fill="#e0bd8a"/></g><g class="waves" fill="none" stroke="currentColor" opacity=".4"><path d="M-20 193q35-18 70 0t70 0t70 0t70 0t70 0t70 0t70 0M-20 212q35-18 70 0t70 0t70 0t70 0t70 0t70 0t70 0"/></g>`;
-    else if(type==='uuv')art=`<g class="float"><rect x="147" y="101" width="145" height="72" rx="16" fill="#243c4d" stroke="currentColor" stroke-width="3"/><path d="M163 93v89m112-89v89M156 123h127m-127 34h127" stroke="currentColor" stroke-width="5"/><circle cx="220" cy="138" r="18" fill="#0f202c" stroke="currentColor" stroke-width="3"/><circle cx="220" cy="138" r="9" fill="currentColor" opacity=".6"/><path d="m220 102 10-34 32-16 23-32" fill="none" stroke="currentColor" stroke-width="2"/></g><g class="bubbles" fill="none" stroke="currentColor"><circle cx="124" cy="168" r="5"/><circle cx="311" cy="127" r="8"/><circle cx="306" cy="196" r="4"/></g>`;
-    else if(type==='dog')art=`<path d="M92 209h255" stroke="currentColor" opacity=".25"/><g class="float-small"><rect x="160" y="105" width="103" height="45" rx="13" fill="#314352" stroke="currentColor" stroke-width="3"/><path d="m261 114 29-13 19 24-29 14Z" fill="#304453" stroke="currentColor" stroke-width="3"/><circle cx="295" cy="116" r="4" fill="#f3dab0"/><g class="leg-a"><path d="m175 145-16 29 21 29M247 145l-13 30 16 28" fill="none" stroke="currentColor" stroke-width="9"/></g><g class="leg-b"><path d="m184 145 21 29-20 29M254 145l22 28-17 30" fill="none" stroke="currentColor" stroke-width="9" opacity=".5"/></g></g>`;
-    else if(type==='humanoid')art=`<g><rect x="204" y="48" width="32" height="35" rx="13" fill="#445367" stroke="currentColor" stroke-width="2"/><path d="M211 64h18" stroke="#8cebdc" stroke-width="4"/><path d="M195 92h50l-5 67h-40Z" fill="#354757" stroke="currentColor" stroke-width="3"/><circle cx="220" cy="116" r="9" fill="currentColor" opacity=".4"/><path class="leg-a" d="m206 161-9 56M234 161l10 56" stroke="currentColor" stroke-width="13"/><path d="m194 97-19 40-5 22" fill="none" stroke="currentColor" stroke-width="10"/><g class="wave-arm"><path d="m244 98 21 28 19-41" fill="none" stroke="currentColor" stroke-width="10"/><circle cx="286" cy="80" r="8" fill="currentColor"/></g></g>`;
-    else if(type==='vr')art=`<g class="float"><rect x="153" y="95" width="133" height="75" rx="29" fill="#344556" stroke="currentColor" stroke-width="3"/><path d="M168 109q50-18 102 0v40q-50 20-102 0Z" fill="#0d1a2a" stroke="currentColor"/><circle cx="197" cy="128" r="10" fill="currentColor" opacity=".35"/><circle cx="244" cy="128" r="10" fill="currentColor" opacity=".35"/><path d="M153 120q-45-15-30 33m163-33q45-15 30 33" fill="none" stroke="currentColor" stroke-width="5"/></g><ellipse class="pulse" cx="220" cy="137" rx="143" ry="70" fill="none" stroke="currentColor" opacity=".3"/>`;
-    else if(type==='simulation')art=`<rect x="75" y="48" width="290" height="166" rx="12" fill="#121e2b" stroke="currentColor" stroke-width="2"/><path d="M93 68h105m-105 12h65M100 186h240M112 99v94m44-94v94m44-94v94m44-94v94m44-94v94m44-94v94M100 113h240m-240 36h240" stroke="currentColor" opacity=".2"/><path class="trace" d="M103 180h42l30-30h53l43-41h57" fill="none" stroke="currentColor" stroke-width="4"/><circle class="sim-dot" cx="103" cy="180" r="7" fill="#e5c89b"/>`;
-    else art=`<path d="M112 212V53h213v159M101 214h236" fill="none" stroke="currentColor" stroke-width="5"/><path d="M125 83h188M131 191h178" stroke="currentColor" stroke-width="3"/><g class="toolhead"><rect x="172" y="71" width="37" height="30" rx="4" fill="#324454" stroke="currentColor" stroke-width="2"/><path d="m182 101 9 14 8-14" fill="currentColor"/><path class="laser" d="M191 115v58" stroke="#eea783" stroke-width="2"/></g><path d="M169 184h100m-100-7h100m-91-7h83m-74-7h65m-56-7h47" stroke="currentColor" stroke-width="4" opacity=".8"/>`;
-    return `<svg viewBox="0 0 440 260" aria-hidden="true" class="robot-loop-svg"><path d="M40 225h360M40 35h360" stroke="currentColor" opacity=".08"/><ellipse cx="220" cy="220" rx="107" ry="9" fill="currentColor" opacity=".05"/>${art}</svg>`;
+  const root = document.querySelector('#robotics-lab'); if (!root) return;
+  const grid = root.querySelector('.robot-lab-grid'), status = root.querySelector('.robot-lab-status');
+  const loopButton = root.querySelector('.robot-loop-toggle'), reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const prev = root.querySelector('[data-lab-prev]'), next = root.querySelector('[data-lab-next]');
+  let paused = false, hovering = false, onScreen = false, items = [], selected = 0, timer, opener, activeFilter = 'all', manualScroll = false;
+  const make = (tag, cls, value) => { const el = document.createElement(tag); if (cls) el.className = cls; if (value) el.textContent = value; return el; };
+  const visibleCards = () => [...grid.querySelectorAll('.robot-lab-card:not([hidden])')];
+  const motion = () => !paused && !reduced.matches && window.portfolioMotionEnabled !== false && !document.hidden;
+  function media(item) {
+    const video = make('video', 'research-loop'); video.poster = item.preview.poster; video.dataset.previewSrc = item.preview.video;
+    video.muted = true; video.loop = true; video.playsInline = true; video.preload = 'none';
+    video.setAttribute('aria-label', item.preview.title + '. Reference footage by ' + item.preview.credit);
+    return video;
   }
-  const dialog=document.createElement('dialog');dialog.className='robot-lab-dialog';dialog.setAttribute('aria-labelledby','robot-lab-dialog-title');dialog.innerHTML='<header><div><span class="lab-dialog-label"></span><h2 id="robot-lab-dialog-title"></h2></div><button class="lab-close" aria-label="Close project details">×</button></header><div class="lab-dialog-layout"><div class="lab-dialog-media"></div><div class="lab-dialog-copy"></div></div>';document.body.append(dialog);
-  function sync(){const enabled=!paused&&!reduced.matches&&window.portfolioMotionEnabled!==false&&!document.hidden;root.classList.toggle('loops-paused',!enabled);dialog.classList.toggle('loops-paused',!enabled);loopButton.textContent=enabled?'Pause previews':'Play previews';loopButton.disabled=reduced.matches||window.portfolioMotionEnabled===false;loopButton.setAttribute('aria-pressed',String(enabled));}
-  loopButton.addEventListener('click',()=>{paused=!paused;sync()});window.addEventListener('portfolio-motion',sync);reduced.addEventListener('change',sync);document.addEventListener('visibilitychange',sync);
-  function open(item,button){opener=button;dialog.style.setProperty('--loop-accent',item.accent);dialog.querySelector('.lab-dialog-label').textContent=item.label+' · '+item.kind;dialog.querySelector('h2').textContent=item.title;dialog.querySelector('.lab-dialog-media').innerHTML=scene(item.id)+'<p>Animated sample · replace with original project footage</p>';const notes=dialog.querySelector('.lab-dialog-copy');notes.replaceChildren();const append=(tag,text)=>{const e=document.createElement(tag);e.textContent=text;notes.append(e)};append('h3','My experience');append('p',item.experience);append('h3','Case study outline');const ul=document.createElement('ul');item.focus.forEach(t=>{const li=document.createElement('li');li.textContent=t;ul.append(li)});notes.append(ul);append('h3','Media to add');append('p',item.media);append('h3','Project details');append('p','Exact title, dates, my role, hardware, software, challenges and verified results will be added. This preview demonstrates the presentation style.');dialog.showModal();sync()}
-  dialog.querySelector('.lab-close').onclick=()=>dialog.close();dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});dialog.addEventListener('close',()=>opener?.focus({preventScroll:true}));
-  const observer=new IntersectionObserver(entries=>entries.forEach(e=>e.target.classList.toggle('loop-visible',e.isIntersecting)),{threshold:.05});
-  fetch('robotics-projects.json').then(r=>{if(!r.ok)throw Error('Projects unavailable');return r.json()}).then(data=>{items=data;items.forEach(item=>{const card=document.createElement('button');card.className='robot-lab-card';card.type='button';card.dataset.category=item.category;card.style.setProperty('--loop-accent',item.accent);card.setAttribute('aria-label','View '+item.title+' details');card.setAttribute('aria-haspopup','dialog');card.innerHTML='<div class="robot-lab-visual">'+scene(item.id)+'<span class="loop-sample-label">ANIMATED SAMPLE</span></div><div class="robot-lab-card-copy"><span class="lab-kicker"></span><h3></h3><p></p><div class="lab-card-footer"><span></span><b aria-hidden="true">↗</b></div></div>';card.querySelector('.lab-kicker').textContent=item.label;card.querySelector('h3').textContent=item.title;card.querySelector('p').textContent=item.summary;card.querySelector('.lab-card-footer span').textContent=item.kind;card.onclick=()=>open(item,card);grid.append(card);observer.observe(card)});status.textContent=items.length+' showcases · select a card for details';sync()}).catch(()=>{status.textContent='Project previews could not load. Please refresh to try again.'});
-  root.querySelectorAll('[data-lab-filter]').forEach(button=>button.onclick=()=>{root.querySelectorAll('[data-lab-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));let count=0;grid.querySelectorAll('.robot-lab-card').forEach(card=>{card.hidden=button.dataset.labFilter!=='all'&&card.dataset.category!==button.dataset.labFilter;if(!card.hidden)count++});status.textContent=count+' showcases · select a card for details'});
+  const dialog = make('dialog', 'robot-lab-dialog'); dialog.setAttribute('aria-labelledby', 'robot-lab-dialog-title');
+  dialog.innerHTML = '<header><div><span class="lab-dialog-label"></span><h2 id="robot-lab-dialog-title"></h2></div><button type="button" class="lab-close" aria-label="Close project details">×</button></header><div class="lab-dialog-layout"><div class="lab-dialog-media"></div><div class="lab-dialog-copy"></div></div>';
+  document.body.append(dialog);
+  function updateVideos() {
+    [...grid.querySelectorAll('video'), ...dialog.querySelectorAll('video')].forEach(video => {
+      const inDialog = dialog.contains(video);
+      const card = video.closest('.robot-lab-card');
+      const play = motion() && (inDialog ? dialog.open : onScreen && card && !card.hidden && card.classList.contains('loop-visible') && !dialog.open);
+      if (play) { if (!video.getAttribute('src')) video.src = video.dataset.previewSrc; video.play().catch(() => {}); }
+      else video.pause();
+    });
+  }
+  function sync() {
+    clearTimeout(timer); timer = null;
+    loopButton.textContent = motion() ? 'Pause previews' : 'Play previews';
+    loopButton.disabled = reduced.matches || window.portfolioMotionEnabled === false;
+    loopButton.setAttribute('aria-pressed', String(motion()));
+    updateVideos();
+    const cards = visibleCards();
+    prev.disabled = next.disabled = cards.length < 2;
+    if (motion() && onScreen && !hovering && !grid.contains(document.activeElement) && !dialog.open && cards.length > 1) timer = setTimeout(() => select(selected + 1), 1500);
+  }
+  function select(index, manual = false) {
+    const cards = visibleCards(); if (!cards.length) return;
+    if (manual) paused = true;
+    selected = (index + cards.length) % cards.length;
+    cards.forEach((card, i) => card.classList.toggle('is-current', i === selected));
+    const box = grid.getBoundingClientRect();
+    grid.scrollTo({left:grid.scrollLeft + cards[selected].getBoundingClientRect().left - box.left, behavior:reduced.matches || window.portfolioMotionEnabled === false ? 'instant' : 'smooth'});
+    root.querySelector('.lab-carousel-position').textContent = (selected + 1) + ' / ' + cards.length;
+    sync();
+  }
+  function open(item, button) {
+    opener = button; dialog.style.setProperty('--loop-accent', item.accent);
+    dialog.querySelector('.lab-dialog-label').textContent = item.label + ' · ' + item.kind;
+    dialog.querySelector('h2').textContent = item.title;
+    const visual = dialog.querySelector('.lab-dialog-media'); visual.replaceChildren(media(item));
+    visual.append(make('p', 'research-reference-title', item.preview.title), make('p', 'research-reference-credit', item.preview.credit), make('p', 'research-reference-note', item.preview.type + ' · Reference preview, not my project footage.'));
+    const links = make('div', 'research-source-links');
+    [['Research source ↗', item.preview.sourceUrl], ['Open sample GIF ↗', item.preview.gif]].forEach(([label, url]) => { const link = make('a', '', label); link.href = url; link.target = '_blank'; link.rel = 'noopener noreferrer'; links.append(link); }); visual.append(links);
+    const notes = dialog.querySelector('.lab-dialog-copy'); notes.replaceChildren();
+    const append = (tag, text) => notes.append(make(tag, '', text));
+    append('h3', 'My experience'); append('p', item.experience);
+    append('h3', 'Case study outline'); const list = make('ul'); item.focus.forEach(text => list.append(make('li', '', text))); notes.append(list);
+    append('h3', 'My footage to add'); append('p', item.media);
+    append('h3', 'Project details'); append('p', 'Exact title, dates, my role, hardware, software, challenges and verified results will be added. The moving preview is credited reference material.');
+    dialog.showModal(); dialog.scrollTop = 0; sync();
+  }
+  dialog.querySelector('.lab-close').onclick = () => dialog.close();
+  dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+  dialog.addEventListener('close', () => { opener?.focus({preventScroll:true}); sync(); });
+  loopButton.onclick = () => { paused = !paused; sync(); };
+  prev.onclick = () => select(selected - 1, true); next.onclick = () => select(selected + 1, true);
+  grid.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') { hovering = true; sync(); } });
+  grid.addEventListener('pointerleave', event => { if (event.pointerType === 'mouse') { hovering = false; sync(); } });
+  grid.addEventListener('focusin', sync); grid.addEventListener('focusout', () => queueMicrotask(sync));
+  grid.addEventListener('pointerdown', event => { if (event.pointerType !== 'mouse') { paused = true; manualScroll = true; sync(); } }, {passive:true});
+  grid.addEventListener('wheel', event => { if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) { paused = true; manualScroll = true; sync(); } }, {passive:true});
+  grid.addEventListener('scrollend', () => {
+    if (!manualScroll) return; manualScroll = false;
+    const cards = visibleCards(), left = grid.getBoundingClientRect().left;
+    selected = cards.reduce((best, card, i) => Math.abs(card.getBoundingClientRect().left - left) < Math.abs(cards[best].getBoundingClientRect().left - left) ? i : best, 0);
+    cards.forEach((card, i) => card.classList.toggle('is-current', i === selected));
+    root.querySelector('.lab-carousel-position').textContent = (selected + 1) + ' / ' + cards.length;
+  });
+  grid.addEventListener('keydown', event => { if (event.target !== grid) return; const dir = event.key === 'ArrowRight' ? 1 : event.key === 'ArrowLeft' ? -1 : 0; if (dir) { event.preventDefault(); select(selected + dir, true); } });
+  const cardObserver = new IntersectionObserver(entries => { entries.forEach(entry => entry.target.classList.toggle('loop-visible', entry.isIntersecting)); updateVideos(); }, {root:grid, threshold:.1});
+  new IntersectionObserver(entries => { onScreen = entries[0].isIntersecting; sync(); }, {threshold:.1}).observe(grid);
+  new ResizeObserver(() => { updateVideos(); }).observe(grid);
+  window.addEventListener('portfolio-motion', sync); reduced.addEventListener('change', sync); document.addEventListener('visibilitychange', sync);
+  function filter(value) {
+    activeFilter = value; root.querySelectorAll('[data-lab-filter]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.labFilter === value)));
+    grid.querySelectorAll('.robot-lab-card').forEach(card => card.hidden = value !== 'all' && card.dataset.category !== value);
+    const count = visibleCards().length; status.textContent = count + ' showcases · credited research samples · tap a card for details'; selected = 0; select(0);
+  }
+  root.querySelectorAll('[data-lab-filter]').forEach(button => button.onclick = () => filter(button.dataset.labFilter));
+  fetch('robotics-projects.json').then(response => { if (!response.ok) throw Error('Projects unavailable'); return response.json(); }).then(data => {
+    items = data;
+    items.forEach(item => {
+      const card = make('button', 'robot-lab-card'); card.type = 'button'; card.dataset.category = item.category; card.style.setProperty('--loop-accent', item.accent); card.setAttribute('aria-label', 'View ' + item.title + ' details'); card.setAttribute('aria-haspopup', 'dialog');
+      const visual = make('div', 'robot-lab-visual'); visual.append(media(item), make('span', 'loop-sample-label', 'RESEARCH REFERENCE'));
+      const copy = make('div', 'robot-lab-card-copy'); copy.append(make('span', 'lab-kicker', item.label), make('h3', '', item.title), make('p', '', item.summary), make('span', 'lab-preview-source', item.preview.title));
+      const footer = make('div', 'lab-card-footer'); footer.append(make('span', '', item.kind), make('b', '', '↗')); footer.querySelector('b').setAttribute('aria-hidden', 'true'); copy.append(footer); card.append(visual, copy); card.onclick = () => open(item, card); grid.append(card); cardObserver.observe(card);
+    });
+    filter(activeFilter);
+  }).catch(() => { status.textContent = 'Project previews could not load. Please refresh.'; });
   sync();
 })();

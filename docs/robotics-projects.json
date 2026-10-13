@@ -1,12 +1,272 @@
 [
- {"id":"uav","title":"UAV systems","category":"platforms","label":"AERIAL ROBOTICS","kind":"Project · details to add","summary":"Aircraft, companion computing and vehicle integration.","experience":"I have UAV projects to showcase, building on my unmanned-systems and embedded-hardware experience.","focus":["Platform and flight-controller integration","Companion computing and telemetry","Simulation and test workflow"],"media":"A short take-off, hover or integration demonstration; include the platform and your contribution.","accent":"#8adfd4"},
- {"id":"amr","title":"Autonomous mobile robots","category":"platforms","label":"GROUND ROBOTICS","kind":"Project · details to add","summary":"Mobile platforms, sensing and navigation workflows.","experience":"I have an AMR project to showcase. The platform, implemented functions and test results will be added here.","focus":["Robot platform and sensor arrangement","Software and communication interfaces","Navigation or mobility demonstration"],"media":"A short robot-motion clip with a matching map or sensor view, where available.","accent":"#afbefc"},
- {"id":"usv","title":"Unmanned surface vehicles","category":"platforms","label":"SURFACE ROBOTICS","kind":"Project · details to add","summary":"Marine platforms, system integration and water testing.","experience":"I have USV projects to showcase, alongside the Heron restoration and gyrostabilizer work documented below.","focus":["Vehicle systems and integration","Communication and operator interface","Water-test setup and observed behaviour"],"media":"A short pool or water-operation clip, plus a clear view of the integrated hardware.","accent":"#81c7fa"},
- {"id":"uuv","title":"Underwater robotics","category":"platforms","label":"UUV / ROV","kind":"Project · details to add","summary":"Underwater platforms, tethered systems and integration.","experience":"I have underwater-robotics work to showcase. This slot will document the vehicle, system connections and my contribution.","focus":["Vehicle and tether architecture","Operator interface and video connection","Integration and underwater test sequence"],"media":"A short underwater or deployment clip with an annotated system overview.","accent":"#7bbfea"},
- {"id":"simulation","title":"Simulation & control","category":"development","label":"VIRTUAL TESTING","kind":"Project · details to add","summary":"Develop and observe robot behaviour before hardware trials.","experience":"Simulation is part of my robotics project experience. This space is ready for a selected simulation project and its actual results.","focus":["Simulator and model configuration","Control inputs and observed response","Comparison with hardware, where tested"],"media":"A screen recording with the simulation, controls and meaningful plots visible.","accent":"#c1a0ef"},
- {"id":"dog","title":"Robot dog exploration","category":"exploration","label":"LEGGED ROBOTICS","kind":"Hands-on exposure","summary":"Exploring a quadruped platform and its behaviour.","experience":"I have hands-on experience using a robot dog. The model, activities and observations will be added here.","focus":["Platform and operating modes","Hands-on activities performed","Observations and lessons learned"],"media":"A short clip of the actual robot and the activity you performed.","accent":"#e7bb83"},
- {"id":"humanoid","title":"AGIBOT humanoid","category":"exploration","label":"HUMANOID ROBOTICS","kind":"Hands-on exposure","summary":"Experience interacting with a humanoid platform.","experience":"I have hands-on exposure to an AGIBOT humanoid. This is an experience showcase; no robot-development role is claimed.","focus":["Exact AGIBOT model and setting","Interaction or operating experience","Observations and learning"],"media":"A short clip or photograph showing the interaction and your role.","accent":"#bfc4ef"},
- {"id":"vr","title":"PICO 4 Ultra VR","category":"exploration","label":"IMMERSIVE TECHNOLOGY","kind":"Hands-on exposure","summary":"Exploring VR interaction and immersive environments.","experience":"I have experience using the PICO 4 Ultra VR headset. The application and activities will be added to this showcase.","focus":["Application and interaction mode","Controllers and user workflow","What I explored and learned"],"media":"A headset-use photo and a short first-person screen recording, where available.","accent":"#cba8f5"},
- {"id":"fpv","title":"FPV drone piloting","category":"exploration","label":"FLIGHT EXPERIENCE","kind":"Hands-on experience","summary":"A pilot’s perspective on aircraft behaviour and control.","experience":"I have experience piloting FPV drones. This slot is ready for my aircraft details and selected flight footage.","focus":["Aircraft and radio setup","Flight environment and piloting activity","Observations from hands-on flying"],"media":"A short original FPV flight clip and a clear aircraft photo.","accent":"#f0af87"},
- {"id":"fabrication","title":"Rapid prototyping","category":"development","label":"LASER CUTTING / 3D PRINTING","kind":"Hands-on experience","summary":"Turn CAD concepts into parts for physical prototypes.","experience":"I use laser cutting and 3D printing for rapid prototyping. Selected parts and the design iterations behind them will be added here.","focus":["Part purpose and CAD design","Manufacturing process and material","Fit checks and design iterations"],"media":"A short fabrication time-lapse, followed by the finished part fitted to the prototype.","accent":"#e3c08d"}
+  {
+    "id": "uav",
+    "title": "UAV systems",
+    "category": "platforms",
+    "label": "AERIAL ROBOTICS",
+    "kind": "Project · details to add",
+    "summary": "Aircraft, companion computing and vehicle integration.",
+    "experience": "I have UAV projects to showcase, building on my unmanned-systems and embedded-hardware experience.",
+    "focus": [
+      "Platform and flight-controller integration",
+      "Companion computing and telemetry",
+      "Simulation and test workflow"
+    ],
+    "media": "A short take-off, hover or integration demonstration; include the platform and your contribution.",
+    "accent": "#8adfd4",
+    "preview": {
+      "video": "research/uav-loop.mp4",
+      "gif": "research/uav-loop.gif",
+      "poster": "research/uav-poster.jpg",
+      "sourceUrl": "https://henryhuyu.github.io/DiffPhysDrone_Web/",
+      "title": "Agile flight with dynamic obstacles",
+      "credit": "Yuang Zhang, Yu Hu, Yunlong Song, Danping Zou & Weiyao Lin · Differentiable Physics Drone project",
+      "type": "Real-world research footage",
+      "sourceAsset": "https://henryhuyu.github.io/DiffPhysDrone_Web/static/videos/dynamic.mp4",
+      "note": "Short reference excerpt from another research or open-source robotics project. This is not Affan’s project footage."
+    }
+  },
+  {
+    "id": "amr",
+    "title": "Autonomous mobile robots",
+    "category": "platforms",
+    "label": "GROUND ROBOTICS",
+    "kind": "Project · details to add",
+    "summary": "Mobile platforms, sensing and navigation workflows.",
+    "experience": "I have an AMR project to showcase. The platform, implemented functions and test results will be added here.",
+    "focus": [
+      "Robot platform and sensor arrangement",
+      "Software and communication interfaces",
+      "Navigation or mobility demonstration"
+    ],
+    "media": "A short robot-motion clip with a matching map or sensor view, where available.",
+    "accent": "#afbefc",
+    "preview": {
+      "video": "research/amr-loop.mp4",
+      "gif": "research/amr-loop.gif",
+      "poster": "research/amr-poster.jpg",
+      "sourceUrl": "https://github.com/reiniscimurs/GDAE",
+      "title": "Goal-driven autonomous exploration",
+      "credit": "Reinis Cimurs et al. · GDAE / ICRA 2022",
+      "type": "Navigation research visualisation",
+      "sourceAsset": "https://raw.githubusercontent.com/reiniscimurs/GDAM/main/experiments/Gifs/robotworldexp3.gif",
+      "note": "Short reference excerpt from another research or open-source robotics project. This is not Affan’s project footage."
+    }
+  },
+  {
+    "id": "usv",
+    "title": "Unmanned surface vehicles",
+    "category": "platforms",
+    "label": "SURFACE ROBOTICS",
+    "kind": "Project · details to add",
+    "summary": "Marine platforms, system integration and water testing.",
+    "experience": "I have USV projects to showcase, alongside the Heron restoration and gyrostabilizer work documented below.",
+    "focus": [
+      "Vehicle systems and integration",
+      "Communication and operator interface",
+      "Water-test setup and observed behaviour"
+    ],
+    "media": "A short pool or water-operation clip, plus a clear view of the integrated hardware.",
+    "accent": "#81c7fa",
+    "preview": {
+      "video": "research/usv-loop.mp4",
+      "gif": "research/usv-loop.gif",
+      "poster": "research/usv-poster.jpg",
+      "sourceUrl": "https://github.com/RyanXu0428/LLM4SAC",
+      "title": "Surface-vehicle docking study",
+      "credit": "LLM4SAC project contributors",
+      "type": "Published surface-vehicle demonstration",
+      "sourceAsset": "https://raw.githubusercontent.com/RyanXu0428/LLM4SAC/main/gif/llm4sac.gif",
+      "note": "Short reference excerpt from another research or open-source robotics project. This is not Affan’s project footage."
+    }
+  },
+  {
+    "id": "uuv",
+    "title": "Underwater robotics",
+    "category": "platforms",
+    "label": "UUV / ROV",
+    "kind": "Project · details to add",
+    "summary": "Underwater platforms, tethered systems and integration.",
+    "experience": "I have underwater-robotics work to showcase. This slot will document the vehicle, system connections and my contribution.",
+    "focus": [
+      "Vehicle and tether architecture",
+      "Operator interface and video connection",
+      "Integration and underwater test sequence"
+    ],
+    "media": "A short underwater or deployment clip with an annotated system overview.",
+    "accent": "#7bbfea",
+    "preview": {
+      "video": "research/uuv-loop.mp4",
+      "gif": "research/uuv-loop.gif",
+      "poster": "research/uuv-poster.jpg",
+      "sourceUrl": "https://github.com/KSHITIJBITHEL/Underwater-ROV",
+      "title": "Underwater ROV prototype demonstration",
+      "credit": "Team Epsilon · IIT Roorkee · Smart India Hackathon 2020",
+      "type": "Physical prototype demonstration",
+      "sourceAsset": "https://raw.githubusercontent.com/KSHITIJBITHEL/Underwater-ROV/main/prototype_short.gif",
+      "note": "Short reference excerpt from another research or open-source robotics project. This is not Affan’s project footage."
+    }
+  },
+  {
+    "id": "simulation",
+    "title": "Simulation & control",
+    "category": "development",
+    "label": "VIRTUAL TESTING",
+    "kind": "Project · details to add",
+    "summary": "Develop and observe robot behaviour before hardware trials.",
+    "experience": "Simulation is part of my robotics project experience. This space is ready for a selected simulation project and its actual results.",
+    "focus": [
+      "Simulator and model configuration",
+      "Control inputs and observed response",
+      "Comparison with hardware, where tested"
+    ],
+    "media": "A screen recording with the simulation, controls and meaningful plots visible.",
+    "accent": "#c1a0ef",
+    "preview": {
+      "video": "research/simulation-loop.mp4",
+      "gif": "research/simulation-loop.gif",
+      "poster": "research/simulation-poster.jpg",
+      "sourceUrl": "https://github.com/md-jawad-117/Deep-Pivot-Sub",
+      "title": "Underwater vehicle simulation",
+      "credit": "Deep-Pivot-Sub project contributors",
+      "type": "Research simulation",
+      "sourceAsset": "https://raw.githubusercontent.com/md-jawad-117/Deep-Pivot-Sub/main/results/sim.gif",
+      "note": "Short reference excerpt from another research or open-source robotics project. This is not Affan’s project footage."
+    }
+  },
+  {
+    "id": "dog",
+    "title": "Robot dog exploration",
+    "category": "exploration",
+    "label": "LEGGED ROBOTICS",
+    "kind": "Hands-on exposure",
+    "summary": "Exploring a quadruped platform and its behaviour.",
+    "experience": "I have hands-on experience using a robot dog. The model, activities and observations will be added here.",
+    "focus": [
+      "Platform and operating modes",
+      "Hands-on activities performed",
+      "Observations and lessons learned"
+    ],
+    "media": "A short clip of the actual robot and the activity you performed.",
+    "accent": "#e7bb83",
+    "preview": {
+      "video": "research/dog-loop.mp4",
+      "gif": "research/dog-loop.gif",
+      "poster": "research/dog-poster.jpg",
+      "sourceUrl": "https://extreme-parkour.github.io/",
+      "title": "Extreme Parkour · quadruped locomotion",
+      "credit": "Extreme Parkour project authors",
+      "type": "Real-world research footage",
+      "sourceAsset": "https://extreme-parkour.github.io/resources/Robustness/Robustness-1-comp.mp4",
+      "note": "Short reference excerpt from another research or open-source robotics project. This is not Affan’s project footage."
+    }
+  },
+  {
+    "id": "humanoid",
+    "title": "AGIBOT humanoid",
+    "category": "exploration",
+    "label": "HUMANOID ROBOTICS",
+    "kind": "Hands-on exposure",
+    "summary": "Experience interacting with a humanoid platform.",
+    "experience": "I have hands-on exposure to an AGIBOT humanoid. This is an experience showcase; no robot-development role is claimed.",
+    "focus": [
+      "Exact AGIBOT model and setting",
+      "Interaction or operating experience",
+      "Observations and learning"
+    ],
+    "media": "A short clip or photograph showing the interaction and your role.",
+    "accent": "#bfc4ef",
+    "preview": {
+      "video": "research/humanoid-loop.mp4",
+      "gif": "research/humanoid-loop.gif",
+      "poster": "research/humanoid-poster.jpg",
+      "sourceUrl": "https://github.com/OpenDriveLab/AgiBot-World",
+      "title": "AgiBot World · garment folding",
+      "credit": "AgiBot World · OpenDriveLab / AGIBOT",
+      "type": "Real-world research footage",
+      "sourceAsset": "https://raw.githubusercontent.com/OpenDriveLab/AgiBot-World/main/assets/g1_fold_shirts.gif",
+      "note": "Short reference excerpt from another research or open-source robotics project. This is not Affan’s project footage."
+    }
+  },
+  {
+    "id": "vr",
+    "title": "PICO 4 Ultra VR",
+    "category": "exploration",
+    "label": "IMMERSIVE TECHNOLOGY",
+    "kind": "Hands-on exposure",
+    "summary": "Exploring VR interaction and immersive environments.",
+    "experience": "I have experience using the PICO 4 Ultra VR headset. The application and activities will be added to this showcase.",
+    "focus": [
+      "Application and interaction mode",
+      "Controllers and user workflow",
+      "What I explored and learned"
+    ],
+    "media": "A headset-use photo and a short first-person screen recording, where available.",
+    "accent": "#cba8f5",
+    "preview": {
+      "video": "research/vr-loop.mp4",
+      "gif": "research/vr-loop.gif",
+      "poster": "research/vr-poster.jpg",
+      "sourceUrl": "https://arclab-mit.github.io/beavr-landing/",
+      "title": "BEAVR · VR-controlled manipulation",
+      "credit": "BEAVR project · MIT ARCLab",
+      "type": "Research VR teleoperation · Meta Quest",
+      "sourceAsset": "https://arclab-mit.github.io/beavr-landing/static/videos/teleop/flip_cube.mp4",
+      "note": "Short reference excerpt from another research or open-source robotics project. This is not Affan’s project footage."
+    }
+  },
+  {
+    "id": "fpv",
+    "title": "FPV drone piloting",
+    "category": "exploration",
+    "label": "FLIGHT EXPERIENCE",
+    "kind": "Hands-on experience",
+    "summary": "A pilot’s perspective on aircraft behaviour and control.",
+    "experience": "I have experience piloting FPV drones. This slot is ready for my aircraft details and selected flight footage.",
+    "focus": [
+      "Aircraft and radio setup",
+      "Flight environment and piloting activity",
+      "Observations from hands-on flying"
+    ],
+    "media": "A short original FPV flight clip and a clear aircraft photo.",
+    "accent": "#f0af87",
+    "preview": {
+      "video": "research/fpv-loop.mp4",
+      "gif": "research/fpv-loop.gif",
+      "poster": "research/fpv-poster.jpg",
+      "sourceUrl": "https://henryhuyu.github.io/DiffPhysDrone_Web/",
+      "title": "Agile drone flight · forest FPV view",
+      "credit": "Yuang Zhang, Yu Hu, Yunlong Song, Danping Zou & Weiyao Lin · Differentiable Physics Drone project",
+      "type": "Research flight POV · autonomous flight",
+      "sourceAsset": "https://henryhuyu.github.io/DiffPhysDrone_Web/static/videos/fpv1.mp4",
+      "note": "Short reference excerpt from another research or open-source robotics project. This is not Affan’s project footage."
+    }
+  },
+  {
+    "id": "fabrication",
+    "title": "Rapid prototyping",
+    "category": "development",
+    "label": "LASER CUTTING / 3D PRINTING",
+    "kind": "Hands-on experience",
+    "summary": "Turn CAD concepts into parts for physical prototypes.",
+    "experience": "I use laser cutting and 3D printing for rapid prototyping. Selected parts and the design iterations behind them will be added here.",
+    "focus": [
+      "Part purpose and CAD design",
+      "Manufacturing process and material",
+      "Fit checks and design iterations"
+    ],
+    "media": "A short fabrication time-lapse, followed by the finished part fitted to the prototype.",
+    "accent": "#e3c08d",
+    "preview": {
+      "video": "research/fabrication-loop.mp4",
+      "gif": "research/fabrication-loop.gif",
+      "poster": "research/fabrication-poster.jpg",
+      "sourceUrl": "https://github.com/Jerome-Graves/yertle",
+      "title": "Yertle · 3D-printed quadruped prototype",
+      "credit": "Jerome Graves · Yertle contributors",
+      "type": "3D-printed research prototype",
+      "sourceAsset": "https://user-images.githubusercontent.com/12387040/181996342-a18e718f-6d4d-4c5a-8da0-526d0404262c.gif",
+      "note": "Short reference excerpt from another research or open-source robotics project. This is not Affan’s project footage."
+    }
+  }
 ]
