@@ -4,9 +4,9 @@ const nav=document.querySelector('.island-nav'),menu=nav.querySelector('.island-
 addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>80),{passive:true});
 menu.onclick=()=>{const open=nav.classList.toggle('menu-open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'×':'☰';menu.setAttribute('aria-label',open?'Close navigation':'Open navigation')};
 nav.querySelectorAll('.island-brand,.island-contact').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('menu-open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Open navigation');menu.textContent='☰'}));
-const hashNames={ic:'ic-design',robotics:'robotics',credentials:'credentials',about:'about',all:'all-images'};
-const areaTargets={ic:'#home',robotics:'#robotics-profile',credentials:'#credentials-profile',about:'#about-profile'};
-const descriptions={ic:'IC Design · Layout screenshots, automation examples, and a workstation photo.',robotics:'Robotics · Full project photos and close-ups of the hardware you integrated.',credentials:'Credentials · Original badge artwork and complete, readable certificates.',about:'About Me · Your portrait, teamwork, and engineering journey.',all:'All 10 image slots · A complete visual checklist for your portfolio.'};
+const hashNames={ic:'ic-design',robotics:'robotics',software:'software',credentials:'credentials',about:'about',all:'all-images'};
+const areaTargets={ic:'#home',robotics:'#robotics-profile',software:'#software-profile',credentials:'#credentials-profile',about:'#about-profile'};
+const descriptions={ic:'IC Design · Layout screenshots, automation examples, and a workstation photo.',robotics:'Robotics · Full project photos and close-ups of the hardware you integrated.',software:'Software & AI · Programming, browser experiences and playable engineering simulations.',credentials:'Credentials · Original badge artwork and complete, readable certificates.',about:'About Me · Your portrait, teamwork, and engineering journey.',all:'All 10 image slots · A complete visual checklist for your portfolio.'};
 const imageGuide=document.querySelector('#portfolio-image-guidance');
 function closeMenu(){nav.classList.remove('menu-open');menu.setAttribute('aria-expanded','false');menu.textContent='☰';menu.setAttribute('aria-label','Open navigation')}
 function filterPhotos(category){

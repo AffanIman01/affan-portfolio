@@ -203,5 +203,29 @@ export const photos = {
     "imageNote": "D1 Edu product reference",
     "imageSource": "https://store.agibot.com/products/d1-edu",
     "imageCredit": "AGIBOT"
+  },
+  "axis5525": {
+    "image": "hardware/axis5525.webp",
+    "imageNote": "AXIS 5525 family reference \u00b7 M5525-E shown",
+    "imageSource": "https://www.axis.com/products/axis-m5525-e",
+    "imageCredit": "Axis Communications"
+  },
+  "hikvisionptz": {
+    "image": "hardware/hikvisionptz.webp",
+    "imageNote": "Hikvision PTZ family reference \u00b7 Exact model unspecified",
+    "imageSource": "https://www.hikvision.net.my/ip-products/ptz-cameras",
+    "imageCredit": "Hikvision Malaysia"
+  },
+  "vlp32": {
+    "image": "hardware/vlp32.webp",
+    "imageNote": "VLP-32 family reference \u00b7 VLP-32C Ultra Puck shown",
+    "imageSource": "https://www.mapix.com/lidar-sensors/velodyne-lidar/velodyne-vlp-32c/",
+    "imageCredit": "Velodyne via Mapix Technologies"
+  },
+  "c922": {
+    "image": "hardware/c922.webp",
+    "imageNote": "C922 Pro product reference",
+    "imageSource": "https://www.logitech.com/en-us/shop/p/c922-pro-stream-webcam",
+    "imageCredit": "Logitech"
   }
 };

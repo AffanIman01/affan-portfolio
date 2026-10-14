@@ -1,0 +1,10 @@
+import {build} from 'esbuild';
+import {mkdir,writeFile,copyFile} from 'node:fs/promises';
+import {execFileSync} from 'node:child_process';
+import path from 'node:path';
+await mkdir('dist',{recursive:true});
+await build({entryPoints:['src/main.tsx'],outdir:'dist',entryNames:'game',chunkNames:'chunks/[name]-[hash]',bundle:true,format:'esm',splitting:true,minify:true,jsx:'automatic',platform:'browser',target:'es2020',alias:{'@':path.resolve('src')},define:{'process.env.NODE_ENV':'"production"'}});
+execFileSync(process.execPath,['node_modules/@tailwindcss/cli/dist/index.mjs','-i','src/app/globals.css','-o','dist/style.css','--minify'],{stdio:'inherit'});
+await writeFile('dist/index.html','<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Harvest Day · Robocon 2024</title><meta name="description" content="Affan Iman’s interactive Robocon 2024 robotics simulator. Play directly in your browser."><link rel="stylesheet" href="./style.css"></head><body><div id="root"></div><script type="module" src="./game.js"></script></body></html>');
+await copyFile('node_modules/three/LICENSE','dist/THREE-LICENSE.txt');
+console.log('Robocon 2024 static browser build ready');
