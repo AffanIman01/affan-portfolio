@@ -32,3 +32,28 @@
 @media(max-width:1050px){.software-skill-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.software-project-grid{gap:15px}.software-project-copy{padding:23px 18px}.island-links{gap:12px!important}.island-links a{font-size:11px!important}}
 @media(max-width:760px){.software-demo-heading{display:block}.software-demo-heading>p{max-width:none;margin-top:16px}.software-project-grid{grid-template-columns:1fr}.software-project-art{height:170px}.software-project-art>strong{font-size:72px}.software-project-copy>p{font-size:14px}.software-project-actions a{font-size:12px}.software-demo-note{font-size:12px}.software-skill-grid{gap:10px;margin-bottom:46px}.software-skill-grid>div{padding:19px 16px}.software-skill-grid h3{font-size:17px}.mobile-tabbar a{font-size:10px!important;min-width:0}.mobile-tabbar span{white-space:nowrap}}
 @media(max-width:380px){.software-skill-grid{grid-template-columns:1fr}}
+
+/* Horizontal Robocon collection, with a glimpse of the next game. */
+.robocon-carousel{min-width:0}
+.robocon-carousel .software-project-grid{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:#53697d #142330;padding:3px 3px 17px;scroll-padding-left:3px;overscroll-behavior-x:contain}
+.robocon-carousel .software-project{flex:0 0 min(520px,76%);scroll-snap-align:start;scroll-snap-stop:always;min-width:0;transition:border-color .3s}
+.robocon-carousel .software-project-grid::after{content:'';flex:0 0 max(0px,calc(100% - min(520px,76%) - 24px))}
+.robocon-carousel .software-project.is-current{border-color:#aebfea}
+.robocon-carousel .software-project-art{height:auto;padding:0;aspect-ratio:16/9;background:#192735}
+.software-project-art img{display:block;width:100%;height:100%;object-fit:cover}
+.software-project-art .robocon-theme-year{position:absolute;top:18px;left:18px;background:#0c192bdd;padding:9px 12px;border:1px solid #c6d7ee30;border-radius:6px;font-size:10px;letter-spacing:.15em;color:#f1f5fb;z-index:1}
+.software-project-art .robocon-theme-label{position:absolute;bottom:12px;right:13px;background:#0d1825d9;color:#cfdae6;font-size:8px;letter-spacing:.1em;padding:5px 8px;border-radius:4px}
+.robocon-carousel-controls{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:17px 3px 0}
+.robocon-carousel-controls>p{font-size:11px;color:#aabed0;line-height:1.8;margin:0}
+.robocon-carousel-motion{display:block;font-size:10px;color:#7f99ae}
+.robocon-carousel-controls>div{display:flex;align-items:center;gap:9px}
+.robocon-carousel-position{font-size:12px;color:#bfd0e2;font-variant-numeric:tabular-nums;margin-right:10px;min-width:35px}
+.robocon-carousel-controls button{width:44px;height:44px;display:grid;place-items:center;border:1px solid #425b70;border-radius:50%;background:#152636;color:#e3eaf3;font-size:20px;cursor:pointer}
+.robocon-carousel-controls [data-robocon-play]{font-size:13px}
+.robocon-carousel-controls button:hover{background:#233b50;border-color:#aebfea}
+.robocon-carousel-controls button:disabled{opacity:.4;cursor:default}
+.robocon-carousel button:focus-visible,.robocon-carousel .software-project-grid:focus-visible{outline:2px solid #b2c7e4;outline-offset:4px}
+.robocon-carousel-announcement{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+@media(max-width:760px){.robocon-carousel .software-project-grid{gap:16px}.robocon-carousel .software-project{flex-basis:88%}.robocon-carousel-controls{gap:12px}.robocon-carousel-controls>p{font-size:10px}.robocon-carousel-position{margin-right:2px}.software-project-art .robocon-theme-year{top:12px;left:12px;font-size:9px;padding:7px 9px}.software-project-art .robocon-theme-label{font-size:7px;bottom:8px;right:8px}}
+@media(prefers-reduced-motion:reduce){.robocon-carousel .software-project{transition:none}}
+@media(max-width:760px){.robocon-carousel .software-project-grid::after{flex-basis:max(0px,calc(12% - 16px))}}
