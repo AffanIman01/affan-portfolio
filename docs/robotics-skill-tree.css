@@ -1,0 +1,41 @@
+.robotics-skillmap{margin:45px 0 70px;color:#e6edf1;min-width:0}
+.robotics-skill-heading{display:flex;align-items:end;justify-content:space-between;gap:36px;margin-bottom:30px}
+.robotics-skill-heading .section-eyebrow{font-size:10px;letter-spacing:.14em;color:#a6dbd1}
+.robotics-skill-heading h3{font-size:clamp(28px,3vw,37px);line-height:1.2;letter-spacing:-1px;margin:12px 0 0}
+.robotics-skill-heading>p{font-size:13px;line-height:1.8;max-width:310px;color:#9dafbf;margin:0}
+.robotics-skill-layout{display:grid;grid-template-columns:245px minmax(0,1fr);gap:45px;align-items:center}
+.robotics-skill-root{position:relative;border:1px solid #344d51;border-radius:22px;background:#0c0f11;text-align:center;padding:0 20px 25px;min-width:0}
+.robotics-skill-root::after{content:'';position:absolute;top:50%;left:100%;width:46px;height:1px;background:linear-gradient(90deg,#a0d5c7,#405a60)}
+.robotics-guide-visual{width:100%;height:307px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.robotics-guide-visual img{display:block;width:auto;max-width:100%;height:100%;object-fit:contain;mix-blend-mode:lighten}
+.robotics-root-label{display:block;font-size:8px;letter-spacing:.15em;color:#a1c9c1;line-height:1.7}
+.robotics-guide-copy h4{font-size:24px;letter-spacing:-.5px;line-height:1.23;margin:12px 0}
+.robotics-guide-copy p{font-size:12px;color:#93a8b8;line-height:1.7;margin:0}
+.robotics-guide-copy a{display:inline-flex;align-items:center;justify-content:center;gap:22px;min-height:44px;color:#bcdfd9;font-size:11px;text-decoration:none;margin-top:12px}
+.robotics-guide-copy a:focus-visible,.robotics-skill-node summary:focus-visible{outline:2px solid #a5ded2;outline-offset:5px;border-radius:5px}
+.robotics-skill-branches{position:relative;min-width:0}
+.robotics-tree-label{display:flex;align-items:center;gap:9px;margin:0 0 22px;font-size:9px;letter-spacing:.1em;color:#b0c5cc;line-height:1.6}
+.robotics-tree-label>span{height:6px;width:6px;flex-shrink:0;border-radius:50%;background:#a5ddd3;box-shadow:0 0 0 4px #a5ddd311}
+.robotics-tree-label small{font-size:10px;letter-spacing:0;color:#8da5b4;margin-left:auto}
+.robotics-skill-nodes{position:relative;padding-left:28px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 26px;align-items:start}
+.robotics-skill-nodes::before{content:'';position:absolute;left:0;top:35px;bottom:35px;width:1px;background:linear-gradient(#405a60,#7aacaa 45%,#405a60)}
+.robotics-skill-node{position:relative;min-width:0;border:1px solid #344653;border-radius:14px;background:#131f2a;transition:border-color .2s,background .2s}
+.robotics-skill-node::before{content:'';position:absolute;left:-28px;top:35px;width:27px;height:1px;background:#4c6970}
+.robotics-skill-node::after{content:'';position:absolute;left:-4px;top:32px;width:6px;height:6px;border-radius:50%;background:var(--branch-color);box-shadow:0 0 0 4px #101c26}
+.robotics-skill-node summary{list-style:none;cursor:pointer;padding:21px 20px 20px;min-height:163px;box-sizing:border-box}
+.robotics-skill-node summary::-webkit-details-marker{display:none}
+.robotics-node-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.robotics-node-number{font-size:9px;letter-spacing:.1em;color:var(--branch-color)}
+.robotics-node-plus{font-size:19px;font-weight:400;line-height:1;color:#9fb3c1;transition:transform .2s}
+.robotics-skill-node h4{font-size:18px;line-height:1.3;letter-spacing:-.3px;margin:16px 0 9px}
+.robotics-skill-node summary p{font-size:11px;line-height:1.7;color:#a6bac8;margin:0 0 14px}
+.robotics-node-status{font-size:9px;line-height:1.6;color:#8fa7b8}
+.robotics-skill-node:hover,.robotics-skill-node[open]{border-color:var(--branch-color);background:#172633}
+.robotics-skill-node[open] .robotics-node-plus{transform:rotate(45deg)}
+.robotics-node-detail{border-top:1px solid #344653;padding:17px 20px 20px}
+.robotics-node-detail p,.robotics-node-detail li{font-size:12px;line-height:1.8;color:#aec1ce}
+.robotics-node-detail p{margin:0 0 14px}.robotics-node-detail ul{padding-left:16px;margin:0}.robotics-node-detail li+li{margin-top:7px}
+@media(max-width:1050px){.robotics-skill-layout{grid-template-columns:210px minmax(0,1fr);gap:30px}.robotics-skill-root{padding-left:12px;padding-right:12px}.robotics-skill-root::after{width:31px}.robotics-guide-visual{height:280px}.robotics-skill-nodes{gap:18px}.robotics-skill-node h4{font-size:16px}.robotics-skill-node summary{padding:19px 15px;min-height:177px}.robotics-skill-node:nth-child(even)::before{width:18px;left:-19px}}
+@media(max-width:760px){.robotics-skillmap{margin:32px 0 45px}.robotics-skill-heading{display:block;margin-bottom:25px}.robotics-skill-heading h3{font-size:29px;max-width:360px}.robotics-skill-heading>p{margin-top:15px;max-width:560px;font-size:14px}.robotics-skill-layout{grid-template-columns:1fr;gap:30px}.robotics-skill-root{display:grid;grid-template-columns:160px 1fr;align-items:center;text-align:left;padding:0 20px 0 3px;max-width:100%;border-radius:17px}.robotics-skill-root::after{left:31px;top:100%;width:1px;height:31px}.robotics-guide-visual{height:240px}.robotics-guide-copy h4{font-size:23px}.robotics-guide-copy p{font-size:12px}.robotics-root-label{font-size:8px}.robotics-guide-copy a{font-size:11px;gap:12px}.robotics-tree-label{padding-left:28px}.robotics-skill-nodes{padding-left:31px;gap:17px}.robotics-skill-node summary{min-height:171px}.robotics-skill-node h4{font-size:17px}.robotics-node-status{font-size:10px}.robotics-skill-node summary p{font-size:12px}.robotics-skill-node::before{width:30px;left:-32px}.robotics-skill-node:nth-child(even)::before{width:17px;left:-18px}.robotics-node-detail p,.robotics-node-detail li{font-size:13px}}
+@media(max-width:520px){.robotics-skill-root{grid-template-columns:135px minmax(0,1fr);padding-right:15px}.robotics-guide-visual{height:230px}.robotics-guide-copy h4{font-size:21px}.robotics-guide-copy p{font-size:11px}.robotics-guide-copy a{font-size:10px;gap:10px}.robotics-root-label{font-size:7px}.robotics-skill-nodes{grid-template-columns:1fr}.robotics-skill-node summary{min-height:151px;padding:21px}.robotics-skill-node h4{font-size:20px;margin:13px 0 8px}.robotics-skill-node summary p{font-size:13px;margin-bottom:12px}.robotics-node-number{font-size:10px}.robotics-node-status{font-size:11px}.robotics-skill-node:nth-child(even)::before{width:30px;left:-32px}.robotics-tree-label{font-size:8px;gap:7px}.robotics-tree-label small{font-size:9px}.robotics-node-detail{padding:18px 21px}}
+@media(prefers-reduced-motion:reduce){.robotics-skill-node,.robotics-node-plus{transition:none}}

@@ -1,0 +1,94 @@
+/* Hardware experience: a responsive 3D coverflow and a single readable detail panel. */
+.hardware-showcase{--hw-accent:#ebc34f;margin:60px 0 30px;min-width:0;scroll-margin-top:120px;color:#e7eef5}
+.hardware-heading{display:flex;align-items:end;justify-content:space-between;gap:36px;margin-bottom:28px}
+.hardware-heading h3{font-size:clamp(28px,3.2vw,40px);line-height:1.18;letter-spacing:-1.1px;margin:12px 0 0}
+.hardware-heading .section-eyebrow{color:#a5ddd3;font-size:10px;letter-spacing:.14em}
+.hardware-heading>p{max-width:360px;font-size:13px;line-height:1.8;color:#a5b6c6;margin:0}
+.hardware-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.hardware-showcase button,.hardware-showcase select{font:inherit;cursor:pointer}
+.hardware-filters button{min-height:44px;border:1px solid #3a4a57;border-radius:24px;background:transparent;color:#becbd5;font-size:12px;padding:10px 16px;transition:background .2s,border-color .2s}
+.hardware-filters button[aria-pressed=true]{color:#102729;background:#a5ddd3;border-color:#a5ddd3}
+.hardware-showcase button:focus-visible,.hardware-showcase select:focus-visible,.hardware-stage:focus-visible{outline:2px solid #a5ddd3;outline-offset:5px}
+.hardware-exhibit{position:relative;border:1px solid #344452;border-radius:24px;background:radial-gradient(ellipse at 50% 22%,#263b453b,transparent 64%),#0e1925;overflow:hidden}
+.hardware-exhibit-top{padding:22px 26px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;position:relative;z-index:4}
+.hardware-collection{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#9bafbc;display:flex;align-items:center;gap:9px}
+.hardware-collection::before{content:'';width:5px;height:5px;border-radius:50%;background:#a5ddd3}
+.hardware-jump{display:flex;align-items:center;gap:10px;font-size:11px;color:#a9bcc9;min-width:0}
+.hardware-jump select{color:#d7e4ec;border:1px solid #435768;background:#142431;border-radius:7px;padding:10px 26px 10px 12px;min-height:44px;font-size:12px;max-width:235px;text-overflow:ellipsis}
+.hardware-stage{--hw-step:260px;position:relative;height:399px;margin-top:22px;perspective:1100px;touch-action:pan-y pinch-zoom;isolation:isolate;outline-offset:-5px!important}
+.hardware-stage::after{content:'';position:absolute;width:70%;height:125px;bottom:9px;left:15%;border:1px solid #acc6ce14;border-radius:50%;transform:rotateX(64deg);background:radial-gradient(ellipse,#a5d8d512,transparent 65%);pointer-events:none;z-index:-1}
+.hardware-card{position:absolute;left:50%;top:10px;width:316px;height:354px;border:1px solid #72898f2e;border-radius:18px;padding:0;background:linear-gradient(150deg,#192a37,#111e2be8);color:#d9e4eb;transform-style:preserve-3d;backface-visibility:hidden;transform:translateX(calc(-50% + var(--offset) * var(--hw-step))) translateZ(var(--depth)) rotateY(var(--angle));opacity:var(--opacity);z-index:var(--order);transition:transform .65s cubic-bezier(.22,.7,.22,1),opacity .55s,border-color .4s,box-shadow .4s;will-change:transform}
+.hardware-card[hidden]{display:none!important}
+.hardware-card.is-active{border-color:var(--hw-accent);box-shadow:0 18px 40px #0004,inset 0 0 28px #ffffff03}
+
+.hardware-card-brand{display:block;position:absolute;top:18px;left:20px;color:#b3c2cb;font-size:9px;text-transform:uppercase;letter-spacing:.13em}
+.hardware-card-name{display:block;text-align:center;font-size:17px;line-height:1.35;margin:1px 14px 0;font-weight:600}
+.hardware-card-type{display:block;text-align:center;font-size:10px;line-height:1.5;color:#8da4b6;margin-top:5px}
+.hardware-controls{display:flex;align-items:center;justify-content:center;gap:13px;position:relative;padding:0 25px 25px;z-index:3}
+.hardware-controls button{width:44px;height:44px;border:1px solid #415969;border-radius:50%;background:#132432;color:#d4e4ed;font-size:21px;display:grid;place-items:center}
+.hardware-controls .hardware-play{font-size:14px}
+.hardware-controls button:hover{border-color:#9bcfc8;background:#203442}
+.hardware-controls button:disabled{opacity:.4;cursor:default}
+.hardware-position{font-size:12px;font-variant-numeric:tabular-nums;color:#c9d9e4;min-width:62px;text-align:center}
+.hardware-progress{width:90px;height:2px;background:#2c4050;overflow:hidden}
+.hardware-progress span{display:block;height:100%;background:var(--hw-accent);transition:width .35s}
+.hardware-expand{position:absolute;right:26px!important;min-width:44px;font-size:20px!important}
+.hardware-details{display:grid;grid-template-columns:1fr 1.2fr;gap:35px;border-top:1px solid #344452;padding:28px 32px 30px;min-height:175px;box-sizing:border-box}
+.hardware-detail-heading{min-width:0}
+.hardware-detail-brand{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--hw-accent)}
+.hardware-details h4{font-size:clamp(23px,2.6vw,29px);line-height:1.25;letter-spacing:-.65px;margin:10px 0 13px}
+.hardware-role{display:inline-flex;align-items:center;gap:7px;font-size:11px;line-height:1.5;color:#c9ddd9}
+.hardware-role::before{content:'';display:block;width:5px;height:5px;border-radius:50%;background:var(--hw-accent)}
+.hardware-detail-copy{align-self:center}
+.hardware-description{font-size:13px;line-height:1.8;color:#aebecb;margin:0 0 17px;max-width:570px}
+.hardware-tags{display:flex;flex-wrap:wrap;gap:7px}
+.hardware-tags span{font-size:10px;color:#a7bdca;border:1px solid #354b5a;border-radius:20px;padding:5px 10px;line-height:1.5}
+.hardware-footnote{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:17px 4px 0;font-size:10px;color:#90a5b5;line-height:1.7}
+.hardware-footnote p{margin:0}
+.hardware-footnote kbd{font:inherit;color:#c1d3dd}
+.hardware-announcement{position:absolute!important;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.hardware-showcase+.robotics-brand-strip{margin-top:38px}
+@media(min-width:1200px){.hardware-stage{--hw-step:295px}.hardware-card{width:326px}}
+@media(max-width:900px){.hardware-stage{--hw-step:240px}.hardware-heading{align-items:start}.hardware-heading>p{max-width:300px}.hardware-details{gap:26px}.hardware-progress{width:65px}}
+@media(max-width:600px){
+ .hardware-showcase{margin-top:42px}.hardware-heading{display:block;margin-bottom:24px}.hardware-heading h3{font-size:29px;max-width:330px}.hardware-heading>p{margin-top:17px;max-width:none;font-size:14px}
+ .hardware-filters{gap:7px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin;scrollbar-color:#405665 transparent;padding:2px 2px 12px;margin-bottom:12px}.hardware-filters button{flex-shrink:0;font-size:12px;padding:10px 14px}
+ .hardware-exhibit{border-radius:18px}.hardware-exhibit-top{padding:18px 17px 0;align-items:start;gap:12px}.hardware-collection{font-size:9px;line-height:1.8;max-width:104px;padding-top:7px;letter-spacing:.08em}.hardware-collection::before{flex-shrink:0}
+ .hardware-jump>span{display:none}.hardware-jump{max-width:60%}.hardware-jump select{width:100%;max-width:190px;padding-left:8px;font-size:11px}
+ .hardware-stage{--hw-step:214px;height:350px;margin-top:20px;perspective:950px}.hardware-card{width:min(268px,78%);height:313px;top:10px}.hardware-card-name{font-size:16px}.hardware-card-type{font-size:10px}.hardware-card-brand{font-size:9px;left:17px;top:16px}
+ .hardware-controls{justify-content:start;padding:0 17px 22px;gap:9px}.hardware-controls button{width:44px;height:44px;flex-shrink:0}.hardware-position{min-width:46px;font-size:11px}.hardware-progress{width:25px;max-width:12vw}.hardware-expand{right:17px!important}
+ .hardware-details{grid-template-columns:1fr;gap:20px;min-height:290px;padding:24px 22px}.hardware-details h4{font-size:26px;margin-bottom:12px}.hardware-detail-brand{font-size:11px}.hardware-role{font-size:12px}.hardware-description{font-size:14px;margin-bottom:15px}.hardware-tags span{font-size:11px}.hardware-footnote{font-size:11px;gap:6px}
+}
+@media(max-width:360px){.hardware-controls{gap:6px}.hardware-progress{display:none}.hardware-jump{max-width:57%}.hardware-details{padding:22px 18px}.hardware-card-name{font-size:14px}}
+@media(prefers-reduced-motion:reduce){.hardware-card,.hardware-filters button,.hardware-progress span{transition:none}}
+html[data-portfolio-motion=off] .hardware-card,html[data-portfolio-motion=off] .hardware-progress span{transition:none}
+
+/* Product photos retain their original colour and proportions. */
+.hardware-card{overflow:hidden;background:#162531;border-radius:18px;box-shadow:0 12px 32px #0002}
+.hardware-photo{display:flex;position:relative;width:100%;height:241px;align-items:center;justify-content:center;background:#f5f6f6;overflow:hidden;border-bottom:1px solid #3b5260;pointer-events:none}
+.hardware-product-image{display:block;width:100%;height:100%;object-fit:contain;background:#fff;padding:17px;box-sizing:border-box;transition:transform .5s;pointer-events:none}
+.hardware-card.is-active .hardware-product-image{transform:scale(1.025)}
+.hardware-card-copy{display:flex;flex-direction:column;align-items:start;text-align:left;padding:18px 21px 17px;min-height:110px;box-sizing:border-box}
+.hardware-card-brand{position:static;font-size:9px;letter-spacing:.13em;color:var(--hw-accent);margin:0 0 8px;line-height:1.5}
+.hardware-card-name{font-size:19px;line-height:1.25;margin:0;text-align:left;letter-spacing:-.2px}
+.hardware-card-type{margin-top:7px;font-size:10px;text-align:left;color:#a0b5c5}
+.hardware-product-image[data-photo-id=dingo],.hardware-product-image[data-photo-id=heron]{padding:0;object-fit:cover}
+.hardware-card .hardware-product-image[data-photo-id=zed]{transform:translateY(-11%) scale(1.32);padding:0}
+.hardware-card.is-active{box-shadow:0 20px 48px #0006,0 0 0 1px var(--hw-accent)}
+.hardware-expand{font-size:24px!important}
+.hardware-image-attribution{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 4px 0}
+.hardware-image-note{font-size:10px;line-height:1.7;color:#9eb2c1}
+.hardware-photo-credit{font-size:10px;line-height:1.7;color:#b1d7d3;min-height:32px;display:flex;align-items:center;text-decoration:none;text-align:right}
+.hardware-photo-credit:hover{text-decoration:underline}.hardware-photo-credit:focus-visible{outline:2px solid #a5ddd3;outline-offset:4px}
+.hardware-footnote{padding-top:6px;color:#8099aa}
+.hardware-image-error{display:block;padding:30px;color:#334e60;font-size:14px;text-align:center}
+.hardware-photo-dialog{width:min(780px,calc(100% - 28px));max-height:calc(100dvh - 32px);padding:24px;border-radius:20px;background:#11202c;border:1px solid #4d6677;color:#e0eaf0;overflow:auto;box-sizing:border-box;margin:auto}
+.hardware-photo-dialog::backdrop{background:#020912df;backdrop-filter:blur(9px)}
+.hardware-photo-dialog header{display:flex;align-items:center;justify-content:space-between;gap:22px;margin-bottom:20px}
+.hardware-photo-dialog h4{font-size:22px;line-height:1.3;margin:0;letter-spacing:-.4px}
+.hardware-photo-dialog button{display:grid;place-items:center;width:44px;height:44px;min-width:44px;border:1px solid #496271;border-radius:50%;background:transparent;color:#e6eff5;font-size:26px;cursor:pointer}
+.hardware-photo-dialog img{display:block;width:100%;height:min(55dvh,540px);object-fit:contain;background:#fff;border-radius:12px}
+.hardware-photo-dialog p{font-size:12px;color:#adbfcd;line-height:1.8;margin:16px 0 8px}
+.hardware-photo-dialog a{display:inline-flex;align-items:center;min-height:44px;color:#aad8d0;font-size:12px;text-decoration:none}
+@media(max-width:600px){.hardware-photo{height:209px}.hardware-product-image{padding:13px}.hardware-card-copy{padding:16px 17px 15px;min-height:102px}.hardware-card-name{font-size:17px}.hardware-card-brand{font-size:9px;margin-bottom:6px}.hardware-card-type{font-size:10px}.hardware-image-attribution{flex-direction:column;align-items:start;gap:2px}.hardware-image-note,.hardware-photo-credit{font-size:11px;text-align:left}.hardware-photo-credit{min-height:38px}.hardware-photo-dialog{padding:18px;border-radius:15px}.hardware-photo-dialog h4{font-size:20px}.hardware-photo-dialog img{height:43dvh}.hardware-footnote{padding-top:8px}}
+@media(prefers-reduced-motion:reduce){.hardware-product-image{transition:none}}

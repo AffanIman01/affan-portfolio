@@ -1,0 +1,314 @@
+[
+  {
+    "id": "dingo",
+    "url": "https://s3.amazonaws.com/assets.clearpathrobotics.com/wp-content/uploads/2023/10/09122116/Dingo-O-web-4.png",
+    "source": "https://clearpathrobotics.com/dingo-indoor-mobile-robot/",
+    "credit": "Clearpath Robotics",
+    "note": "Dingo-O product reference",
+    "image": "hardware/dingo.png",
+    "dimensions": [
+      1220,
+      838
+    ],
+    "bytes": 1062809
+  },
+  {
+    "id": "husky",
+    "url": "https://www.curtinrobotics.org/images/bingo.jpg",
+    "source": "https://www.curtinrobotics.org/project-home",
+    "credit": "Curtin Robotics",
+    "note": "Husky A200 product reference",
+    "image": "hardware/husky.jpg",
+    "dimensions": [
+      800,
+      640
+    ],
+    "bytes": 55425
+  },
+  {
+    "id": "jackal",
+    "url": "https://facilities.robotics.umd.edu/sites/default/files/styles/optimized/public/assets/ral/Clearpath_Jackal/clearpath_Jackal-showTable.jpg",
+    "source": "https://facilities.robotics.umd.edu/ral/equipment/robotics/clearpath-jackal.html",
+    "credit": "Maryland Robotics Center",
+    "note": "Jackal product reference",
+    "image": "hardware/jackal.jpg",
+    "dimensions": [
+      646,
+      485
+    ],
+    "bytes": 25546
+  },
+  {
+    "id": "heron",
+    "url": "https://assets.newatlas.com/dims4/default/120af47/2147483647/strip/true/crop/1037x583%2B0%2B0/resize/1037x583%21/quality/90/?url=http%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Farchive%2Fheron-usv-1.jpg",
+    "source": "https://newatlas.com/heron-usv-aquatic-drone/59842/",
+    "credit": "Clearpath Robotics via New Atlas",
+    "note": "Heron product reference",
+    "image": "hardware/heron.jpg",
+    "dimensions": [
+      1037,
+      583
+    ],
+    "bytes": 258163
+  },
+  {
+    "id": "me120",
+    "url": "https://img.nauticexpo.fr/images_ne/photo-g/65687-13967689.jpg",
+    "source": "https://www.nauticexpo.fr/prod/oceanalpha-group-limited/product-65687-545933.html",
+    "credit": "OceanAlpha via NauticExpo",
+    "note": "ME120 product reference",
+    "image": "hardware/me120.jpg",
+    "dimensions": [
+      1500,
+      1500
+    ],
+    "bytes": 62819
+  },
+  {
+    "id": "chasing",
+    "url": "https://unibot.ru/upload/iblock/750/zrhxj7ybkuw465gzk07e9mklz91t6301.jpg",
+    "source": "https://unibot.ru/catalog/water/podvodnyy-dron-apparat-chasing-m2-pro-max-advanced-set-200-metrov/",
+    "credit": "CHASING via Unibot",
+    "note": "M2 Pro Max product reference",
+    "image": "hardware/chasing.jpg",
+    "dimensions": [
+      1200,
+      1200
+    ],
+    "bytes": 222586
+  },
+  {
+    "id": "f550",
+    "url": "https://www.flyrobo.in/image/cache/catalog/product2/dji-f550-hexacopter-frame-kit-1100x1100.jpg",
+    "source": "https://www.flyrobo.in/dji_f550_hexacopter_frame_kit/",
+    "credit": "FlyRobo",
+    "note": "F550 frame reference · My controller: Cube Orange",
+    "image": "hardware/f550.jpg",
+    "dimensions": [
+      1100,
+      1100
+    ],
+    "bytes": 114668
+  },
+  {
+    "id": "f450",
+    "url": "https://static-data2.manualslib.com/product-images/31f/804284/dji-f450-quadcopters.jpg",
+    "source": "https://www.manualslib.com/manual/804284/Dji-F450.html",
+    "credit": "DJI via ManualsLib",
+    "note": "F450 platform reference · My controller: Pixhawk",
+    "image": "hardware/f450.jpg",
+    "dimensions": [
+      560,
+      560
+    ],
+    "bytes": 63969
+  },
+  {
+    "id": "zed",
+    "url": "https://cdn.shopify.com/s/files/1/0699/6927/products/Zed2ifacedawn.png?crop=center&v=1742567417&width=640",
+    "source": "https://www.stereolabs.com/en-br/store/collections/cameras",
+    "credit": "Stereolabs",
+    "note": "ZED camera family · ZED 2i shown",
+    "image": "hardware/zed.webp",
+    "dimensions": [
+      640,
+      640
+    ],
+    "bytes": 9112
+  },
+  {
+    "id": "robosense",
+    "url": "https://cdn.shopify.com/s/files/1/0602/5684/6065/t/3/assets/20210408171740_52689-1633955265359.jpg?v=1633955270",
+    "source": "https://cocoontech.com.au/products/rs-lidar-16",
+    "credit": "RoboSense via Cocoon Tech",
+    "note": "RoboSense LiDAR family · RS-LiDAR-16 shown",
+    "image": "hardware/robosense.webp",
+    "dimensions": [
+      1000,
+      1000
+    ],
+    "bytes": 457026
+  },
+  {
+    "id": "livox",
+    "url": "https://cdn-reichelt.de/bilder/web/xxl_ws/C700/MID360S1.png?type=ProductXxl",
+    "source": "https://www.reichelt.de/de/de/shop/produkt/livox_mid360s_lidar_100m_360_-435106",
+    "credit": "Livox via Reichelt",
+    "note": "Mid-360S product reference",
+    "image": "hardware/livox.png",
+    "dimensions": [
+      789,
+      523
+    ],
+    "bytes": 362733
+  },
+  {
+    "id": "huskylens",
+    "url": "https://static.wixstatic.com/media/3d11e3_f5f4f708c689433086212fe0c0ae5e93~mv2.jpeg/v1/fill/w_700%2Ch_545%2Cal_c%2Cq_85%2Cenc_avif%2Cquality_auto/3d11e3_f5f4f708c689433086212fe0c0ae5e93~mv2.jpeg",
+    "source": "https://www.mirdevtech.com/product-page/gravity-huskylens-sen0305",
+    "credit": "DFRobot via MirDevTech",
+    "note": "HUSKYLENS product reference",
+    "image": "hardware/huskylens.avif",
+    "dimensions": [
+      700,
+      545
+    ],
+    "bytes": 46477
+  },
+  {
+    "id": "myrio",
+    "url": "https://static.wixstatic.com/media/87f685_698924cf214d4ed195cb402f7a0e6723~mv2.jpg/v1/fill/w_980%2Ch_854%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/file.jpg",
+    "source": "https://www.cyth.com/products/myrio-1900-783759-01",
+    "credit": "NI via Cyth Systems",
+    "note": "myRIO family · myRIO-1900 shown",
+    "image": "hardware/myrio.avif",
+    "dimensions": [
+      980,
+      854
+    ],
+    "bytes": 32177
+  },
+  {
+    "id": "arduino",
+    "url": "https://store-usa.arduino.cc/cdn/shop/files/A000066_03.front_1200x900.jpg?v=1727102657",
+    "source": "https://store-usa.arduino.cc/products/arduino-uno-rev3",
+    "credit": "Arduino",
+    "note": "Arduino Uno / Nano experience · Uno R3 shown",
+    "image": "hardware/arduino.webp",
+    "dimensions": [
+      1000,
+      750
+    ],
+    "bytes": 193250
+  },
+  {
+    "id": "esp32",
+    "url": "https://shoplineimg.com/6486dbe2afaddb00694ea79f/698170ba9c236f71c4c5485f/800x.jpg",
+    "source": "https://www.icshop.com.tw/products/368030501852",
+    "credit": "ICShop",
+    "note": "ESP32 development-board reference",
+    "image": "hardware/esp32.jpg",
+    "dimensions": [
+      600,
+      600
+    ],
+    "bytes": 32355
+  },
+  {
+    "id": "pico",
+    "url": "https://probots.co.in/pub/media/catalog/product/cache/d8ddd0f9b0cd008b57085cd218b48832/r/a/raspberry_pi_pico_microcontroller_development_board_1_.jpg",
+    "source": "https://probots.co.in/raspberry-pi-pico-microcontroller-development-board.html",
+    "credit": "Raspberry Pi via Probots",
+    "note": "Raspberry Pi Pico product reference",
+    "image": "hardware/pico.jpg",
+    "dimensions": [
+      1250,
+      1250
+    ],
+    "bytes": 327101
+  },
+  {
+    "id": "pi5",
+    "url": "https://geekworm.com/cdn/shop/files/raspberrypi5-top_2048x2048.jpg?v=1705153559",
+    "source": "https://geekworm.com/products/raspberry-pi-5-board",
+    "credit": "Raspberry Pi via Geekworm",
+    "note": "Raspberry Pi 5 product reference",
+    "image": "hardware/pi5.webp",
+    "dimensions": [
+      1800,
+      1800
+    ],
+    "bytes": 378564
+  },
+  {
+    "id": "jetsonnano",
+    "url": "https://devboardsmarket.com/cdn/shop/files/jetson-nano-_2_4a8d338d-6303-4623-b67d-3390724a2086.png?v=1766105676",
+    "source": "https://devboardsmarket.com/products/nvidia-jetson-nano-developer-kit",
+    "credit": "NVIDIA via Dev Boards Market",
+    "note": "Jetson Nano developer-kit reference",
+    "image": "hardware/jetsonnano.webp",
+    "dimensions": [
+      1080,
+      1080
+    ],
+    "bytes": 65446
+  },
+  {
+    "id": "jetsonorin",
+    "url": "https://www.waveshare.com/media/catalog/product/cache/1/image/800x800/9df78eab33525d08d6e5fb8d27136e95/j/e/jetson-orin-nx-16gb-1.jpg",
+    "source": "https://www.waveshare.com/jetson-orin-nx.htm",
+    "credit": "NVIDIA via Waveshare",
+    "note": "Jetson Orin NX module reference",
+    "image": "hardware/jetsonorin.jpg",
+    "dimensions": [
+      800,
+      800
+    ],
+    "bytes": 81603
+  },
+  {
+    "id": "bldc",
+    "url": "https://lk-live-21.slatic.net/kf/Se070478a8cef40bb952890b99dc65c0bz.jpg",
+    "source": "https://www.daraz.lk/products/xxd-a2212-a2208-930kv-1000kv-1400kv-2200kv-2700kv-brushless-motor-with-30a-brushless-esc-motor-speed-controller-for-rc-fpv-drone-i249719135.html",
+    "credit": "Daraz product listing",
+    "note": "BLDC motor and ESC reference",
+    "image": "hardware/bldc.jpg",
+    "dimensions": [
+      1000,
+      1000
+    ],
+    "bytes": 159440
+  },
+  {
+    "id": "servo",
+    "url": "https://towerpro.com.tw/wp-content/uploads/2014/08/MG996R-3b.jpg",
+    "source": "https://towerpro.com.tw/product/mg996R/",
+    "credit": "Tower Pro",
+    "note": "Servo-actuation reference · MG996R shown",
+    "image": "hardware/servo.jpg",
+    "bytes": 106669,
+    "dimensions": [
+      500,
+      501
+    ]
+  },
+  {
+    "id": "x1c",
+    "url": "https://cdn.awsli.com.br/800x800/2755/2755894/produto/277517487/design-sem-nome-17-vnu5w5xvsi.png",
+    "source": "https://www.doctor3d.com.br/impressora-x1c",
+    "credit": "Bambu Lab via Doctor 3D",
+    "note": "X1 Carbon product reference",
+    "image": "hardware/x1c.webp",
+    "dimensions": [
+      700,
+      700
+    ],
+    "bytes": 13134
+  },
+  {
+    "id": "centauri",
+    "url": "https://filament2print.com/14581/elegoo-centauri-carbon-imprimante-3d-fdm.jpg",
+    "source": "https://filament2print.com/fr/filament-fdm/3160-elegoo-centauri-carbon-imprimante-3d-fdm-6932704905128.html",
+    "credit": "ELEGOO via Filament2Print",
+    "note": "Centauri Carbon product reference",
+    "image": "hardware/centauri.jpg",
+    "dimensions": [
+      800,
+      800
+    ],
+    "bytes": 46929
+  },
+  {
+    "id": "cr10",
+    "url": "https://tucans.com.ua/image/catalog/products/Creality/3d-printer-creality-cr-10/3d-printer-creality-cr-10-4.jpg",
+    "source": "https://tucans.com.ua/3d-printer-creality-cr-10",
+    "credit": "Creality via Tucans",
+    "note": "CR-10 product reference",
+    "image": "hardware/cr10.jpg",
+    "dimensions": [
+      1000,
+      1000
+    ],
+    "bytes": 294697
+  }
+]

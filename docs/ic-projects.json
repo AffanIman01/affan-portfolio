@@ -5,7 +5,7 @@
     "category": "analog",
     "categoryName": "Analog Layout",
     "node": "28 nm · TSMC",
-    "image": "gallery/bandgap-layout.png",
+    "image": "gallery/bandgap-layout.png?v=grayscale",
     "subtitle": "Matching, symmetry, and careful routing.",
     "purpose": "Analog layout work around a bandgap reference and its associated amplifier.",
     "contribution": "Device placement, matching considerations, routing, and physical verification during custom-layout training.",
@@ -15,10 +15,11 @@
       "Guard rings, symmetry, and sensitive-net routing"
     ],
     "verification": "Completed with DRC-clean and LVS-matched results during Vchip training, with iterative layout optimisation. The verification excerpt in Experience does not identify an individual block.",
-    "imageNote": "Original bandgap reference layout from my Vchip training work. Use the zoom controls to inspect device placement and routing.",
+    "imageNote": "Grayscale preview of my Vchip bandgap reference layout. Geometry and text are retained for the project overview.",
     "tools": "Cadence Virtuoso · Calibre",
     "imageKind": "original",
-    "imageAlt": "Affan Iman’s bandgap reference layout in Cadence Virtuoso, showing device arrays, guard rings, and interconnect routing."
+    "imageAlt": "Grayscale bandgap reference layout from Vchip training",
+    "imageLabel": "GRAYSCALE LAYOUT PREVIEW"
   },
   {
     "id": "standard-cells",
@@ -45,7 +46,7 @@
     "category": "analog",
     "categoryName": "Analog Layout",
     "node": "28 nm · TSMC",
-    "image": "gallery/ldo-layout.png",
+    "image": "gallery/ldo-layout.png?v=grayscale",
     "subtitle": "Completed LDO layout in 28 nm planar technology.",
     "purpose": "Layout and floorplanning work for an LDO and its connection to a bandgap reference.",
     "contribution": "Completed LDO floorplanning, device placement, matching, and interconnect routing during Vchip custom-layout training.",
@@ -55,10 +56,11 @@
       "Hierarchy and integration with the reference block"
     ],
     "verification": "Completed with DRC-clean and LVS-matched results during Vchip training, with iterative layout optimisation. The verification excerpt in Experience does not identify an individual block.",
-    "imageNote": "Original completed LDO layout from my Vchip training work. Zoom in to inspect the placement and routing.",
+    "imageNote": "Grayscale preview of my Vchip ldo layout layout. Geometry and text are retained for the project overview.",
     "tools": "Cadence Virtuoso · Calibre",
     "imageKind": "original",
-    "imageAlt": "Completed 28 nm LDO layout by Affan Iman at Vchip Technology"
+    "imageAlt": "Grayscale ldo layout layout from Vchip training",
+    "imageLabel": "GRAYSCALE LAYOUT PREVIEW"
   },
   {
     "id": "bandgap-ldo-top",
@@ -66,9 +68,9 @@
     "category": "analog",
     "categoryName": "Analog Layout",
     "node": "28 nm · TSMC",
-    "image": "gallery/bandgap-ldo-top-layout.png",
+    "image": "gallery/bandgap-ldo-top-layout.png?v=grayscale",
     "imageKind": "original",
-    "imageAlt": "Completed top-level bandgap and LDO integrated layout by Affan Iman",
+    "imageAlt": "Grayscale top-level bandgap–ldo layout from Vchip training",
     "subtitle": "Completed integration of the reference and regulator.",
     "purpose": "Top-level integration of a bandgap reference and LDO in one analog layout.",
     "contribution": "Completed the top-level bandgap–LDO layout, integrating the reference and regulator blocks with inter-block routing.",
@@ -78,8 +80,9 @@
       "Power and ground connectivity across the integrated layout"
     ],
     "verification": "Completed with DRC-clean and LVS-matched results during Vchip training, with iterative layout optimisation. The verification excerpt in Experience does not identify an individual block.",
-    "imageNote": "Original top-level bandgap–LDO layout from my Vchip training work. Use the full-image viewer to inspect the complete layout.",
-    "tools": "Cadence Virtuoso · Calibre"
+    "imageNote": "Grayscale preview of my Vchip top-level bandgap–ldo layout. Geometry and text are retained for the project overview.",
+    "tools": "Cadence Virtuoso · Calibre",
+    "imageLabel": "GRAYSCALE LAYOUT PREVIEW"
   },
   {
     "id": "adders",
