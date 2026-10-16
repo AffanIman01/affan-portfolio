@@ -31,6 +31,7 @@ export const hardware = [
   {"id": "hikvisionptz", "name": "PTZ camera", "brand": "Hikvision", "category": "sensors", "type": "Pan\u2013tilt\u2013zoom camera", "role": "Hands-on experience", "color": "#94bff1", "description": "Hands-on experience with a Hikvision PTZ camera. The exact model has not been identified.", "tags": ["Vision hardware", "PTZ", "Model unspecified"]},
   {"id": "vlp32", "name": "VLP-32", "brand": "Velodyne", "category": "sensors", "type": "3D LiDAR", "role": "Hands-on experience", "color": "#88c5ee", "description": "Hands-on experience with Velodyne VLP-32 LiDAR hardware.", "tags": ["LiDAR", "3D sensing", "Velodyne"]},
   {"id": "c922", "name": "C922 Pro", "brand": "Logitech", "category": "sensors", "type": "USB webcam", "role": "Hands-on experience", "color": "#94bff1", "description": "Hands-on experience with the Logitech C922 Pro webcam for camera-based vision.", "tags": ["Vision hardware", "USB webcam", "Logitech"]},
+  {"id": "shares20", "name": "SLAM S20", "brand": "SHARE", "category": "sensors", "type": "Handheld 3D LiDAR scanner", "role": "Hands-on experience", "color": "#88c5ee", "description": "Hands-on experience with the SHARE SLAM S20 handheld LiDAR scanner for SLAM and 3D mapping.", "tags": ["LiDAR", "Handheld SLAM", "3D mapping"]},
   {id:'myrio', name:'myRIO', brand:'NI', category:'controllers', type:'Embedded controller', role:'Hands-on experience', model:'myrio', color:'#aed6a3', description:'Hands-on experience with NI myRIO for mechatronic control and embedded work.', tags:['Controller','Mechatronics']},
   {id:'arduino', name:'Uno / Nano', brand:'Arduino', category:'controllers', type:'Microcontroller boards', role:'Embedded prototyping', model:'arduino', color:'#7cd1cb', description:'Arduino-based prototyping, including the IoT Integrated Smart Plantation team project.', tags:['MCU','Arduino','IoT']},
   {id:'esp32', name:'ESP32', brand:'Espressif', category:'controllers', type:'Microcontroller', role:'Embedded prototyping', model:'esp32', color:'#b1c6ce', description:'ESP32 and ESP32-CAM experience through embedded robotics and IoT project work.', tags:['MCU','IoT','ESP32-CAM']},
@@ -51,3 +52,4 @@ export function relativePosition(index, selected, count) {
   if (delta > count / 2) delta -= count;
   return delta;
 }
+

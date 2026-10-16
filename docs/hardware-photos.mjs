@@ -227,5 +227,11 @@ export const photos = {
     "imageNote": "C922 Pro product reference",
     "imageSource": "https://www.logitech.com/en-us/shop/p/c922-pro-stream-webcam",
     "imageCredit": "Logitech"
+  },
+  "shares20": {
+    "image": "hardware/share-slam-s20.webp",
+    "imageNote": "SHARE SLAM S20 product reference",
+    "imageSource": "https://store.share3dcam.com/products/shareslams20",
+    "imageCredit": "SHARE3DCAM"
   }
 };
