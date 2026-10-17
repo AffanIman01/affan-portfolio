@@ -98,6 +98,7 @@
   }
 
   function runIntro(replay = false) {
+    if (document.querySelector(".ic-story-hero")) return;
     if (!window.portfolioMotionEnabled || closeIntro) return;
     const homeHash = ['', '#', '#home', '#ic-design'].includes(window.location.hash);
     if (!replay && (!homeHash || storage.get('sessionStorage', INTRO_SEEN_KEY) === 'yes')) return;
