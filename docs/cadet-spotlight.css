@@ -1,0 +1,37 @@
+/* PALAPES / ROTU Army cadet spotlight — shows complete tall photo collages. */
+#about-profile .leadership-card-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+#about-profile .leadership-card-grid .cadet-spotlight{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(300px,.9fr);align-items:stretch}
+#about-profile .cadet-visuals{min-width:0;padding:14px;background:#0b141e;border-right:1px solid #344250;display:flex;flex-direction:column;gap:10px}
+#about-profile .cadet-image-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;height:460px;min-width:0}
+#about-profile .cadet-story-photo{position:relative;display:flex;align-items:center;justify-content:center;min-width:0;height:100%;overflow:hidden;border:1px solid #354a5e;border-radius:10px;background:#050b11}
+#about-profile .cadet-story-photo img{display:block;width:100%;height:100%;object-fit:contain!important;object-position:center!important;filter:none;transition:transform .3s ease}
+#about-profile .cadet-story-photo:hover img{transform:scale(1.025)}
+#about-profile .cadet-photo-label{position:absolute;bottom:8px;left:8px;right:8px;padding:7px 8px;background:#08131cdd;border:1px solid #ffffff30;border-radius:6px;color:#e8edf2;font-size:10px;letter-spacing:.04em;text-align:center}
+#about-profile .cadet-archive{display:flex;align-items:center;gap:9px;min-height:60px}
+#about-profile .cadet-archive>span{flex:none;color:#9fb0c0;font-size:9px;letter-spacing:.08em;max-width:90px}
+#about-profile .cadet-archive>a{display:block;min-width:0;flex:1 1 0;height:66px;overflow:hidden;border:1px solid #344657;border-radius:7px;background:#111a24}
+#about-profile .cadet-archive>a img{display:block;width:100%;height:100%;object-fit:cover!important;object-position:center}
+#about-profile .cadet-archive>a:hover{border-color:#d6ba97}
+#about-profile .cadet-spotlight .career-card-content{padding:clamp(20px,2.6vw,32px)!important;justify-content:center;gap:0}
+#about-profile .cadet-spotlight .career-card-title{min-height:0;margin:3px 0 10px;font-size:clamp(22px,2.4vw,30px)}
+#about-profile .cadet-rank{margin:0 0 15px;color:#e8c392;font-size:clamp(14px,1.5vw,18px);line-height:1.45}
+#about-profile .cadet-rank strong{font-weight:700;color:#f1d4a7}
+#about-profile .cadet-rank span{display:block;font-size:12px;color:#afc0cc;margin-top:3px}
+#about-profile .cadet-spotlight .career-card-summary{margin:8px 0;font-size:13px;line-height:1.65}
+#about-profile .cadet-gallery-hint{font-size:10px;color:#899eaf;line-height:1.6;margin:13px 0 0}
+@media(max-width:1000px){
+ #about-profile .leadership-card-grid .cadet-spotlight{grid-template-columns:minmax(0,1fr)}
+ #about-profile .cadet-visuals{border-right:0;border-bottom:1px solid #344250}
+ #about-profile .cadet-image-pair{height:420px}
+}
+@media(max-width:620px){
+ #about-profile .leadership-card-grid{grid-template-columns:minmax(0,1fr);gap:16px}
+ #about-profile .cadet-visuals{padding:11px}
+ #about-profile .cadet-image-pair{display:flex;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x mandatory;scrollbar-width:thin;height:425px;gap:10px;padding-bottom:5px}
+ #about-profile .cadet-story-photo{flex:0 0 83%;width:83%;height:100%;scroll-snap-align:center}
+ #about-profile .cadet-archive>span{font-size:8px;max-width:60px}
+ #about-profile .cadet-archive>a{height:48px}
+ #about-profile .cadet-spotlight .career-card-content{padding:20px!important}
+ #about-profile .cadet-spotlight .career-card-title{font-size:24px}
+}
+@media(prefers-reduced-motion:reduce){#about-profile .cadet-story-photo img{transition:none}}
