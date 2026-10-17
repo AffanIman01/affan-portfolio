@@ -41,7 +41,7 @@
       : paused ? 'Play automatic robotics showcase' : 'Pause automatic robotics showcase');
     const focused = root.contains(document.activeElement) && document.activeElement !== playButton;
     if (enabled && !paused && !hovering && !focused && onScreen && !root.closest('[hidden]') && !document.hidden && !dialog.open && slides.length > 1) {
-      timer = setTimeout(() => select(selected + 1), Number(root.dataset.autoplayInterval) || 2500);
+      timer = setTimeout(() => select(selected + 1), Number(slides[selected].dataset.durationMs) || Number(root.dataset.autoplayInterval) || 2500);
     }
   }
 
@@ -120,7 +120,7 @@
       const image = dialog.querySelector('img');
       image.src = source.getAttribute('src');
       image.alt = source.getAttribute('alt');
-      dialog.querySelector('.robotics-dialog-visual span').textContent = slide.dataset.mediaKind === 'concept' ? 'CONCEPT ILLUSTRATION · NOT PROJECT PHOTOGRAPHY' : slide.querySelector('video') ? 'ORIGINAL PHOTOS · LOOPING SLIDESHOW' : 'ORIGINAL PROJECT PHOTOGRAPH';
+      dialog.querySelector('.robotics-dialog-visual span').textContent = slide.dataset.mediaKind === 'video' ? 'VIDEO HIGHLIGHT' : slide.dataset.mediaKind === 'concept' ? 'CONCEPT ILLUSTRATION · NOT PROJECT PHOTOGRAPHY' : slide.querySelector('video') ? 'ORIGINAL PHOTOS · LOOPING SLIDESHOW' : 'ORIGINAL PROJECT PHOTOGRAPH';
       dialog.querySelector('.robotics-dialog-visual video')?.remove();
       const originalLoop = slide.querySelector('video');
       image.hidden = !!originalLoop;
@@ -145,3 +145,4 @@
   window.addEventListener('portfolio-motion', updateAutoplay);
   select(0);
 })();
+
