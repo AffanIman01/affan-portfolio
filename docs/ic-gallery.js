@@ -23,7 +23,7 @@
   const phoneLayout = matchMedia('(max-width: 760px)');
   const playButton = root.querySelector('.ic-showcase-play');
   let category = 'all', selectedId = projects[0]?.id;
-  let manuallyPaused = false, hovering = false, onScreen = false;
+  let manuallyPaused = window.PortfolioAutoplay.paused(root.id || 'ic-gallery'), hovering = false, onScreen = false;
   let timer = null, scrollTimer = null, scrollingByCode = false;
   let currentId = null, viewerProjects = [], zoom = 1;
   const visible = () => projects.filter(p => category === 'all' || p.category === category);
@@ -42,14 +42,16 @@
 
   function clearAutoplay() { clearTimeout(timer); timer = null; }
   function updateAutoplay() {
+    window.PortfolioAutoplay.remember(root.id || 'ic-gallery', manuallyPaused);
     clearAutoplay();
     const count = visible().length;
     const enabled = motionEnabled();
     const focusBlocks = root.contains(document.activeElement) && document.activeElement !== playButton;
     playButton.disabled = !enabled || count < 2;
+    playButton.setAttribute('aria-pressed', String(enabled && !manuallyPaused));
     playButton.innerHTML = !enabled ? '<span aria-hidden="true">−</span> Auto off' : manuallyPaused ? '<span aria-hidden="true">▷</span> Play' : '<span aria-hidden="true">Ⅱ</span> Pause';
     playButton.setAttribute('aria-label', !enabled ? 'Automatic showcase disabled while motion is off' : manuallyPaused ? 'Play automatic project showcase' : 'Pause automatic project showcase');
-    if (enabled && !manuallyPaused && !hovering && onScreen && !root.closest('[hidden]') && !document.hidden && !focusBlocks && !dialog.open && count > 1) {
+    if (window.PortfolioAutoplay.canRun(root) && enabled && !manuallyPaused && !hovering && onScreen && !root.closest('[hidden]') && !document.hidden && !focusBlocks && !dialog.open && count > 1) {
       timer = setTimeout(() => advance(1, false), 5000);
     }
   }
@@ -299,6 +301,7 @@
   document.addEventListener('visibilitychange', updateAutoplay);
   motion.addEventListener('change', updateAutoplay);
   window.addEventListener('portfolio-motion', updateAutoplay);
+  window.PortfolioAutoplay.watch(updateAutoplay);
   root.querySelector('.ic-results').textContent = resultCount(projects.length);
   select(selectedId);
   }
@@ -307,3 +310,4 @@
     initializeGallery(root, index).catch(error => console.error('Unable to initialize gallery', error));
   });
 })();
+

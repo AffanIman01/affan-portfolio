@@ -3,7 +3,7 @@
   const grid = root.querySelector('.robot-lab-grid'), status = root.querySelector('.robot-lab-status');
   const loopButton = root.querySelector('.robot-loop-toggle'), reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const prev = root.querySelector('[data-lab-prev]'), next = root.querySelector('[data-lab-next]');
-  let paused = false, hovering = false, onScreen = false, items = [], selected = 0, timer, opener, activeFilter = 'all', manualScroll = false;
+  let paused = window.PortfolioAutoplay.paused('robotics-lab'), hovering = false, onScreen = false, items = [], selected = 0, timer, opener, activeFilter = 'all', manualScroll = false;
   const make = (tag, cls, value) => { const el = document.createElement(tag); if (cls) el.className = cls; if (value) el.textContent = value; return el; };
   const visibleCards = () => [...grid.querySelectorAll('.robot-lab-card:not([hidden])')];
   const motion = () => !paused && !reduced.matches && window.portfolioMotionEnabled !== false && !document.hidden;
@@ -21,11 +21,12 @@
       const inDialog = dialog.contains(video);
       const card = video.closest('.robot-lab-card');
       const play = motion() && (inDialog ? dialog.open : onScreen && card && !card.hidden && card.classList.contains('loop-visible') && !dialog.open);
-      if (play) { if (!video.getAttribute('src')) video.src = video.dataset.previewSrc; video.play().catch(() => {}); }
-      else video.pause();
+      if (play && window.PortfolioAutoplay.canRun(video) && !navigator.connection?.saveData && !video.getAttribute('src')) video.src = video.dataset.previewSrc;
+      window.PortfolioAutoplay.media(video, play);
     });
   }
   function sync() {
+    window.PortfolioAutoplay.remember('robotics-lab', paused);
     clearTimeout(timer); timer = null;
     loopButton.textContent = motion() ? 'Pause previews' : 'Play previews';
     loopButton.disabled = reduced.matches || window.portfolioMotionEnabled === false;
@@ -33,7 +34,7 @@
     updateVideos();
     const cards = visibleCards();
     prev.disabled = next.disabled = cards.length < 3;
-    if (motion() && onScreen && !hovering && !grid.contains(document.activeElement) && !dialog.open && cards.length > 2) timer = setTimeout(() => select(selected + 2), 2500);
+    if (window.PortfolioAutoplay.canRun(root) && motion() && onScreen && !hovering && !(grid.contains(document.activeElement) && document.activeElement !== loopButton) && !dialog.open && cards.length > 2) timer = setTimeout(() => select(selected + 2), 5000);
   }
   function select(index, manual = false) {
     const cards = visibleCards(); if (!cards.length) return;
@@ -81,7 +82,7 @@
   });
   grid.addEventListener('keydown', event => { if (event.target !== grid) return; const dir = event.key === 'ArrowRight' ? 2 : event.key === 'ArrowLeft' ? -2 : 0; if (dir) { event.preventDefault(); select(selected + dir, true); } });
   const cardObserver = new IntersectionObserver(entries => { entries.forEach(entry => entry.target.classList.toggle('loop-visible', entry.isIntersecting)); updateVideos(); }, {root:grid, threshold:.1});
-  new IntersectionObserver(entries => { onScreen = entries[0].isIntersecting; sync(); }, {threshold:.1}).observe(grid);
+  new IntersectionObserver(entries => { onScreen = entries[0].isIntersecting && entries[0].intersectionRatio >= .1; sync(); }, {threshold:.1}).observe(grid);
   new ResizeObserver(() => { updateVideos(); }).observe(grid);
   window.addEventListener('portfolio-motion', sync); reduced.addEventListener('change', sync); document.addEventListener('visibilitychange', sync);
   function filter(value) {
@@ -90,6 +91,7 @@
     const count = visibleCards().length; status.textContent = count + ' showcases · two-row carousel · credited research samples · tap a card for details'; selected = 0; select(0);
   }
   root.querySelectorAll('[data-lab-filter]').forEach(button => button.onclick = () => filter(button.dataset.labFilter));
+  window.PortfolioAutoplay.watch(sync);
   fetch('robotics-projects.json').then(response => { if (!response.ok) throw Error('Projects unavailable'); return response.json(); }).then(data => {
     items = data;
     items.forEach(item => {
@@ -102,3 +104,4 @@
   }).catch(() => { status.textContent = 'Project previews could not load. Please refresh.'; });
   sync();
 })();
+

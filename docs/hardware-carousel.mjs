@@ -6,9 +6,9 @@ function initHardwareCarousel(){
   const stage=root.querySelector('.hardware-stage'),filters=root.querySelector('.hardware-filters'),jump=root.querySelector('select'),play=root.querySelector('.hardware-play');
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
   const cards=new Map(),dialog=root.querySelector('.hardware-photo-dialog');
-  let collection=hardware,selected=0,paused=false,visible=false,hovering=false,timer=0,drag=null,suppressClickUntil=0;
+  let collection=hardware,selected=0,paused = window.PortfolioAutoplay.paused('hardware'),visible=false,hovering=false,timer=0,drag=null,suppressClickUntil=0;
   const motion=()=>!reduced.matches&&window.portfolioMotionEnabled!==false;
-  const active=()=>visible&&!document.hidden&&!root.closest('[hidden]');
+  const active=()=>window.PortfolioAutoplay.canRun(root)&&visible&&!document.hidden&&!root.closest('[hidden]');
   const el=(tag,cls,text)=>{const n=document.createElement(tag);n.className=cls;if(text)n.textContent=text;return n;};
 
   hardware.forEach(item=>{
@@ -63,6 +63,7 @@ function initHardwareCarousel(){
     sync();
   }
   function sync(){
+    window.PortfolioAutoplay.remember('hardware', paused);
     clearTimeout(timer);
     const enabled=motion(),focused=root.contains(document.activeElement)&&document.activeElement!==play;
     play.disabled=!enabled;play.textContent=!enabled?'−':paused?'▷':'Ⅱ';
@@ -70,7 +71,7 @@ function initHardwareCarousel(){
     play.setAttribute('aria-pressed',String(!paused&&enabled));
     const blocked=hovering||focused||dialog.open;
     root.querySelector('.hardware-motion-status').textContent=!enabled?'Motion off':paused?'Auto switching paused':blocked?'Paused while browsing':'Auto switching · 3 s';
-    if(active()&&enabled&&!paused&&!blocked){
+    if(active()&&enabled&&!paused&&!blocked&&collection.length>1){
       timer=setTimeout(()=>select(selected+1),3000);
     }
   }
@@ -114,8 +115,10 @@ function initHardwareCarousel(){
   stage.addEventListener('pointerenter',event=>{if(event.pointerType==='mouse'){hovering=true;sync();}});
   stage.addEventListener('pointerleave',()=>{hovering=false;drag=null;sync();});
   root.addEventListener('focusin',sync);root.addEventListener('focusout',()=>queueMicrotask(sync));
+  window.PortfolioAutoplay.watch(sync);
   window.addEventListener('portfolio-motion',sync);reduced.addEventListener('change',sync);document.addEventListener('visibilitychange',sync);
-  const observer=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;sync();},{threshold:.12});observer.observe(root);
+  const observer=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting&&entries[0].intersectionRatio>=.12;sync();},{threshold:.12});observer.observe(root);
   const section=root.closest('section');if(section)new MutationObserver(sync).observe(section,{attributes:true,attributeFilter:['hidden']});
   updateJump();select(0);
 }
+

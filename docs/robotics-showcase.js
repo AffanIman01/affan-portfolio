@@ -9,7 +9,7 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const phoneLayout = matchMedia('(max-width: 760px)');
   const touchPointers = new Set();
-  let selected = 0, paused = false, hovering = false, onScreen = false, timer = null, swipe = null;
+  let selected = 0, paused = window.PortfolioAutoplay.paused('robotics-stories'), hovering = false, onScreen = false, timer = null, swipe = null;
   const motionEnabled = () => !reduced.matches && window.portfolioMotionEnabled !== false;
 
   const dialog = document.createElement('dialog');
@@ -22,26 +22,27 @@
     slides.forEach(slide => {
       const video = slide.querySelector('video');
       if (!video) return;
-      if (motionEnabled() && !paused && onScreen && !document.hidden && slide.classList.contains('is-active') && !dialog.open) video.play().catch(() => {});
-      else video.pause();
+      window.PortfolioAutoplay.media(video, motionEnabled() && !paused && onScreen && !hovering && !(root.contains(document.activeElement) && document.activeElement !== playButton) && slide.classList.contains('is-active') && !dialog.open);
     });
     const video = dialog.querySelector('video');
-    if (video) { if (dialog.open && motionEnabled() && !document.hidden) video.play().catch(() => {}); else video.pause(); }
+    if (video) window.PortfolioAutoplay.media(video, dialog.open && motionEnabled());
   }
 
   function updateAutoplay() {
+    window.PortfolioAutoplay.remember('robotics-stories', paused);
     updateStoryVideos();
     clearTimeout(timer);
     timer = null;
     const enabled = motionEnabled();
     playButton.disabled = !enabled || slides.length < 2;
+    playButton.setAttribute('aria-pressed', String(enabled && !paused));
     playButton.innerHTML = !enabled ? '<span aria-hidden="true">−</span> Auto off'
       : paused ? '<span aria-hidden="true">▷</span> Play' : '<span aria-hidden="true">Ⅱ</span> Pause';
     playButton.setAttribute('aria-label', !enabled ? 'Automatic robotics showcase disabled while motion is off'
       : paused ? 'Play automatic robotics showcase' : 'Pause automatic robotics showcase');
     const focused = root.contains(document.activeElement) && document.activeElement !== playButton;
-    if (enabled && !paused && !hovering && !focused && onScreen && !root.closest('[hidden]') && !document.hidden && !dialog.open && slides.length > 1) {
-      timer = setTimeout(() => select(selected + 1), Number(slides[selected].dataset.durationMs) || Number(root.dataset.autoplayInterval) || 2500);
+    if (window.PortfolioAutoplay.canRun(root) && enabled && !paused && !hovering && !focused && onScreen && !root.closest('[hidden]') && !document.hidden && !dialog.open && slides.length > 1) {
+      timer = setTimeout(() => select(selected + 1), window.PortfolioAutoplay.videoDelay(slides[selected].querySelector('video'), Number(slides[selected].dataset.durationMs) || 5000));
     }
   }
 
@@ -143,6 +144,9 @@
   document.addEventListener('visibilitychange', updateAutoplay);
   reduced.addEventListener('change', updateAutoplay);
   window.addEventListener('portfolio-motion', updateAutoplay);
+  slides.forEach(slide => { const video = slide.querySelector('video'); if (video) { video.preload = 'none'; video.addEventListener('loadedmetadata', () => { if (slide.classList.contains('is-active')) updateAutoplay(); }); } });
+  window.PortfolioAutoplay.watch(updateAutoplay);
   select(0);
 })();
+
 

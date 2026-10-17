@@ -7,15 +7,17 @@
   const selectors = [...root.querySelectorAll('[data-ic-story]')];
   const play = root.querySelector('[data-ic-story-play]');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  let current = 0, paused = false, hovering = false, visible = false, timer;
+  let current = 0, paused = window.PortfolioAutoplay.paused('ic-stories'), hovering = false, visible = false, timer;
   function schedule() {
+    window.PortfolioAutoplay.remember('ic-stories', paused);
     clearTimeout(timer);
     const enabled = !reduced.matches && window.portfolioMotionEnabled !== false;
-    play.disabled = !enabled;
+    play.disabled = !enabled || slides.length < 2;
+    play.setAttribute('aria-pressed', String(enabled && !paused));
     play.textContent = !enabled ? 'Auto off' : paused ? '▷ Play' : 'Ⅱ Pause';
     play.setAttribute('aria-label', !enabled ? 'Automatic picture stories disabled while motion is off' : paused ? 'Play automatic picture stories' : 'Pause automatic picture stories');
     const focused = root.contains(document.activeElement) && document.activeElement !== play;
-    if (enabled && !paused && !hovering && !focused && visible && !root.hidden && !document.hidden) timer = setTimeout(() => select(current + 1), 5000);
+    if (window.PortfolioAutoplay.canRun(root) && enabled && !paused && !hovering && !focused && visible && !root.hidden && !document.hidden) timer = setTimeout(() => select(current + 1), 5000);
   }
   function select(index, manual = false) {
     if (manual) paused = true;
@@ -24,7 +26,8 @@
     selectors.forEach((button, i) => { button.setAttribute('aria-pressed', String(i === current)); button.classList.toggle('is-active', i === current); });
     root.querySelector('[data-ic-story-count]').textContent = `${current + 1} / ${slides.length}`;
     const rail = selectors[current].parentElement;
-    rail.scrollTo({left: selectors[current].offsetLeft - selectors[0].offsetLeft, behavior: 'instant'});
+    const selectedButton = selectors[current];
+    if (selectedButton.offsetLeft < rail.scrollLeft || selectedButton.offsetLeft + selectedButton.offsetWidth > rail.scrollLeft + rail.clientWidth) rail.scrollTo({left: selectedButton.offsetLeft - selectors[0].offsetLeft, behavior: 'instant'});
     if (manual) root.querySelector('[data-ic-story-announcement]').textContent = slides[current].querySelector('h2').textContent;
     schedule();
   }
@@ -43,10 +46,12 @@
   root.addEventListener('pointerleave', event => { if (event.pointerType === 'mouse') { hovering = false; schedule(); } });
   root.addEventListener('focusin', schedule);
   root.addEventListener('focusout', () => queueMicrotask(schedule));
-  new IntersectionObserver(entries => { visible = entries[0].isIntersecting; schedule(); }, {threshold:.15}).observe(stage);
+  new IntersectionObserver(entries => { visible = entries[0].isIntersecting && entries[0].intersectionRatio >= .15; schedule(); }, {threshold:.15}).observe(stage);
   new MutationObserver(schedule).observe(root, {attributes:true, attributeFilter:['hidden']});
   document.addEventListener('visibilitychange', schedule);
   window.addEventListener('portfolio-motion', schedule);
   reduced.addEventListener('change', schedule);
+  window.PortfolioAutoplay.watch(schedule);
   select(0);
 })();
+

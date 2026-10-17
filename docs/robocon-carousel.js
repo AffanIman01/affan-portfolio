@@ -7,18 +7,19 @@
   const counter = root.querySelector('.robocon-carousel-position');
   const status = root.querySelector('.robocon-carousel-motion');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  let index = 0, paused = false, visible = false, hovering = false, timer;
+  let index = 0, paused = window.PortfolioAutoplay.paused('robocon'), visible = false, hovering = false, timer;
   const motion = () => !reduced.matches && window.portfolioMotionEnabled !== false;
-  const active = () => visible && !document.hidden && !root.closest('[hidden]');
+  const active = () => window.PortfolioAutoplay.canRun(root) && visible && !document.hidden && !root.closest('[hidden]');
   function sync() {
+    window.PortfolioAutoplay.remember('robocon', paused);
     clearTimeout(timer);
-    const blocked = !active() || hovering || root.contains(document.activeElement);
+    const blocked = !active() || hovering || (root.contains(document.activeElement) && document.activeElement !== play);
     play.disabled = !motion();
     play.textContent = paused || !motion() ? '▶' : 'Ⅱ';
     play.setAttribute('aria-pressed', String(!paused && motion()));
     play.setAttribute('aria-label', paused ? 'Play automatic Robocon carousel' : 'Pause automatic Robocon carousel');
     status.textContent = !motion() ? 'Motion off' : paused ? 'Automatic switching paused' : blocked ? 'Paused while browsing' : 'Auto switching · 3 s';
-    if (motion() && !paused && !blocked) timer = setTimeout(() => select(index + 1), 3000);
+    if (cards.length > 1 && motion() && !paused && !blocked) timer = setTimeout(() => select(index + 1), 3000);
   }
   function update(indexValue) {
     index = (indexValue + cards.length) % cards.length;
@@ -50,10 +51,12 @@
     if (e.target !== track || !['ArrowLeft','ArrowRight','Home','End'].includes(e.key)) return;
     e.preventDefault(); select(e.key === 'Home' ? 0 : e.key === 'End' ? cards.length - 1 : index + (e.key === 'ArrowRight' ? 1 : -1), true);
   });
-  new IntersectionObserver(entries => { visible = entries[0].isIntersecting; sync(); }, {threshold:.15}).observe(track);
+  new IntersectionObserver(entries => { visible = entries[0].isIntersecting && entries[0].intersectionRatio >= .15; sync(); }, {threshold:.15}).observe(track);
   new MutationObserver(sync).observe(root.closest('[data-area-content]'), {attributes:true,attributeFilter:['hidden']});
   document.addEventListener('visibilitychange', sync);
   window.addEventListener('portfolio-motion', sync);
   reduced.addEventListener('change', sync);
+  window.PortfolioAutoplay.watch(sync);
   update(0); sync();
 })();
+
