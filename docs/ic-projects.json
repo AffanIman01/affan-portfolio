@@ -203,5 +203,71 @@
     "verification": "Original layout supplied. Verification reports are not displayed here.",
     "imageNote": "Original portfolio image. Use zoom to inspect the complete layout.",
     "tools": "Synopsys Custom Compiler · SAED14"
+  },
+  {
+    "id": "latq1_x1r",
+    "title": "latq1_x1r",
+    "category": "standard",
+    "categoryName": "Standard Cells",
+    "node": "40 nm · SMIC",
+    "image": "gallery/latq1_x1r-smic40.svg",
+    "imageKind": "original",
+    "imageAlt": "Grayscale latq1_x1r standard-cell layout in SMIC 40 nm",
+    "imageLabel": "GRAYSCALE LAYOUT PREVIEW",
+    "subtitle": "latq1_x1r standard-cell layout in SMIC 40 nm.",
+    "purpose": "Standard-cell layout for latq1_x1r using the SMIC 40 nm process.",
+    "contribution": "Custom standard-cell layout shown in the original project screenshot.",
+    "decisions": [
+      "Device placement and cell organisation",
+      "Signal routing and pin access",
+      "Power and ground rail connectivity"
+    ],
+    "verification": "Original layout supplied. Cell-specific verification reports are not displayed here.",
+    "imageNote": "Grayscale presentation of the original screenshot. Geometry and labels are preserved; zoom to inspect the complete layout.",
+    "tools": "SMIC 40 nm"
+  },
+  {
+    "id": "mx2_x2r",
+    "title": "mx2_x2r",
+    "category": "standard",
+    "categoryName": "Standard Cells",
+    "node": "40 nm · SMIC",
+    "image": "gallery/mx2_x2r-smic40.svg",
+    "imageKind": "original",
+    "imageAlt": "Grayscale mx2_x2r standard-cell layout in SMIC 40 nm",
+    "imageLabel": "GRAYSCALE LAYOUT PREVIEW",
+    "subtitle": "mx2_x2r standard-cell layout in SMIC 40 nm.",
+    "purpose": "Standard-cell layout for mx2_x2r using the SMIC 40 nm process.",
+    "contribution": "Custom standard-cell layout shown in the original project screenshot.",
+    "decisions": [
+      "Device placement and cell organisation",
+      "Signal routing and pin access",
+      "Power and ground rail connectivity"
+    ],
+    "verification": "Original layout supplied. Cell-specific verification reports are not displayed here.",
+    "imageNote": "Grayscale presentation of the original screenshot. Geometry and labels are preserved; zoom to inspect the complete layout.",
+    "tools": "SMIC 40 nm"
+  },
+  {
+    "id": "dffq_x1r",
+    "title": "dffq_x1r",
+    "category": "standard",
+    "categoryName": "Standard Cells",
+    "node": "40 nm · SMIC",
+    "image": "gallery/dffq_x1r-smic40.svg",
+    "imageKind": "original",
+    "imageAlt": "Grayscale dffq_x1r standard-cell layout in SMIC 40 nm",
+    "imageLabel": "GRAYSCALE LAYOUT PREVIEW",
+    "subtitle": "dffq_x1r standard-cell layout in SMIC 40 nm.",
+    "purpose": "Standard-cell layout for dffq_x1r using the SMIC 40 nm process.",
+    "contribution": "Custom standard-cell layout shown in the original project screenshot.",
+    "decisions": [
+      "Device placement and cell organisation",
+      "Signal routing and pin access",
+      "Power and ground rail connectivity"
+    ],
+    "verification": "Original layout supplied. Cell-specific verification reports are not displayed here.",
+    "imageNote": "Grayscale presentation of the original screenshot. Geometry and labels are preserved; zoom to inspect the complete layout.",
+    "tools": "SMIC 40 nm"
   }
 ]
