@@ -1,6 +1,6 @@
-# Portfolio analytics — awaiting account activation
+# Portfolio analytics — configured
 
-Status: integration prepared; collection is OFF until the owner supplies a Google Analytics 4 Measurement ID. No account or GA4 property has been created by this change.
+Status: configured with owner-supplied Measurement ID `G-GEFXGMGML5` for the Affan Iman web stream (https://mechaz.my). Collection starts when a visitor allows analytics. Google Analytics receipt still needs confirmation in Realtime. The owner must disable Enhanced measurement in the stream to avoid overlap with custom tracking.
 
 ## Private dashboard
 
