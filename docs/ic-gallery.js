@@ -1,4 +1,65 @@
 (() => {
+  const worksHeading = document.getElementById('robot-lab-heading');
+  if (worksHeading) worksHeading.textContent = 'My Works';
+
+  // Keep undergraduate cards and filter counts in sync with the project data.
+  // Existing cards retain their markup; new projects reuse the gallery's viewer.
+  function syncUndergraduateCards(root, track, projects) {
+    if (root.id !== 'undergraduate-gallery') return;
+    const existing = new Map([...track.querySelectorAll('.ic-card')].map(card => [card.dataset.icId, card]));
+    const make = (tag, className, text) => {
+      const element = document.createElement(tag);
+      if (className) element.className = className;
+      if (text) element.textContent = text;
+      return element;
+    };
+    projects.forEach(item => {
+      let card = existing.get(item.id);
+      if (!card) {
+        card = make('article', 'ic-card ic-panel');
+        card.dataset.icId = item.id;
+        card.dataset.icCategory = item.category;
+        const image = make('img', 'ic-panel-backdrop');
+        image.src = item.poster || item.image;
+        image.alt = '';
+        image.setAttribute('aria-hidden', 'true');
+        image.loading = 'lazy';
+        const preview = make('span', 'ic-panel-preview', item.imageLabel || 'ORIGINAL PROJECT PHOTO');
+        const heading = make('h3', 'ic-panel-heading');
+        const toggle = make('button', 'ic-panel-toggle');
+        toggle.type = 'button';
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Show ' + item.title);
+        const detailsId = root.id + '-details-' + item.id;
+        toggle.setAttribute('aria-controls', detailsId);
+        toggle.append(make('span', 'ic-panel-title', item.title), make('span', 'ic-panel-category', [item.categoryName, item.node].filter(Boolean).join(' · ')));
+        heading.append(toggle);
+        const details = make('div', 'ic-panel-details');
+        details.id = detailsId;
+        details.hidden = true;
+        const open = make('button', 'ic-panel-open', 'View project ');
+        open.type = 'button';
+        open.dataset.project = item.id;
+        open.setAttribute('aria-label', 'View ' + item.title + ' project details');
+        const arrow = make('span', '', '↗');
+        arrow.setAttribute('aria-hidden', 'true');
+        open.append(arrow);
+        details.append(make('p', '', item.subtitle || item.purpose), open);
+        card.append(image, preview, heading, details);
+        existing.set(item.id, card);
+      }
+      track.append(card);
+    });
+    track.dataset.count = String(projects.length);
+    root.querySelectorAll('[data-ic-filter]').forEach(button => {
+      const category = button.dataset.icFilter;
+      const total = projects.filter(item => category === 'all' || item.category === category).length;
+      let count = button.querySelector('span');
+      if (!count) { count = make('span'); button.append(document.createTextNode(' '), count); }
+      count.textContent = String(total);
+    });
+  }
+
   async function initializeGallery(root, galleryIndex) {
   const resultNoun = root.dataset.resultNoun || 'projects';
   const resultSingular = root.dataset.resultSingular || resultNoun.replace(/s$/, '');
@@ -17,6 +78,7 @@
   }
 
   const track = root.querySelector('.ic-accordion-track');
+  syncUndergraduateCards(root, track, projects);
   const cards = [...track.querySelectorAll('.ic-card')];
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   const compact = matchMedia('(max-width: 1000px)');
@@ -310,4 +372,3 @@
     initializeGallery(root, index).catch(error => console.error('Unable to initialize gallery', error));
   });
 })();
-
