@@ -93,29 +93,5 @@
         "caption": "Wearable demonstration of the Neuroflex glove, showing finger sensors and the connected prototype electronics."
       }
     ]
-  },
-  {
-    "id": "undergrad-design",
-    "category": "suggested",
-    "categoryName": "Suggested showcase slot",
-    "node": "Project to be selected",
-    "tools": "",
-    "title": "Mechatronics design project",
-    "image": "gallery/undergrad-design.svg",
-    "imageKind": "illustrative",
-    "imageAlt": "Sample wireframe illustration of a mechanical assembly; a guide for a future CAD or prototype image",
-    "imageNote": "Sample image guide. Replace with a real CAD assembly or prototype photograph. A matching view of the design and finished build makes the engineering process easy to understand.",
-    "purposeLabel": "Suggested selection",
-    "purpose": "Use this space for an undergraduate design-and-build project that brings mechanics, electronics, and control together. Choose a project with a visible prototype and a clear design constraint.",
-    "contributionLabel": "Your role to add",
-    "contribution": "Add your actual project title, date, and role. Describe the parts you designed or built, one decision you made, and how the team checked the finished system.",
-    "decisionsLabel": "Evidence to include",
-    "decisions": [
-      "A CAD assembly or clean photograph of the prototype.",
-      "A close-up that explains your mechanism, electronics, or integration work.",
-      "A test, demonstration, or iteration showing how the design met its goal."
-    ],
-    "verificationLabel": "Showcase status",
-    "verification": "Suggested slot only. No completed project, tools, dates, or results are claimed. Replace this entry with one of your selected undergraduate projects."
   }
 ]
