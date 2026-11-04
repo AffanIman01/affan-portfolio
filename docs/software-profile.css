@@ -57,3 +57,22 @@
 @media(max-width:760px){.robocon-carousel .software-project-grid{gap:16px}.robocon-carousel .software-project{flex-basis:88%}.robocon-carousel-controls{gap:12px}.robocon-carousel-controls>p{font-size:10px}.robocon-carousel-position{margin-right:2px}.software-project-art .robocon-theme-year{top:12px;left:12px;font-size:9px;padding:7px 9px}.software-project-art .robocon-theme-label{font-size:7px;bottom:8px;right:8px}}
 @media(prefers-reduced-motion:reduce){.robocon-carousel .software-project{transition:none}}
 @media(max-width:760px){.robocon-carousel .software-project-grid::after{flex-basis:max(0px,calc(12% - 16px))}}
+
+/* Extended software portfolio: active development and technology showcase. */
+.software-section .software-build-note{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:27px 0 0;padding:16px 19px;border:1px solid #40586a;border-radius:13px;background:#172834;color:#d4e0ec}
+.software-build-dot{display:inline-block;flex:0 0 8px;width:8px;height:8px;border-radius:50%;background:#9ec5d8;box-shadow:0 0 0 4px #9ec5d81c}
+.software-build-note strong{font-size:10px;letter-spacing:.14em;color:#c0dbee;white-space:nowrap}
+.software-build-note p{flex:1 1 340px;margin:0;font-size:12px;line-height:1.7;color:#b4c7d6}
+.software-section .software-skill-grid{grid-template-columns:repeat(3,minmax(0,1fr));margin:25px 0 67px}
+.software-skill-grid .software-skill-card{display:flex;flex-direction:column;min-width:0;padding:24px 22px}
+.software-skill-card>p{margin:0 0 12px}
+.software-skill-card .software-card-status{font-size:10px;line-height:1.6;letter-spacing:.02em;color:#c0d9df;border-top:1px solid #3b4e5c;padding-top:13px;margin:auto 0 0}
+.software-tech-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto;padding-top:15px}
+.software-tech-tags span{font-size:10px;line-height:1.35;color:#c5d8e8;border:1px solid #3d5466;padding:6px 9px;border-radius:7px;background:#192b3a}
+.software-library-list{list-style:none;margin:0;padding:12px 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.software-library-list li{display:flex;align-items:center;gap:9px;min-width:0;padding:9px 10px;border:1px solid #3c5264;border-radius:9px;background:#192b39}
+.software-library-list img{display:block;width:25px;height:25px;object-fit:contain;flex-shrink:0}
+.software-library-list span{font-size:11px;line-height:1.45;color:#d3e1eb;overflow-wrap:anywhere}
+@media(max-width:1050px){.software-section .software-skill-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.software-section .software-build-note{align-items:flex-start;gap:9px;padding:14px 15px}.software-build-note p{flex-basis:100%;font-size:12px}.software-section .software-skill-grid{grid-template-columns:1fr;gap:11px;margin-bottom:48px}.software-skill-grid .software-skill-card{padding:21px 18px}.software-skill-card h3{margin-top:12px}.software-library-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){.software-build-dot{box-shadow:none}}
