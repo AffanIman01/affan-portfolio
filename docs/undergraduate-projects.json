@@ -62,6 +62,39 @@
     "poster": "gallery/plantation-poster.jpg"
   },
   {
+    "id": "undergrad-neuroflex",
+    "category": "featured",
+    "categoryName": "Undergraduate team project",
+    "node": "Universiti Sains Malaysia",
+    "tools": "8051 · Assembly · Keil C51 · ESP32 · IoT",
+    "title": "Neuroflex — IoT Smart Glove",
+    "subtitle": "Finger movements translated into caregiver messages.",
+    "image": "https://d2ol7oe51mr4n9.cloudfront.net/user_3J7Saen8Wn16J9NY92rqfhUFgaL/e5d04db9-b666-486a-9418-e68f961d9264.png",
+    "imageKind": "original",
+    "imageAlt": "Neuroflex glove prototype with DIY finger sensors, connecting wires and breadboard electronics on a workbench",
+    "imageNote": "Original Neuroflex project photograph supplied by Affan Iman. The assembled glove and breadboard electronics are shown without altering the prototype.",
+    "imageLabel": "ORIGINAL PROJECT PHOTOS",
+    "purposeLabel": "Project purpose",
+    "purpose": "Develop an IoT smart-glove prototype to help people with limited mobility communicate with a caregiver using finger movements. Different finger movements are mapped to predefined messages and sent to a caregiver's device through an IoT connection.",
+    "contributionLabel": "Team project work",
+    "contribution": "Worked on an 8051 microcontroller mini project programmed in Assembly using Keil C51. The team built a wearable glove with DIY flex sensors, integrated the electronics and developed the finger-movement-to-message workflow. Learning the low-level code required research, debugging and repeated hardware testing.",
+    "decisionsLabel": "Engineering focus",
+    "decisions": [
+      "Map different finger movements to distinct caregiver messages.",
+      "Develop and debug the 8051 firmware in Assembly using Keil C51.",
+      "Build DIY flex sensors as a lower-cost alternative to commercial sensors.",
+      "Integrate the wearable electronics and IoT communication workflow."
+    ],
+    "verificationLabel": "Prototype evidence",
+    "verification": "Original photographs show the assembled prototype and a wearable bench demonstration. This is an undergraduate proof of concept; no clinical validation or patient-trial results are claimed.",
+    "extraMedia": [
+      {
+        "image": "https://d2ol7oe51mr4n9.cloudfront.net/user_3J7Saen8Wn16J9NY92rqfhUFgaL/504c389d-214e-4fac-bc94-821a85f6b5f5.png",
+        "caption": "Wearable demonstration of the Neuroflex glove, showing finger sensors and the connected prototype electronics."
+      }
+    ]
+  },
+  {
     "id": "undergrad-design",
     "category": "suggested",
     "categoryName": "Suggested showcase slot",
