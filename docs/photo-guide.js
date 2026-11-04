@@ -7,6 +7,48 @@ nav.querySelectorAll('.island-brand,.island-contact').forEach(a=>a.addEventListe
 const hashNames={ic:'ic-design',robotics:'robotics',software:'software',credentials:'credentials',about:'about',all:'all-images'};
 const areaTargets={ic:'#home',robotics:'#robotics-profile',software:'#software-profile',credentials:'#credentials-profile',about:'#about-profile'};
 const descriptions={ic:'IC Design · Layout screenshots, automation examples, and a workstation photo.',robotics:'Robotics · Full project photos and close-ups of the hardware you integrated.',software:'Software & AI · Programming, browser experiences and playable engineering simulations.',credentials:'Credentials · Original badge artwork and complete, readable certificates.',about:'About Me · Your portrait, teamwork, and engineering journey.',all:'All 10 image slots · A complete visual checklist for your portfolio.'};
+/* About overview: compact shortcuts use the same section router as the main navigation. */
+function prepareAboutPortfolio(){
+  const about=document.querySelector('#about-profile');
+  if(!about)return;
+  const heading=about.querySelector('.profile-section-heading h2');
+  if(heading)heading.textContent='My Portfolio';
+  const education=[...about.querySelectorAll('.profile-subheading')].find(item=>item.querySelector('.section-eyebrow')?.textContent.trim().toUpperCase()==='EDUCATION');
+  if(!education||about.querySelector('#about-portfolio-nav'))return;
+  const shortcuts=document.createElement('nav');
+  shortcuts.id='about-portfolio-nav';shortcuts.className='about-portfolio-nav';
+  shortcuts.setAttribute('aria-label','Explore my portfolio');
+  [['ic','IC Design'],['robotics','Robotics'],['software','Software']].forEach(([area,label])=>{
+    const link=document.createElement('a');link.href='#'+hashNames[area];link.dataset.filter=area;
+    link.setAttribute('aria-controls',areaTargets[area].slice(1));
+    const icon=document.querySelector('.mobile-tabbar a[data-filter="'+area+'"] svg');
+    if(icon){const copy=icon.cloneNode(true);copy.setAttribute('aria-hidden','true');copy.setAttribute('focusable','false');link.append(copy)}
+    const name=document.createElement('span');name.className='portfolio-shortcut-label';name.textContent=label;
+    const arrow=document.createElement('span');arrow.className='portfolio-shortcut-arrow';arrow.setAttribute('aria-hidden','true');arrow.textContent='→';
+    link.append(name,arrow);shortcuts.append(link);
+  });
+  if(!document.getElementById('about-portfolio-navigation-styles')){
+    const style=document.createElement('style');style.id='about-portfolio-navigation-styles';
+    style.textContent=`
+#about-profile .about-portfolio-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;width:100%;max-width:720px;margin:30px 0 12px;padding:0;box-sizing:border-box}
+#about-profile .about-portfolio-nav a{--shortcut-accent:#aebfea;display:flex;align-items:center;justify-content:center;gap:10px;min-width:0;min-height:52px;padding:12px 18px;border:1px solid #3b4e5c;border-radius:12px;background:#142330;color:#e2eaf2;font:inherit;font-size:14px;font-weight:500;line-height:1.35;text-decoration:none;box-sizing:border-box;transition:background .18s,border-color .18s}
+#about-profile .about-portfolio-nav a[data-filter=ic]{--shortcut-accent:#ebc34f}
+#about-profile .about-portfolio-nav a[data-filter=robotics]{--shortcut-accent:#a5ddd3}
+#about-profile .about-portfolio-nav svg{width:20px;height:20px;flex:0 0 20px;color:var(--shortcut-accent)}
+#about-profile .about-portfolio-nav .portfolio-shortcut-label{white-space:nowrap}
+#about-profile .about-portfolio-nav .portfolio-shortcut-arrow{margin-left:auto;color:var(--shortcut-accent);font-size:18px}
+#about-profile .about-portfolio-nav a:hover{background:#1c3040;border-color:var(--shortcut-accent)}
+#about-profile .about-portfolio-nav a:focus-visible{outline:2px solid var(--shortcut-accent);outline-offset:4px}
+@media(max-width:600px){#about-profile .about-portfolio-nav{gap:8px;margin-top:24px}#about-profile .about-portfolio-nav a{min-height:48px;padding:10px 8px;font-size:13px;gap:7px}#about-profile .about-portfolio-nav .portfolio-shortcut-arrow{display:none}}
+@media(max-width:420px){#about-profile .about-portfolio-nav svg{display:none}#about-profile .about-portfolio-nav a{font-size:12px}}
+@media(prefers-reduced-motion:reduce){#about-profile .about-portfolio-nav a{transition:none}}
+html[data-portfolio-motion=off] #about-profile .about-portfolio-nav a{transition:none}
+`;
+    document.head.append(style);
+  }
+  education.before(shortcuts);
+}
+prepareAboutPortfolio();
 const imageGuide=document.querySelector('#portfolio-image-guidance');
 function closeMenu(){nav.classList.remove('menu-open');menu.setAttribute('aria-expanded','false');menu.textContent='☰';menu.setAttribute('aria-label','Open navigation')}
 function filterPhotos(category){
@@ -27,7 +69,22 @@ function showArea(category,scroll=false,update=true,jump=null){
   if(scroll)document.querySelector(target).scrollIntoView({behavior:!jump&&matchMedia('(max-width: 760px)').matches?'instant':motion()});
   closeMenu();
 }
-document.querySelectorAll('[data-filter]').forEach(control=>control.addEventListener('click',event=>{event.preventDefault();if(control.tagName==='BUTTON')filterPhotos(control.dataset.filter);else showArea(control.dataset.filter,true,true,control.dataset.jump)}));
+document.querySelectorAll('[data-filter]').forEach(control=>control.addEventListener('click',event=>{
+  if(control.tagName==='A'&&(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey))return;
+  event.preventDefault();
+  if(control.tagName==='BUTTON')filterPhotos(control.dataset.filter);
+  else{
+    showArea(control.dataset.filter,true,true,control.dataset.jump);
+    if(control.closest('.about-portfolio-nav')){
+      const section=document.querySelector(areaTargets[control.dataset.filter]);
+      const destination=section?.querySelector('h2,h3')||section;
+      if(destination){
+        if(!destination.hasAttribute('tabindex')){destination.setAttribute('tabindex','-1');destination.addEventListener('blur',()=>destination.removeAttribute('tabindex'),{once:true})}
+        destination.focus({preventScroll:true});
+      }
+    }
+  }
+}));
 nav.querySelector('.island-brand').addEventListener('click',event=>{event.preventDefault();showArea('ic',true)});
 document.querySelectorAll('a[href="#image-guide"]').forEach(link=>link.addEventListener('click',event=>{event.preventDefault();imageGuide.open=true;document.querySelector('#image-guide').scrollIntoView({behavior:motion()});history.replaceState(null,'','#image-guide')}));
 function readHash(){
