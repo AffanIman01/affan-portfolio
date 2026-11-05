@@ -215,24 +215,70 @@
     const worksTitle=make('div'), worksH2=make('h2','','My Works');worksH2.id='software-works-heading';
     worksTitle.append(make('span','section-eyebrow','PROJECTS & EXPLORATIONS'),worksH2);
     worksHeading.append(worksTitle,make('p','','Playable simulations and ongoing software work for real engineering systems.'));
-    const worksGrid=make('div','sw-works-grid');
+    const worksGrid=make('div','sw-work-panels');
+    const projectFilters=make('div','sw-filters');projectFilters.setAttribute('role','group');projectFilters.setAttribute('aria-label','Filter my software works');
+    const projectItems=demos.map(d=>({...d,category:'simulations',label:d.year,preview:d.year.includes('2025')}));
+    ['controls','reverse'].forEach(id=>{const e=entries.find(e=>e.id===id);projectItems.push({...e,category:id,label:'CURRENTLY BUILDING'});});
+    let activeProject=1, projectCategory='all', previewPaused=false, previewVisible=false, previewLoaded=false;
+    const projectPanels=[], projectButtons=[], projectDetails=[];
+    const previewVideo=make('video','sw-work-video');previewVideo.muted=true;previewVideo.loop=true;previewVideo.playsInline=true;previewVideo.preload='none';previewVideo.setAttribute('aria-label','Robocon 2025 basketball simulator gameplay');
+    const previewMotion=matchMedia('(prefers-reduced-motion: reduce)');
+    const galleryControls=make('div','sw-work-controls');
+    const galleryStatus=make('span','sw-work-status');galleryStatus.setAttribute('aria-live','polite');
+    const videoToggle=button('Pause gameplay preview','Pause preview','sw-preview-toggle');videoToggle.setAttribute('aria-pressed','false');
+    const previousProject=button('Previous software project','←'),nextProject=button('Next software project','→');
+    function shownProjects(){return projectItems.map((_,i)=>i).filter(i=>projectCategory==='all'||projectItems[i].category===projectCategory);}
+    async function updatePreview(){
+      const allowed=projectItems[activeProject].preview&&previewVisible&&!previewPaused&&!previewMotion.matches&&!document.hidden&&window.portfolioMotionEnabled!==false;
+      if(!allowed)previewVideo.pause();
+      if(!previewVisible)return;
+      if(!previewLoaded){
+        previewLoaded=true;
+        try{const response=await fetch('gallery/robocon/robocon-2025-preview.json');if(!response.ok)throw new Error('Preview unavailable');const media=await response.json();previewVideo.poster=media.poster;previewVideo.src=media.video;}
+        catch{previewLoaded=false;videoToggle.textContent='Preview unavailable';return;}
+      }
+      if(projectItems[activeProject].preview&&previewVisible&&!previewPaused&&!previewMotion.matches&&!document.hidden&&window.portfolioMotionEnabled!==false){previewVideo.play().catch(()=>{});}
+    }
+    function selectProject(i){
+      activeProject=i;
+      const visible=shownProjects();
+      projectPanels.forEach((panel,n)=>{panel.hidden=!visible.includes(n);panel.classList.toggle('is-active',n===i);projectButtons[n].setAttribute('aria-expanded',String(n===i));projectDetails[n].hidden=n!==i;});
+      galleryStatus.textContent=String(visible.indexOf(i)+1).padStart(2,'0')+' / '+String(visible.length).padStart(2,'0')+' · '+projectItems[i].title;
+      videoToggle.hidden=!projectItems[i].preview;previousProject.disabled=nextProject.disabled=visible.length<2;
+      updatePreview();
+    }
     function projectLink(label,url){const a=make('a','',label);a.href=url;a.target='_blank';a.rel='noopener noreferrer';return a;}
-    demos.forEach(demo=>{
-      const card=make('article','sw-work-card');
-      if(demo.image){const img=make('img','sw-work-image');img.src=demo.image;img.alt=demo.title+' simulation theme';img.loading='lazy';card.append(img);}
-      const copy=make('div','sw-work-copy');
-      copy.append(make('span','section-eyebrow',demo.year+' · PLAYABLE DEMO'),make('h3','',demo.title),make('p','',demo.description));
+    projectItems.forEach((project,i)=>{
+      const card=make('article','sw-work-panel');
+      if(project.image){const img=make('img','sw-work-backdrop');img.src=project.image;img.alt=project.title+' project preview';img.loading='lazy';card.append(img);}
+      else{const art=make('div','sw-work-concept');art.append(icon(project.kind),make('span','','WORK IN PROGRESS'));card.append(art);}
+      if(project.preview){previewVideo.poster=project.image;card.append(previewVideo);card.append(make('span','sw-work-preview-label','GAMEPLAY PREVIEW'));}
+      const heading=make('h3','sw-work-title'),toggle=button('Show '+project.title,'','sw-work-toggle');
+      toggle.setAttribute('aria-controls','software-project-'+i);
+      toggle.append(make('span','sw-work-category',project.label),make('span','sw-work-name',project.title));heading.append(toggle);
+      const detail=make('div','sw-work-detail');detail.id='software-project-'+i;
+      detail.append(make('p','',project.description));
       const links=make('div','sw-work-links');
-      if(demo.play)links.append(projectLink('Play demo ↗',demo.play));
-      if(demo.code)links.append(projectLink('View code ↗',demo.code));
-      copy.append(links);card.append(copy);worksGrid.append(card);
+      if(project.play)links.append(projectLink('Play demo ↗',project.play));
+      if(project.code)links.append(projectLink('View code ↗',project.code));
+      detail.append(links);card.append(heading,detail,make('span','sw-work-number',String(i+1).padStart(2,'0')));
+      toggle.onclick=()=>selectProject(i);
+      toggle.onkeydown=e=>{if(!['ArrowLeft','ArrowRight'].includes(e.key))return;e.preventDefault();const visible=shownProjects();const j=visible[(visible.indexOf(activeProject)+(e.key==='ArrowRight'?1:-1)+visible.length)%visible.length];selectProject(j);projectButtons[j].focus();};
+      projectPanels.push(card);projectButtons.push(toggle);projectDetails.push(detail);worksGrid.append(card);
     });
-    [entries.find(e=>e.id==='controls'),entries.find(e=>e.id==='reverse')].forEach(entry=>{
-      const card=make('article','sw-work-card sw-work-in-progress'), copy=make('div','sw-work-copy');
-      copy.append(make('span','section-eyebrow','CURRENTLY BUILDING'),make('h3','',entry.title),make('p','',entry.description));
-      card.append(copy);worksGrid.append(card);
+    [['all','All works'],['simulations','Simulations'],['controls','Control interfaces'],['reverse','Reverse engineering']].forEach(([id,label])=>{
+      const filter=button(label,label);filter.setAttribute('aria-pressed',String(id==='all'));
+      filter.onclick=()=>{projectCategory=id;[...projectFilters.children].forEach(b=>b.setAttribute('aria-pressed',String(b===filter)));const visible=shownProjects();selectProject(visible.includes(activeProject)?activeProject:visible[0]);};projectFilters.append(filter);
     });
-    works.append(worksHeading,worksGrid,make('p','software-demo-note',demoNote));
+    function stepProject(step){const visible=shownProjects();selectProject(visible[(visible.indexOf(activeProject)+step+visible.length)%visible.length]);}
+    previousProject.onclick=()=>stepProject(-1);nextProject.onclick=()=>stepProject(1);
+    videoToggle.onclick=()=>{previewPaused=!previewPaused;videoToggle.textContent=previewPaused?'Play preview':'Pause preview';videoToggle.setAttribute('aria-label',previewPaused?'Play gameplay preview':'Pause gameplay preview');videoToggle.setAttribute('aria-pressed',String(previewPaused));updatePreview();};
+    new MutationObserver(updatePreview).observe(document.documentElement,{attributes:true,attributeFilter:['data-portfolio-motion']});
+    previewMotion.addEventListener('change',updatePreview);document.addEventListener('visibilitychange',updatePreview);
+    const previewObserver=new IntersectionObserver(observations=>{previewVisible=observations[0].isIntersecting;updatePreview();},{threshold:0.15});previewObserver.observe(previewVideo);
+    galleryControls.append(galleryStatus,videoToggle,previousProject,nextProject);
+    works.append(worksHeading,projectFilters,worksGrid,galleryControls,make('p','software-demo-note','Robocon 2025 uses my gameplay recording. Other previews are theme illustrations. '+demoNote));
+    selectProject(1);
     const sectionStyle=make('style');
     sectionStyle.textContent=`
       .sw-engineering-badge{display:block;margin:34px auto;color:#a4dce5;font-size:32px;font-weight:650;letter-spacing:.02em}
@@ -245,17 +291,27 @@
       #software-profile .sw-brand-strip img[hidden]{display:none}
       .sw-brand-name{display:block;margin-top:12px;font-size:14px;color:#e1e8ef}
       #software-profile .sw-brand-strip figcaption{margin-top:5px}
-      .sw-works{margin-top:40px}.sw-works-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-      .sw-work-card{min-width:0;overflow:hidden;border:1px solid #ffffff18;border-radius:14px;background:#111921}
-      .sw-work-image{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
-      .sw-work-copy{padding:24px}.sw-work-copy h3{font-size:23px;line-height:1.25;color:#eef4f8;margin:12px 0}
-      .sw-work-copy p{font-size:14px;line-height:1.75;color:#a7b5c5;margin:0}
-      .sw-work-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:22px}
-      .sw-work-links a{display:inline-flex;align-items:center;min-height:44px;color:#98dfe8;font-size:13px;text-decoration:none}
-      .sw-work-links a:hover{text-decoration:underline}.sw-work-links a:focus-visible{outline:2px solid #98dfe8;outline-offset:4px}
-      .sw-work-in-progress .section-eyebrow{color:#dbba7c}
-      @media(max-width:1000px){.sw-works-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-      @media(max-width:600px){.sw-works-grid{grid-template-columns:1fr}.sw-work-copy{padding:20px}.sw-works{margin-top:28px}}
+      .sw-works{margin-top:40px}.sw-work-panels{display:flex;gap:0;min-width:0;overflow:hidden}
+      .sw-work-panel{position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:flex-end;flex:1 1 0;min-width:0;height:510px;border-left:1px solid #526171;overflow:hidden;transition:flex .6s ease;background:#101923}
+      .sw-work-panel[hidden]{display:none}.sw-work-panel:first-child{border-left:0}.sw-work-panel.is-active{flex:3.5 1 0}
+      .sw-work-backdrop,.sw-work-video,.sw-work-concept{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-3;opacity:.16;transition:opacity .4s}
+      .sw-work-video{object-fit:contain;object-position:center top;background:#111923;opacity:0}
+      .sw-work-panel.is-active .sw-work-backdrop,.sw-work-panel.is-active .sw-work-video,.sw-work-panel.is-active .sw-work-concept{opacity:1}
+      .sw-work-panel:after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 20%,#0b1421a6 52%,#0b1421fa 85%);pointer-events:none}
+      .sw-work-title{margin:0!important}.sw-work-toggle{display:block;width:100%;padding:24px 20px;border:0;background:transparent;text-align:left;color:#edf3fa;min-height:110px;padding-bottom:40px}
+      .sw-work-toggle:focus-visible{outline:2px solid #dca56b;outline-offset:-4px}
+      .sw-work-panel.is-active .sw-work-toggle{padding-bottom:24px}
+      .sw-work-category{display:block;color:#dca56b;font-size:9px;letter-spacing:.1em;margin-bottom:16px;line-height:1.6}
+      .sw-work-name{display:block;font-size:20px;line-height:1.2;overflow-wrap:anywhere}.is-active .sw-work-name{font-size:30px}
+      .sw-work-detail{padding:0 20px 48px}.sw-work-detail[hidden]{display:none}.sw-work-detail p{font-size:13px;line-height:1.7;color:#c1cedc;margin:0}
+      .sw-work-links{display:flex;flex-wrap:wrap;gap:16px;margin-top:14px}.sw-work-links a{color:#a8e3eb;font-size:12px;min-height:44px;display:inline-flex;align-items:center}
+      .sw-work-links a:focus-visible{outline:2px solid #dca56b;outline-offset:4px}.sw-work-number{position:absolute;right:20px;bottom:16px;font-size:11px;color:#a7b5c5}
+      .sw-work-preview-label{position:absolute;left:18px;top:18px;font-size:9px;letter-spacing:.12em;padding:6px 10px;background:#0b1421cc;color:#a8e3eb;border:1px solid #526171}
+      .sw-work-concept{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;background:radial-gradient(circle at 50% 35%,#254451,#111923 65%);color:#a7ccd5}.sw-work-concept svg{width:100px;height:100px}.sw-work-concept span{font-size:10px;letter-spacing:.15em}
+      .sw-works .software-demo-note{font-size:11px;line-height:1.8;color:#8d9eaf;margin-top:22px}
+      .sw-work-controls{display:flex;align-items:center;gap:12px;margin-top:24px}.sw-work-status{margin-right:auto;font-size:12px;color:#a7b5c5}.sw-work-controls button{min-width:44px;min-height:44px;padding:8px 16px;border:1px solid #526171;border-radius:24px;color:#dca56b;background:transparent;font-size:12px}.sw-work-controls button[hidden]{display:none}.sw-work-controls button:disabled{opacity:.35}
+      @media(max-width:1000px){.sw-work-panels{flex-direction:column;gap:10px}.sw-work-panel,.sw-work-panel.is-active{flex:none;width:100%;height:auto;min-height:112px;border:1px solid #344352;border-radius:12px}.sw-work-panel.is-active{min-height:520px}.sw-work-toggle{padding:22px}.sw-work-detail{padding:0 22px 45px}.sw-work-panel:not(.is-active) .sw-work-preview-label{display:none}.sw-work-controls{flex-wrap:wrap}.sw-work-status{flex-basis:100%}.sw-work-video{object-position:center top}}
+      @media(prefers-reduced-motion:reduce){.sw-work-panel,.sw-work-backdrop,.sw-work-video{transition:none}}
     `;
     // Mount once, only after the original content and links have been captured.
     root.replaceChildren(header,workNote,filters,exhibit,attribution,footer,brands,works,announce,dialog,sectionStyle);
