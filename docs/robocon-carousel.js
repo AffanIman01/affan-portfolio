@@ -217,11 +217,11 @@
     worksHeading.append(worksTitle,make('p','','Playable simulations and ongoing software work for real engineering systems.'));
     const worksGrid=make('div','sw-work-panels');
     const projectFilters=make('div','sw-filters');projectFilters.setAttribute('role','group');projectFilters.setAttribute('aria-label','Filter my software works');
-    const projectItems=demos.map(d=>({...d,category:'simulations',label:d.year,preview:d.year.includes('2025')}));
+    const projectItems=demos.map(d=>({...d,category:'simulations',label:d.year,preview:['2025','2027'].find(year=>d.year.includes(year))}));
     ['controls','reverse'].forEach(id=>{const e=entries.find(e=>e.id===id);projectItems.push({...e,category:id,label:'CURRENTLY BUILDING'});});
-    let activeProject=1, projectCategory='all', previewPaused=false, previewVisible=false, previewLoaded=false;
+    let activeProject=1, projectCategory='all', previewPaused=false;
     const projectPanels=[], projectButtons=[], projectDetails=[];
-    const previewVideo=make('video','sw-work-video');previewVideo.muted=true;previewVideo.loop=true;previewVideo.playsInline=true;previewVideo.preload='none';previewVideo.setAttribute('aria-label','Robocon 2025 basketball simulator gameplay');
+    const previews=new Map();
     const previewMotion=matchMedia('(prefers-reduced-motion: reduce)');
     const galleryControls=make('div','sw-work-controls');
     const galleryStatus=make('span','sw-work-status');galleryStatus.setAttribute('aria-live','polite');
@@ -229,15 +229,22 @@
     const previousProject=button('Previous software project','←'),nextProject=button('Next software project','→');
     function shownProjects(){return projectItems.map((_,i)=>i).filter(i=>projectCategory==='all'||projectItems[i].category===projectCategory);}
     async function updatePreview(){
-      const allowed=projectItems[activeProject].preview&&previewVisible&&!previewPaused&&!previewMotion.matches&&!document.hidden&&window.portfolioMotionEnabled!==false;
-      if(!allowed)previewVideo.pause();
-      if(!previewVisible)return;
-      if(!previewLoaded){
-        previewLoaded=true;
-        try{const response=await fetch('gallery/robocon/robocon-2025-preview.json');if(!response.ok)throw new Error('Preview unavailable');const media=await response.json();previewVideo.poster=media.poster;previewVideo.src=media.video;}
-        catch{previewLoaded=false;videoToggle.textContent='Preview unavailable';return;}
+      for(const [index,state] of previews){
+        const canPlay=()=>activeProject===index&&state.visible&&!previewPaused&&!previewMotion.matches&&!document.hidden&&window.portfolioMotionEnabled!==false;
+        if(!canPlay())state.video.pause();
+        if(index!==activeProject||!state.visible)continue;
+        if(!state.loaded){
+          if(state.loading)continue;
+          state.loading=true;
+          try{
+            const response=await fetch('gallery/robocon/robocon-'+projectItems[index].preview+'-preview.json');
+            if(!response.ok)throw new Error('Preview unavailable');
+            const media=await response.json();state.video.poster=media.poster;state.video.src=media.video;state.loaded=true;
+          }catch{videoToggle.textContent='Preview unavailable';}
+          finally{state.loading=false;}
+        }
+        if(state.loaded&&canPlay())state.video.play().catch(()=>{});
       }
-      if(projectItems[activeProject].preview&&previewVisible&&!previewPaused&&!previewMotion.matches&&!document.hidden&&window.portfolioMotionEnabled!==false){previewVideo.play().catch(()=>{});}
     }
     function selectProject(i){
       activeProject=i;
@@ -252,7 +259,12 @@
       const card=make('article','sw-work-panel');
       if(project.image){const img=make('img','sw-work-backdrop');img.src=project.image;img.alt=project.title+' project preview';img.loading='lazy';card.append(img);}
       else{const art=make('div','sw-work-concept');art.append(icon(project.kind),make('span','','WORK IN PROGRESS'));card.append(art);}
-      if(project.preview){previewVideo.poster=project.image;card.append(previewVideo);card.append(make('span','sw-work-preview-label','GAMEPLAY PREVIEW'));}
+      if(project.preview){
+        const video=make('video','sw-work-video');video.muted=true;video.loop=true;video.playsInline=true;video.preload='none';video.poster=project.image;
+        video.setAttribute('aria-label',project.label+' '+project.title+' gameplay');
+        previews.set(i,{video,visible:false,loaded:false,loading:false});
+        card.append(video,make('span','sw-work-preview-label','GAMEPLAY PREVIEW'));
+      }
       const heading=make('h3','sw-work-title'),toggle=button('Show '+project.title,'','sw-work-toggle');
       toggle.setAttribute('aria-controls','software-project-'+i);
       toggle.append(make('span','sw-work-category',project.label),make('span','sw-work-name',project.title));heading.append(toggle);
@@ -275,9 +287,9 @@
     videoToggle.onclick=()=>{previewPaused=!previewPaused;videoToggle.textContent=previewPaused?'Play preview':'Pause preview';videoToggle.setAttribute('aria-label',previewPaused?'Play gameplay preview':'Pause gameplay preview');videoToggle.setAttribute('aria-pressed',String(previewPaused));updatePreview();};
     new MutationObserver(updatePreview).observe(document.documentElement,{attributes:true,attributeFilter:['data-portfolio-motion']});
     previewMotion.addEventListener('change',updatePreview);document.addEventListener('visibilitychange',updatePreview);
-    const previewObserver=new IntersectionObserver(observations=>{previewVisible=observations[0].isIntersecting;updatePreview();},{threshold:0.15});previewObserver.observe(previewVideo);
+    const previewObserver=new IntersectionObserver(observations=>{observations.forEach(observation=>{for(const state of previews.values()){if(state.video===observation.target)state.visible=observation.isIntersecting;}});updatePreview();},{threshold:0.15});previews.forEach(state=>previewObserver.observe(state.video));
     galleryControls.append(galleryStatus,videoToggle,previousProject,nextProject);
-    works.append(worksHeading,projectFilters,worksGrid,galleryControls,make('p','software-demo-note','Robocon 2025 uses my gameplay recording. Other previews are theme illustrations. '+demoNote));
+    works.append(worksHeading,projectFilters,worksGrid,galleryControls,make('p','software-demo-note','Robocon 2025 and 2027 use my gameplay recordings. Robocon 2024 uses a theme illustration. '+demoNote));
     selectProject(1);
     const sectionStyle=make('style');
     sectionStyle.textContent=`
