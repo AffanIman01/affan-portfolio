@@ -269,5 +269,115 @@
     "verification": "Original layout supplied. Cell-specific verification reports are not displayed here.",
     "imageNote": "Grayscale presentation of the original screenshot. Geometry and labels are preserved; zoom to inspect the complete layout.",
     "tools": "SMIC 40 nm"
+  },
+  {
+    "id": "invx1-40nm",
+    "title": "Inverter · INVX1_9TC50HVT",
+    "category": "standard",
+    "categoryName": "Standard Cells",
+    "node": "40 nm",
+    "image": "gallery/invx1-40nm.svg",
+    "imageKind": "original",
+    "imageAlt": "Grayscale 40 nm inverter layout, INVX1_9TC50HVT",
+    "imageLabel": "GRAYSCALE LAYOUT PREVIEW",
+    "subtitle": "Outputs the opposite logic level to its input.",
+    "purpose": "An inverter implements NOT logic: a low input produces a high output, and a high input produces a low output.",
+    "contribution": "Custom layout of INVX1_9TC50HVT in 40 nm technology during Vchip training.",
+    "decisions": [
+      "Device placement and diffusion sharing",
+      "Input/output pin access and signal routing",
+      "Power and ground rail connectivity"
+    ],
+    "verification": "Original layout supplied. Cell-specific verification reports are not displayed here.",
+    "imageNote": "Grayscale presentation of the original layout screenshot. The full geometry and labels are preserved; use zoom to inspect the details.",
+    "tools": "Cadence Virtuoso · Calibre"
+  },
+  {
+    "id": "invx8-40nm",
+    "title": "8-finger inverter · INVX8_9TC50HVT",
+    "category": "standard",
+    "categoryName": "Standard Cells",
+    "node": "40 nm",
+    "image": "gallery/invx8-40nm.svg",
+    "imageKind": "original",
+    "imageAlt": "Grayscale 40 nm 8-finger inverter layout, INVX8_9TC50HVT",
+    "imageLabel": "GRAYSCALE LAYOUT PREVIEW",
+    "subtitle": "Inversion implemented with an eight-finger layout.",
+    "purpose": "This inverter also implements NOT logic. Its eight-finger layout divides the transistor width into parallel fingers, with attention to shared connections and routing.",
+    "contribution": "Custom layout of INVX8_9TC50HVT in 40 nm technology during Vchip training.",
+    "decisions": [
+      "Eight-finger device organisation",
+      "Shared gate, source and drain connections",
+      "Power rails and routing access"
+    ],
+    "verification": "Original layout supplied. Cell-specific verification reports are not displayed here.",
+    "imageNote": "Grayscale presentation of the original layout screenshot. The full geometry and labels are preserved; use zoom to inspect the details.",
+    "tools": "Cadence Virtuoso · Calibre"
+  },
+  {
+    "id": "orx1-40nm",
+    "title": "OR gate · ORX1_9TC50HVT",
+    "category": "standard",
+    "categoryName": "Standard Cells",
+    "node": "40 nm",
+    "image": "gallery/orx1-40nm.svg",
+    "imageKind": "original",
+    "imageAlt": "Grayscale 40 nm or gate layout, ORX1_9TC50HVT",
+    "imageLabel": "GRAYSCALE LAYOUT PREVIEW",
+    "subtitle": "Outputs high when at least one input is high.",
+    "purpose": "An OR gate produces a high output when either input is high, including when both are high. Its output is low only when both inputs are low.",
+    "contribution": "Custom layout of ORX1_9TC50HVT in 40 nm technology during Vchip training.",
+    "decisions": [
+      "Device placement and diffusion sharing",
+      "Input/output pin access and signal routing",
+      "Power and ground rail connectivity"
+    ],
+    "verification": "Original layout supplied. Cell-specific verification reports are not displayed here.",
+    "imageNote": "Grayscale presentation of the original layout screenshot. The full geometry and labels are preserved; use zoom to inspect the details.",
+    "tools": "Cadence Virtuoso · Calibre"
+  },
+  {
+    "id": "norx1-40nm",
+    "title": "NOR gate · NORX1_9TC50HVT",
+    "category": "standard",
+    "categoryName": "Standard Cells",
+    "node": "40 nm",
+    "image": "gallery/norx1-40nm.svg",
+    "imageKind": "original",
+    "imageAlt": "Grayscale 40 nm nor gate layout, NORX1_9TC50HVT",
+    "imageLabel": "GRAYSCALE LAYOUT PREVIEW",
+    "subtitle": "Outputs high only when both inputs are low.",
+    "purpose": "A NOR gate is an OR function followed by inversion. Its output is high only when both inputs are low; any high input makes the output low.",
+    "contribution": "Custom layout of NORX1_9TC50HVT in 40 nm technology during Vchip training.",
+    "decisions": [
+      "Device placement and diffusion sharing",
+      "Input/output pin access and signal routing",
+      "Power and ground rail connectivity"
+    ],
+    "verification": "Original layout supplied. Cell-specific verification reports are not displayed here.",
+    "imageNote": "Grayscale presentation of the original layout screenshot. The full geometry and labels are preserved; use zoom to inspect the details.",
+    "tools": "Cadence Virtuoso · Calibre"
+  },
+  {
+    "id": "andx1-40nm",
+    "title": "AND gate · ANDX1_9TC50HVT",
+    "category": "standard",
+    "categoryName": "Standard Cells",
+    "node": "40 nm",
+    "image": "gallery/andx1-40nm.svg",
+    "imageKind": "original",
+    "imageAlt": "Grayscale 40 nm and gate layout, ANDX1_9TC50HVT",
+    "imageLabel": "GRAYSCALE LAYOUT PREVIEW",
+    "subtitle": "Outputs high only when both inputs are high.",
+    "purpose": "An AND gate produces a high output only when both inputs are high. If either input is low, the output is low.",
+    "contribution": "Custom layout of ANDX1_9TC50HVT in 40 nm technology during Vchip training.",
+    "decisions": [
+      "Device placement and diffusion sharing",
+      "Input/output pin access and signal routing",
+      "Power and ground rail connectivity"
+    ],
+    "verification": "Original layout supplied. Cell-specific verification reports are not displayed here.",
+    "imageNote": "Grayscale presentation of the original layout screenshot. The full geometry and labels are preserved; use zoom to inspect the details.",
+    "tools": "Cadence Virtuoso · Calibre"
   }
 ]

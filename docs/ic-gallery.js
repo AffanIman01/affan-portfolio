@@ -120,7 +120,7 @@
   function takeOver() { manuallyPaused = true; updateAutoplay(); }
 
   function scrollToCard(card) {
-    if (!compact.matches) return;
+    if (!compact.matches && root.id !== 'ic-gallery') return;
     const target = card.getBoundingClientRect().left - track.getBoundingClientRect().left + track.scrollLeft - (track.clientWidth - card.offsetWidth) / 2;
     scrollingByCode = true;
     track.scrollTo({ left: Math.max(0, target), behavior: behavior() });
@@ -210,7 +210,7 @@
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(() => {
       if (scrollingByCode) { scrollingByCode = false; return; }
-      if (!compact.matches) return;
+      if (!compact.matches && root.id !== 'ic-gallery') return;
       const midpoint = track.getBoundingClientRect().left + track.clientWidth / 2;
       const nearest = cards.filter(card => !card.hidden).reduce((best, card) => {
         const bounds = card.getBoundingClientRect();
@@ -372,3 +372,4 @@
     initializeGallery(root, index).catch(error => console.error('Unable to initialize gallery', error));
   });
 })();
+
