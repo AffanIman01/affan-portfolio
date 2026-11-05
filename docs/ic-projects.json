@@ -22,25 +22,6 @@
     "imageLabel": "GRAYSCALE LAYOUT PREVIEW"
   },
   {
-    "id": "standard-cells",
-    "title": "Standard-cell layouts",
-    "category": "standard",
-    "categoryName": "Standard Cells",
-    "node": "40 nm",
-    "image": "gallery/standard-cells.svg",
-    "subtitle": "From transistor placement to clean connectivity.",
-    "purpose": "Logic-gate layouts, including long-gate variants, during Vchip custom-layout training.",
-    "contribution": "Custom layout of logic cells, routing, and iterative DRC/LVS verification.",
-    "decisions": [
-      "Device orientation and diffusion sharing",
-      "Consistent power rails and pin placement",
-      "Compact placement with readable routing"
-    ],
-    "verification": "DRC/LVS verification formed part of the layout workflow. Cell-specific reports will accompany the original layout images.",
-    "imageNote": "Illustrative standard-cell study. Original cell overview and detail views to be added.",
-    "tools": "Cadence Virtuoso · Calibre"
-  },
-  {
     "id": "ldo",
     "title": "LDO layout",
     "category": "analog",
@@ -83,25 +64,6 @@
     "imageNote": "Grayscale preview of my Vchip top-level bandgap–ldo layout. Geometry and text are retained for the project overview.",
     "tools": "Cadence Virtuoso · Calibre",
     "imageLabel": "GRAYSCALE LAYOUT PREVIEW"
-  },
-  {
-    "id": "adders",
-    "title": "Half & full adders",
-    "category": "standard",
-    "categoryName": "Standard Cells",
-    "node": "40 nm",
-    "image": "gallery/adders.svg",
-    "subtitle": "Building larger functions from logic cells.",
-    "purpose": "Digital layout practice with half-adder and full-adder functions.",
-    "contribution": "Placement, interconnect routing, and physical-verification iterations.",
-    "decisions": [
-      "Signal flow and cell organization",
-      "Routing space and connection clarity",
-      "Area and layout consistency"
-    ],
-    "verification": "Physical-verification iterations formed part of the layout exercises. Supporting reports are pending.",
-    "imageNote": "Illustrative adder layout study. Original layout and interconnect views to be added.",
-    "tools": "Cadence Virtuoso · Calibre"
   },
   {
     "id": "skill",
@@ -375,6 +337,50 @@
       "Device placement and diffusion sharing",
       "Input/output pin access and signal routing",
       "Power and ground rail connectivity"
+    ],
+    "verification": "Original layout supplied. Cell-specific verification reports are not displayed here.",
+    "imageNote": "Grayscale presentation of the original layout screenshot. The full geometry and labels are preserved; use zoom to inspect the details.",
+    "tools": "Cadence Virtuoso · Calibre"
+  },
+  {
+    "id": "half-adder-40nm",
+    "title": "Half adder · ADDHCINX1_9TC50HVT",
+    "category": "standard",
+    "categoryName": "Standard Cells",
+    "node": "40 nm",
+    "image": "gallery/half-adder-40nm.svg",
+    "imageKind": "original",
+    "imageAlt": "Grayscale 40 nm half adder layout, ADDHCINX1_9TC50HVT",
+    "imageLabel": "GRAYSCALE LAYOUT PREVIEW",
+    "subtitle": "Two one-bit inputs, with sum and carry outputs.",
+    "purpose": "A half adder is a combinational circuit that adds two one-bit binary inputs and produces sum and carry outputs.",
+    "contribution": "Custom layout of ADDHCINX1_9TC50HVT in 40 nm technology during Vchip training.",
+    "decisions": [
+      "Placement of the sum and carry logic",
+      "Interconnect routing and input/output pin access",
+      "Power and ground rail connectivity"
+    ],
+    "verification": "Original layout supplied. Cell-specific verification reports are not displayed here.",
+    "imageNote": "Grayscale presentation of the original layout screenshot. The full geometry and labels are preserved; use zoom to inspect the details.",
+    "tools": "Cadence Virtuoso · Calibre"
+  },
+  {
+    "id": "full-adder-40nm",
+    "title": "Full adder · ADDFCINX1_9TC50HVT",
+    "category": "standard",
+    "categoryName": "Standard Cells",
+    "node": "40 nm",
+    "image": "gallery/full-adder-40nm.svg",
+    "imageKind": "original",
+    "imageAlt": "Grayscale 40 nm full adder layout, ADDFCINX1_9TC50HVT",
+    "imageLabel": "GRAYSCALE LAYOUT PREVIEW",
+    "subtitle": "Binary addition with a carry input, sum, and carry output.",
+    "purpose": "A full adder is a combinational circuit that adds two one-bit binary inputs and a carry input, producing sum and carry outputs.",
+    "contribution": "Custom layout of ADDFCINX1_9TC50HVT in 40 nm technology during Vchip training.",
+    "decisions": [
+      "Organisation of the sum and carry paths",
+      "Carry-input and carry-output routing",
+      "Power rails, signal connectivity, and pin access"
     ],
     "verification": "Original layout supplied. Cell-specific verification reports are not displayed here.",
     "imageNote": "Grayscale presentation of the original layout screenshot. The full geometry and labels are preserved; use zoom to inspect the details.",
