@@ -38,10 +38,12 @@
       {id:'reverse', category:'reverse', label:'SOFTWARE ANALYSIS', title:'Reverse engineering', subtitle:'Application & protocol investigation', status:'Currently building', description:text(source[3], ':scope > p'), tags:['Application behaviour','API inspection','Protocol analysis'], kind:'protocol', note:'Illustrative protocol flow · Robotics interoperability research.'},
       {id:'web', category:'web', label:'WEB & AI DEVELOPMENT', title:'Web systems', subtitle:'Frontend, backend & AI-assisted builds', status:'Website design & development', description:text(source[4], ':scope > p'), tags:tags(source[4]), kind:'web', note:'Interface concept · AI-assisted website development.'},
       {id:'security', category:'security', label:'CYBERSECURITY', title:'Security & networks', subtitle:'Biometrics & network observation', status:'Foundational knowledge', description:text(source[5], ':scope > p'), tags:tags(source[5]), kind:'security', note:'Illustrative network view · Traffic inspection and troubleshooting.'},
+      {id:'gazebo', category:'simulation-tools', label:'SIMULATION TOOLS', title:'Gazebo', subtitle:'Robotics simulation & ROS workflows', status:'Robotics simulation', description:'Exploring robot models, sensors and control behaviour in simulated environments as part of ROS and autonomous robotics workflows.', tags:['Gazebo','ROS / ROS 2','Robot models','Sensor simulation'], kind:'simulation-tool', toolLogo:'gazebo/gazebo-original.svg', note:'Simulation tool · Robotics development and learning.'},
+      {id:'unity', category:'simulation-tools', label:'SIMULATION TOOLS', title:'Unity', subtitle:'Interactive 3D environments & simulation', status:'Simulation & exploration', description:'Exploring interactive 3D environments and simulation concepts with Unity, connecting visual scenes, physics and user interaction.', tags:['Unity','3D environments','Physics','Interactive simulation'], kind:'simulation-tool', toolLogo:'unity/unity-original.svg', note:'Simulation tool · Interactive 3D exploration.'},
       {id:'simulators', category:'simulators', label:'INTERACTIVE SIMULATION', title:'Robocon simulators', subtitle:`${demos.length} playable browser demos`, status:'Browser-based learning projects', description:'Interactive robot-competition simulations for exploring mechanisms, control and game behaviour. Choose a demo below; each opens separately.', tags:['Browser demos','Robot control','3D simulation'], kind:'simulation', note:demoNote || 'Independent learning simulators; WebGL is required.'},
       {id:'controls', category:'apps', label:'ROBOTICS SOFTWARE', title:'Control interfaces', subtitle:'Monitoring, telemetry & remote operation', status:'Currently building', description:'Developing software interfaces for robotics monitoring and remote operation, connecting operator controls with system feedback and integration workflows.', tags:['Robotics integration','Remote operation','Telemetry UI'], kind:'control', note:'Interface concept · Robotics software development in progress.'}
     ];
-    const categories = [['all','All software'],['programming','Programming'],['python','Python ecosystem'],['apps','App development'],['reverse','Reverse engineering'],['web','Web & AI'],['security','Cybersecurity'],['simulators','Simulators / Robocon']];
+    const categories = [['all','All software'],['programming','Programming'],['python','Python ecosystem'],['apps','App development'],['reverse','Reverse engineering'],['web','Web & AI'],['security','Cybersecurity'],['simulation-tools','Simulation tools'],['simulators','Simulators / Robocon']];
     const icon = type => {
       const paths = {
         code:'M8 7 3 12l5 5m8-10 5 5-5 5M14 4l-4 16',
@@ -79,6 +81,14 @@
     function visual(entry) {
       const art = make('span',`sw-art sw-art-${entry.kind}`); art.setAttribute('aria-hidden','true');
       art.append(make('span','sw-art-caption',entry.kind === 'libraries' ? 'PYTHON / TOOLKIT' : entry.kind === 'simulation' ? 'PLAYABLE DEMOS' : 'SOFTWARE / EXPLORATION'));
+      if (entry.kind === 'simulation-tool') {
+        const logo=make('img','sw-simulation-tool-logo');logo.src='https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/'+entry.toolLogo;
+        logo.alt='';logo.loading='lazy';logo.decoding='async';
+        if(entry.id==='unity')logo.classList.add('sw-unity-logo');
+        logo.addEventListener('error',()=>{logo.hidden=true;});
+        art.append(logo,make('span','sw-art-label',entry.id==='gazebo' ? 'ROBOTICS / ROS' : 'INTERACTIVE / 3D'));
+        return art;
+      }
       if (entry.kind === 'libraries') { art.append(libraryTiles()); return art; }
       const emblem = make('span','sw-emblem'); emblem.append(icon(entry.kind)); art.append(emblem);
       if (entry.kind === 'code') {
@@ -171,11 +181,14 @@
       ['PyQt6','qt/qt-original.svg','Desktop interfaces'],
       ['OpenCV','opencv/opencv-original.svg','Computer vision'],
       ['NumPy','numpy/numpy-original.svg','Scientific computing'],
-      ['Supabase','supabase/supabase-original.svg','Web app backend']
+      ['Supabase','supabase/supabase-original.svg','Web app backend'],
+      ['Gazebo','gazebo/gazebo-original.svg','Robotics simulation'],
+      ['Unity','unity/unity-original.svg','Interactive 3D simulation']
     ];
     brandItems.forEach(([name,path,caption])=>{
       const figure=make('figure','robotics-brand');
       const art=make('div','robotics-brand-art'), img=make('img');
+      if(name==='Unity')img.classList.add('sw-unity-logo');
       img.src=logoBase+path;img.alt=name;img.loading='lazy';img.decoding='async';
       img.addEventListener('error',()=>{img.hidden=true;});
       art.append(img);figure.append(art,make('strong','sw-brand-name',name),make('figcaption','',caption));brandGrid.append(figure);
@@ -206,6 +219,9 @@
     works.append(worksHeading,worksGrid,make('p','software-demo-note',demoNote));
     const sectionStyle=make('style');
     sectionStyle.textContent=`
+      #software-profile .sw-simulation-tool-logo{width:100px;height:100px;object-fit:contain;margin:24px auto;display:block}
+      #software-profile .sw-simulation-tool-logo[hidden]{display:none}
+      #software-profile .sw-unity-logo{filter:invert(1)}
       #software-profile .sw-brand-strip{margin-top:32px}
       #software-profile .sw-brand-strip img{width:48px;height:44px;max-width:100%}
       #software-profile .sw-brand-strip img[hidden]{display:none}
