@@ -22,6 +22,50 @@
     "imageLabel": "GRAYSCALE LAYOUT PREVIEW"
   },
   {
+    "id": "bandgap-opamp-28nm",
+    "title": "Bandgap op-amp",
+    "category": "analog",
+    "categoryName": "Analog Layout",
+    "node": "28 nm",
+    "image": "gallery/bandgap-opamp-28nm.svg",
+    "subtitle": "Amplifier block for a second bandgap design.",
+    "purpose": "Operational-amplifier layout for the bandgap reference feedback circuit.",
+    "contribution": "Custom analog layout completed during Vchip training, shown in the supplied layout image.",
+    "decisions": [
+      "Device placement and matching",
+      "Sensitive-signal routing",
+      "Power, ground and block connectivity"
+    ],
+    "verification": "Original layout supplied. Block-specific verification reports are not displayed here.",
+    "imageNote": "Grayscale presentation of the original layout. Geometry is preserved; zoom to inspect the complete design.",
+    "tools": "Cadence Virtuoso · Calibre",
+    "imageKind": "original",
+    "imageAlt": "Grayscale bandgap op-amp layout in 28 nm",
+    "imageLabel": "GRAYSCALE LAYOUT PREVIEW"
+  },
+  {
+    "id": "bandgap-top-28nm",
+    "title": "Top-level bandgap",
+    "category": "analog",
+    "categoryName": "Analog Layout",
+    "node": "28 nm",
+    "image": "gallery/bandgap-top-28nm.svg",
+    "subtitle": "Larger bandgap design with its op-amp block.",
+    "purpose": "Top-level layout of a second, larger bandgap reference design, including its operational-amplifier block.",
+    "contribution": "Custom analog layout completed during Vchip training, shown in the supplied layout image.",
+    "decisions": [
+      "Device placement and matching",
+      "Sensitive-signal routing",
+      "Power, ground and block connectivity"
+    ],
+    "verification": "Original layout supplied. Block-specific verification reports are not displayed here.",
+    "imageNote": "Grayscale presentation of the original layout. Geometry is preserved; zoom to inspect the complete design.",
+    "tools": "Cadence Virtuoso · Calibre",
+    "imageKind": "original",
+    "imageAlt": "Grayscale top-level bandgap layout in 28 nm",
+    "imageLabel": "GRAYSCALE LAYOUT PREVIEW"
+  },
+  {
     "id": "ldo",
     "title": "LDO layout",
     "category": "analog",
@@ -216,7 +260,7 @@
     "category": "standard40-storage",
     "categoryName": "Standard Cells",
     "node": "40 nm",
-    "image": "gallery/dffq_x1r-40nm.svg",
+    "image": "gallery/dffq_x1r-40nm-updated.svg",
     "imageKind": "original",
     "imageAlt": "Grayscale D flip-flop · DFFQ_X1R standard-cell layout in 40 nm",
     "imageLabel": "GRAYSCALE LAYOUT PREVIEW",
