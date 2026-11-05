@@ -157,8 +157,74 @@
       const copy=make('span','sw-card-copy');copy.append(make('span','sw-card-label',entry.label),make('strong','sw-card-title',entry.title),make('span','sw-card-subtitle',entry.subtitle));
       card.append(visual(entry),copy);card.onclick=() => {if(Date.now()<suppressClickUntil)return;select(entry.id,true);};cards.set(entry.id,card);stage.append(card);
     });
+    // Match the Robotics page: showcase, tool logos, then project work.
+    const brands=make('section','robotics-brand-strip sw-brand-strip');
+    brands.setAttribute('aria-labelledby','software-brand-heading');
+    const brandHeading=make('h3','','LANGUAGES, LIBRARIES & TOOLS I EXPLORE');brandHeading.id='software-brand-heading';
+    const brandGrid=make('div','robotics-brand-grid');
+    const logoBase='https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/';
+    const brandItems=[
+      ['Python','python/python-original.svg','Programming & automation'],
+      ['C++','cplusplus/cplusplus-original.svg','Embedded programming'],
+      ['JavaScript','javascript/javascript-original.svg','Interactive web apps'],
+      ['Node.js','nodejs/nodejs-original.svg','Backend development'],
+      ['PyQt6','qt/qt-original.svg','Desktop interfaces'],
+      ['OpenCV','opencv/opencv-original.svg','Computer vision'],
+      ['NumPy','numpy/numpy-original.svg','Scientific computing'],
+      ['Supabase','supabase/supabase-original.svg','Web app backend']
+    ];
+    brandItems.forEach(([name,path,caption])=>{
+      const figure=make('figure','robotics-brand');
+      const art=make('div','robotics-brand-art'), img=make('img');
+      img.src=logoBase+path;img.alt=name;img.loading='lazy';img.decoding='async';
+      img.addEventListener('error',()=>{img.hidden=true;});
+      art.append(img);figure.append(art,make('strong','sw-brand-name',name),make('figcaption','',caption));brandGrid.append(figure);
+    });
+    brands.append(brandHeading,brandGrid);
+    const works=make('section','sw-works');works.setAttribute('aria-labelledby','software-works-heading');
+    const worksHeading=make('div','profile-section-heading');
+    const worksTitle=make('div'), worksH2=make('h2','','My Works');worksH2.id='software-works-heading';
+    worksTitle.append(make('span','section-eyebrow','PROJECTS & EXPLORATIONS'),worksH2);
+    worksHeading.append(worksTitle,make('p','','Playable simulations and ongoing software work for real engineering systems.'));
+    const worksGrid=make('div','sw-works-grid');
+    function projectLink(label,url){const a=make('a','',label);a.href=url;a.target='_blank';a.rel='noopener noreferrer';return a;}
+    demos.forEach(demo=>{
+      const card=make('article','sw-work-card');
+      if(demo.image){const img=make('img','sw-work-image');img.src=demo.image;img.alt=demo.title+' simulation theme';img.loading='lazy';card.append(img);}
+      const copy=make('div','sw-work-copy');
+      copy.append(make('span','section-eyebrow',demo.year+' · PLAYABLE DEMO'),make('h3','',demo.title),make('p','',demo.description));
+      const links=make('div','sw-work-links');
+      if(demo.play)links.append(projectLink('Play demo ↗',demo.play));
+      if(demo.code)links.append(projectLink('View code ↗',demo.code));
+      copy.append(links);card.append(copy);worksGrid.append(card);
+    });
+    [entries.find(e=>e.id==='controls'),entries.find(e=>e.id==='reverse')].forEach(entry=>{
+      const card=make('article','sw-work-card sw-work-in-progress'), copy=make('div','sw-work-copy');
+      copy.append(make('span','section-eyebrow','CURRENTLY BUILDING'),make('h3','',entry.title),make('p','',entry.description));
+      card.append(copy);worksGrid.append(card);
+    });
+    works.append(worksHeading,worksGrid,make('p','software-demo-note',demoNote));
+    const sectionStyle=make('style');
+    sectionStyle.textContent=`
+      #software-profile .sw-brand-strip{margin-top:32px}
+      #software-profile .sw-brand-strip img{width:48px;height:44px;max-width:100%}
+      #software-profile .sw-brand-strip img[hidden]{display:none}
+      .sw-brand-name{display:block;margin-top:12px;font-size:14px;color:#e1e8ef}
+      #software-profile .sw-brand-strip figcaption{margin-top:5px}
+      .sw-works{margin-top:40px}.sw-works-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+      .sw-work-card{min-width:0;overflow:hidden;border:1px solid #ffffff18;border-radius:14px;background:#111921}
+      .sw-work-image{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+      .sw-work-copy{padding:24px}.sw-work-copy h3{font-size:23px;line-height:1.25;color:#eef4f8;margin:12px 0}
+      .sw-work-copy p{font-size:14px;line-height:1.75;color:#a7b5c5;margin:0}
+      .sw-work-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:22px}
+      .sw-work-links a{display:inline-flex;align-items:center;min-height:44px;color:#98dfe8;font-size:13px;text-decoration:none}
+      .sw-work-links a:hover{text-decoration:underline}.sw-work-links a:focus-visible{outline:2px solid #98dfe8;outline-offset:4px}
+      .sw-work-in-progress .section-eyebrow{color:#dbba7c}
+      @media(max-width:1000px){.sw-works-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+      @media(max-width:600px){.sw-works-grid{grid-template-columns:1fr}.sw-work-copy{padding:20px}.sw-works{margin-top:28px}}
+    `;
     // Mount once, only after the original content and links have been captured.
-    root.replaceChildren(header,workNote,filters,exhibit,attribution,footer,announce,dialog);
+    root.replaceChildren(header,workNote,filters,exhibit,attribution,footer,brands,works,announce,dialog,sectionStyle);
     root.classList.add('software-showcase-ready');root.dataset.softwareShowcase='ready';
     const reduced=matchMedia('(prefers-reduced-motion: reduce)');
     let filtered=entries, current=0, category='all', paused=true, visible=false, hovering=false, timer=null, pointer=null, suppressClickUntil=0, suspended=false;
