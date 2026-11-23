@@ -100,7 +100,7 @@
 .work-secondary:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
 .work-brands { grid-column: 1 / -1; padding: 1.2rem clamp(1.25rem,3vw,2.5rem) 1.4rem; background: #101a20; border-top: 1px solid #34444d; }
 .work-brands p { margin: 0 0 .8rem; font-weight: 600; font-size: .9rem; color: #d0dedf; }
-.work-brands ul { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: .75rem; margin: 0; padding: 0; list-style: none; }
+.work-brands ul { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: .75rem; margin: 0; padding: 0; list-style: none; }
 .work-brands li { display: grid; align-content: start; gap: .45rem; padding-left: 1rem; border-left: 1px solid #35474f; min-width: 0; }
 .work-brands li:first-child { padding-left: 0; border-left: 0; }
 .work-brands img { display: block; width: auto; height: 1.65rem; max-width: 100%; object-fit: contain; object-position: left center; }
@@ -110,7 +110,35 @@
 .aerial-project .marine-project-role { color: #d8c9ee; }
 .aerial-project .marine-project-link { background: #e3d2fb; color: #251831; }
 .aerial-project .marine-project-link:hover { background: #eddefc; }
+@media (min-width: 601px) and (max-width: 1050px) {
+  .work-brands ul { grid-template-columns: repeat(3,minmax(0,1fr)); row-gap: 1.1rem; }
+  .work-brands li:nth-child(3n+1) { padding-left: 0; border-left: 0; }
+}
 @media (max-width: 600px) {
   .work-brands ul { grid-template-columns: repeat(2,minmax(0,1fr)); row-gap: 1rem; }
   .work-brands li:nth-child(odd) { padding-left: 0; border-left: 0; }
+}
+
+.work-studies { margin-top: clamp(2rem, 5vw, 3.5rem); }
+.work-studies h4 { color: #eef4f7; margin: 0 0 1rem; font-size: clamp(1.35rem, 2.1vw, 1.7rem); }
+.work-study-grid, .work-course-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem; }
+.work-study-grid { margin-bottom: 2rem; }
+.work-study-card, .work-course-grid li { background: #111a20; border: 1px solid #37484e; border-radius: 1rem; }
+.work-study-card { overflow: hidden; }
+.work-study-card > img { display: block; width: 100%; height: auto; aspect-ratio: 16/10; object-fit: cover; }
+.work-study-card > .work-glove-photo { object-position: 50% 47%; }
+.work-study-card > .work-gyro-photo { object-position: 50% 61%; }
+.work-study-body, .work-course-grid li { padding: clamp(1rem,2vw,1.45rem); }
+.work-studies h5 { margin: 0 0 .65rem; color: #f2f6f8; font-size: 1.22rem; line-height: 1.25; letter-spacing: -.015em; }
+.work-studies p { margin: 0; color: #c4d1d7; font-size: 1rem; line-height: 1.6; }
+.work-studies .work-study-meta { margin: 0 0 .5rem; color: #a5ddd3; font-size: .82rem; font-weight: 600; }
+.work-study-body .work-secondary { margin-top: .4rem; }
+.work-course-grid { list-style: none; padding: 0; margin: 0; }
+#about-profile .education-record { grid-template-columns: auto minmax(0,1fr); }
+#about-profile .education-logo { width: 132px; max-width: 100%; align-self: start; justify-self: start; box-sizing: border-box; padding: 8px; border-radius: 6px; background: #fff; }
+#about-profile .education-logo img { display: block; width: 100%; max-width: 100%; height: auto; }
+@media (max-width: 760px) {
+  .work-study-grid, .work-course-grid { grid-template-columns: minmax(0,1fr); }
+  #about-profile .education-record { grid-template-columns: minmax(0,1fr); }
+  #about-profile .education-logo { width: 108px; }
 }
