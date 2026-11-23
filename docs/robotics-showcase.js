@@ -4,7 +4,6 @@
   const stage = root.querySelector('.robotics-carousel');
   if (!stage) return;
   const slides = [...stage.querySelectorAll('.robotics-slide')];
-  const selectors = [...root.querySelectorAll('[data-robotics-select]')];
   const playButton = stage.querySelector('.robotics-play');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const phoneLayout = matchMedia('(max-width: 760px)');
@@ -48,7 +47,7 @@
 
   function takeOver() { paused = true; updateAutoplay(); }
 
-  function select(index, { manual = false, focus = false, announce = false } = {}) {
+  function select(index, { manual = false, announce = false } = {}) {
     if (manual) takeOver();
     selected = (index + slides.length) % slides.length;
     slides.forEach((slide, i) => {
@@ -56,22 +55,16 @@
       slide.hidden = !active;
       slide.classList.toggle('is-active', active);
     });
-    selectors.forEach((button, i) => {
-      button.classList.toggle('is-active', i === selected);
-      button.setAttribute('aria-pressed', String(i === selected));
-    });
     stage.querySelector('.robotics-index').textContent = String(selected + 1) + ' / ' + String(slides.length);
     if (announce) root.querySelector('.robotics-announcement').textContent = slides[selected].querySelector('h3').textContent + ', project ' + (selected + 1) + ' of ' + slides.length;
-    if (focus) selectors[selected].focus({ preventScroll: true });
     updateAutoplay();
   }
 
-  selectors.forEach((button, index) => button.addEventListener('click', () => select(index, { manual: true, announce: true })));
   stage.querySelector('.robotics-prev').onclick = () => select(selected - 1, { manual: true, announce: true });
   stage.querySelector('.robotics-next').onclick = () => select(selected + 1, { manual: true, announce: true });
   playButton.onclick = () => { paused = !paused; updateAutoplay(); };
-  root.addEventListener('keydown', event => {
-    if (event.target !== stage && !event.target.closest('[data-robotics-select]')) return;
+  stage.addEventListener('keydown', event => {
+    if (event.target !== stage) return;
     let next;
     if (event.key === 'ArrowRight') next = selected + 1;
     if (event.key === 'ArrowLeft') next = selected - 1;
@@ -79,7 +72,7 @@
     if (event.key === 'End') next = slides.length - 1;
     if (next !== undefined) {
       event.preventDefault();
-      select(next, { manual: true, focus: event.target !== stage, announce: true });
+      select(next, { manual: true, announce: true });
     }
   });
   stage.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') { hovering = true; updateAutoplay(); } });
