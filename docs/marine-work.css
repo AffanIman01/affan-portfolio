@@ -152,3 +152,11 @@
 .work-media-video::before { content: ""; border-block: .32rem solid transparent; border-left: .52rem solid #afe8d9; }
 .work-course-media:hover .work-media-label, .work-course-media:focus-visible .work-media-label { color: #b1ebdb; text-decoration: underline; }
 .work-course-media:focus-visible { outline: 3px solid #b1ebdb; outline-offset: -3px; z-index: 1; }
+
+.mapping-project figure { padding: 0 0 2.2rem; background: #0d1419; }
+.mapping-project figure img { aspect-ratio: 20/9; object-fit: contain; }
+.work-course-grid { margin-bottom: 2rem; }
+.work-makerthon-grid .work-study-card > img { aspect-ratio: 16/9; object-fit: contain; background: #0c141b; }
+@media (min-width: 761px) {
+  .work-course-grid, .work-makerthon-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
