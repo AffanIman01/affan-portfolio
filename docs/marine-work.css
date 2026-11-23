@@ -160,3 +160,12 @@
 @media (min-width: 761px) {
   .work-course-grid, .work-makerthon-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }
+
+.drone-research figure, .zed-test figure { padding: 0 0 2.5rem; background: #0d1419; }
+.zed-test video { display: block; width: 100%; height: clamp(20rem,39vw,29rem); object-fit: contain; background: #090e13; }
+.zed-test video:focus-visible, .capstone-photo:focus-visible { outline: 3px solid #a5ddd3; outline-offset: -3px; }
+.capstone-photo { display: block; }
+.capstone-photo img { display: block; width: 100%; height: auto; aspect-ratio: 16/10; object-fit: cover; object-position: center 79%; }
+@media (min-width: 761px) {
+  .work-undergrad-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
