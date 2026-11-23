@@ -90,10 +90,11 @@ document.querySelectorAll('a[href="#image-guide"]').forEach(link=>link.addEventL
 function readHash(){
   const category=Object.keys(hashNames).find(key=>'#'+hashNames[key]===location.hash);
   if(category)showArea(category,true,false);
+  else if(location.hash==='#robotics-lab')showArea('robotics',true,false,'#robotics-lab');
   else if(location.hash==='#home')showArea('ic',true,false);
   else if(location.hash==='#image-guide'){imageGuide.open=true;document.querySelector('#image-guide').scrollIntoView({behavior:motion()})}
 }
-const initial=Object.keys(hashNames).find(key=>'#'+hashNames[key]===location.hash)||'ic';
+const initial=location.hash==='#robotics-lab'?'robotics':Object.keys(hashNames).find(key=>'#'+hashNames[key]===location.hash)||'ic';
 showArea(initial,false,false);
 if(location.hash)requestAnimationFrame(readHash);
 addEventListener('hashchange',readHash);

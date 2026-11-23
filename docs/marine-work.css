@@ -1,0 +1,95 @@
+.marine-work {
+  margin: 3rem 0 4.5rem;
+  scroll-margin-top: 6rem;
+  color: #eef4f7;
+}
+.marine-work > h3 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  letter-spacing: -.035em;
+}
+.marine-project {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid #37484e;
+  border-radius: 1.25rem;
+  background: #111a20;
+}
+.marine-project figure {
+  position: relative;
+  display: grid;
+  align-content: center;
+  align-self: stretch;
+  margin: 0;
+  padding: 1.6rem 0 2.2rem;
+  background: #201a2d;
+}
+.marine-project img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.marine-project figcaption {
+  position: absolute;
+  bottom: .8rem;
+  left: 1.15rem;
+  color: #d0c8d7;
+  font-size: .875rem;
+}
+.marine-project-copy {
+  padding: clamp(1.3rem, 3vw, 2.75rem);
+}
+.marine-project-copy p {
+  margin: 0 0 .85rem;
+  color: #c4d1d7;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+.marine-project-copy .marine-project-role {
+  color: #a5ddd3;
+  font-size: .875rem;
+}
+.marine-project-copy h4 {
+  margin: 0 0 1rem;
+  color: #f2f6f8;
+  font-size: clamp(1.65rem, 2.7vw, 2.5rem);
+  letter-spacing: -.035em;
+  line-height: 1.13;
+}
+.marine-project-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  margin-top: .5rem;
+  padding: .65rem 1.1rem;
+  border-radius: 2rem;
+  background: #a5ddd3;
+  color: #0d2522;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+.marine-project-link:hover {
+  background: #c4eee6;
+  color: #0d2522;
+  text-decoration: underline;
+}
+.marine-work-jump {
+  color: #a5ddd3;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+  white-space: nowrap;
+}
+.marine-project-link:focus-visible,
+.marine-work-jump:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
+@media (max-width: 760px) {
+  .marine-project { grid-template-columns: minmax(0, 1fr); }
+  .marine-project figure { padding: .25rem 0 2rem; }
+}
