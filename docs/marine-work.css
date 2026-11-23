@@ -142,3 +142,13 @@
   #about-profile .education-record { grid-template-columns: minmax(0,1fr); }
   #about-profile .education-logo { width: 108px; }
 }
+
+.hydro-project figure { padding: 0 0 2.5rem; background: #141920; }
+.hydro-project figcaption { color: #bfcfd9; }
+.work-course-grid li { display: flex; flex-direction: column; overflow: hidden; padding: 0; }
+.work-course-media { position: relative; display: block; background: #0d1419; }
+.work-course-media img { display: block; width: 100%; height: auto; aspect-ratio: 16/9; object-fit: cover; }
+.work-media-label { position: absolute; bottom: .65rem; left: .65rem; display: inline-flex; align-items: center; gap: .5rem; min-height: 2rem; padding: .3rem .7rem; border: 1px solid #72838d; border-radius: .4rem; color: #fff; background: #101820f2; font-size: .875rem; font-weight: 600; }
+.work-media-video::before { content: ""; border-block: .32rem solid transparent; border-left: .52rem solid #afe8d9; }
+.work-course-media:hover .work-media-label, .work-course-media:focus-visible .work-media-label { color: #b1ebdb; text-decoration: underline; }
+.work-course-media:focus-visible { outline: 3px solid #b1ebdb; outline-offset: -3px; z-index: 1; }
